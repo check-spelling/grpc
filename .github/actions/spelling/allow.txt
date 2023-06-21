@@ -1,0 +1,6 @@
+github
+https
+miniaturizable
+ssh
+ubuntu
+workarounds
