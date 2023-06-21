@@ -1,0 +1,187 @@
+# See https://github.com/check-spelling/check-spelling/wiki/Configuration-Examples:-patterns
+
+# Automatically suggested patterns
+# hit-count: 4193 file-count: 216
+# hex runs
+\b[0-9a-fA-F]{16,}\b
+
+# hit-count: 3459 file-count: 825
+# hex digits including css/html color classes:
+(?:[\\0][xX]|\\u|[uU]\+|#x?|\%23)[0-9_a-fA-FgGrR]*?[a-fA-FgGrR]{2,}[0-9_a-fA-FgGrR]*(?:[uUlL]{0,3}|[iu]\d+)\b
+
+\\x[0-9a-f][a-f](?=[a-z])
+
+[_\\@]end(?!ian)(?=[a-z])
+
+# hit-count: 2087 file-count: 297
+# version suffix <word>v#
+(?:(?<=[A-Z]{2})V|(?<=[a-z]{2}|[A-Z]{2})v)\d+(?:\b|(?=[a-zA-Z_]))
+
+# hit-count: 1770 file-count: 671
+# https/http/file urls
+(?:\b(?:https?|ftp|file)://)[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]
+
+# hit-count: 952 file-count: 177
+# Compiler flags
+(?:^|[\t ,>"'`=(])-(?:f(?!rame|ile|inger|ix|ollow|uzz)|l(?!ast|ayer|ike|int)|D(?!est)|P(?!ath|roperty)|W(?!ait)|[XYL])(?=[A-Z]{2,}|[A-Z][a-z]|[a-z]{2,})
+
+[\s"]/D(?!EBUG|EF|ocker)(?=[A-Za-z])
+
+# hit-count: 286 file-count: 17
+# xcodeproject scenes
+(?:Controller|destination|ID|id)="\w{3}-\w{2}-\w{3}"
+
+# hit-count: 260 file-count: 104
+# in a version of check-spelling after @0.0.21 printf markers won't be automatically consumed
+# printf markers
+(?<!\\)\\(?:n(?!ative|et|osub|ote)|r(?!ef|emark|eturn)|t(?!est|hird|odo|ool))(?=[a-z]{2,})
+
+# hit-count: 124 file-count: 69
+# This does not cover multiline strings, if your repository has them,
+# you'll want to remove the `(?=.*?")` suffix.
+# The `(?=.*?")` suffix should limit the false positives rate
+# printf
+%s(?!cript)(?=[a-z]{2,})(?=[_a-zA-Z]+\b)(?!%)(?=.*?['"])
+
+# hit-count: 83 file-count: 18
+# sha-... -- uses a fancy capture
+(\\?['"]|&quot;)[0-9a-f]{40,}\g{-1}
+
+# hit-count: 83 file-count: 4
+# Contributor
+\[[^\]]+\]\(https://github\.com/[^/\s"]+/?\)
+
+# hit-count: 76 file-count: 61
+# curl arguments
+\b(?:\\n|)curl(?:\s+-[a-zA-Z]{1,2}\b)*(?:\s+-[a-zA-Z]{3,})(?:\s+-[a-zA-Z]+)*
+
+# hit-count: 75 file-count: 53
+# tar arguments
+\b(?:\\n|)g?tar(?:\.exe|)(?:(?:\s+--[-a-zA-Z]+|\s+-[a-zA-Z]+|\s[ABGJMOPRSUWZacdfh-pr-xz]+\b)(?:=[^ ]*|))+
+
+# hit-count: 61 file-count: 19
+# URL escaped characters
+\%(?!FA)[0-9A-F][A-F]
+
+# hit-count: 57 file-count: 17
+# IServiceProvider
+\bI(?=(?:[A-Z][a-z]{2,})+\b)
+
+# hit-count: 55 file-count: 18
+# IPv6
+\b(?:[0-9a-fA-F]{0,4}:){3,7}[0-9a-fA-F]{0,4}\b
+
+# hit-count: 54 file-count: 30
+# uuid:
+\b[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}\b
+
+# hit-count: 50 file-count: 29
+# base64 encoded content
+([`'"])[-a-zA-Z=;:/0-9+]+=\g{-1}
+
+# hit-count: 14 file-count: 1
+# Punycode
+\bxn--[-0-9a-z]+
+
+# hit-count: 12 file-count: 12
+# sha
+sha\d+:[0-9]*[a-f]{3,}[0-9a-f]*
+
+# hit-count: 9 file-count: 9
+# set arguments
+\bset(?:\s+-[abefimouxE]{1,2})*\s+-[abefimouxE]{3,}(?:\s+-[abefimouxE]+)*
+
+# hit-count: 7 file-count: 5
+# patch hunk comments
+^\@\@ -\d+(?:,\d+|) \+\d+(?:,\d+|) \@\@ .*
+
+# hit-count: 4 file-count: 4
+# AWS VPC
+vpc-\w+
+
+# hit-count: 4 file-count: 2
+# git index header
+index (?:[0-9a-z]{7,40},|)[0-9a-z]{7,40}\.\.[0-9a-z]{7,40}
+
+# hit-count: 3 file-count: 3
+# Python string prefix / binary prefix
+# Note that there's a high false positive rate, remove the `?=` and search for the regex to see if the matches seem like reasonable strings
+(?<!')\b(?:B|BR|Br|F|FR|Fr|R|RB|RF|Rb|Rf|U|UR|Ur|b|bR|br|f|fR|fr|r|rB|rF|rb|rf|u|uR|ur)'(?:[A-Z]{3,}|[A-Z][a-z]{2,}|[a-z]{3,})
+
+# hit-count: 3 file-count: 1
+# ANSI color codes
+(?:\\(?:u00|x)1[Bb]|\x1b|\\u\{1[Bb]\})\[\d+(?:;\d+|)m
+
+# hit-count: 3 file-count: 1
+# basic auth
+(['"])Basic [-a-zA-Z=;:/0-9+]{3,}\g{-1}
+
+# hit-count: 2 file-count: 2
+# Non-English
+[a-zA-Z]*[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3}[a-zA-ZÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]*|[a-zA-Z]{3,}[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]|[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3,}
+
+# hit-count: 2 file-count: 1
+# data url
+data:[-a-zA-Z=;:/0-9+]*,\S*
+
+# hit-count: 2 file-count: 1
+# ssh
+(?:ssh-\S+|-nistp256) [-a-zA-Z=;:/0-9+]{12,}
+
+# hit-count: 2 file-count: 1
+# go.sum
+\bh1:\S+
+
+# hit-count: 1 file-count: 1
+# getopts
+\bgetopts\s+(?:"[^"]+"|'[^']+')
+
+# hit-count: 1 file-count: 1
+# c99 hex digits (not the full format, just one I've seen)
+0x[0-9a-fA-F](?:\.[0-9a-fA-F]*|)[pP]
+
+# todo
+TODO\(\w+\)
+
+"(?:\\\\n|)MII.*"
+
+_b\('.*'\)
+
+EXPECT_(?:TRUE|FALSE)\(.*".*\)
+
+^\s*"[-a-zA-Z=;:/0-9+]{40,}\\n"$
+[ (]r'[^']{3,}'
+[ (]r"[^"]{3,}"
+
+# Questionably acceptable forms of `in to`
+# Personally, I prefer `log into`, but people object
+# https://www.tprteaching.com/log-into-log-in-to-login/
+\b(?:[Ll]og|[Ss]ign) in to\b
+
+# to opt in
+\bto opt in\b
+
+# acceptable duplicates
+# ls directory listings
+[-bcdlpsw](?:[-r][-w][-Ssx]){3}\s+\d+\s+\S+\s+\S+\s+\d+\s+
+# mount
+\bmount\s+-t\s+(\w+)\s+\g{-1}\b
+# C types and repeated CSS values
+\s(center|div|Echo|far|hello|inherit|long|LONG|none|normal|solid|that|thin|transparent|very|world)(?: \g{-1})+\s
+# proto
+^\s*(\w+)\s\g{-1} =
+# C struct
+\bstruct\s+(\w+)\s+\g{-1}\b
+# go templates
+\s(\w+)\s+\g{-1}\s+\`(?:graphql|inject|json|yaml):
+# doxygen / javadoc / .net
+(?:[\\@](?:brief|groupname|t?param|return|retval)|(?:public|private)(?:\s+static|\s+readonly)*)\s+(\w+)\s+\g{-1}\s
+
+# Commit message -- Signed-off-by and friends
+^\s*(?:(?:Based-on-patch|Co-authored|Helped|Mentored|Reported|Reviewed|Signed-off)-by|Thanks-to): (?:[^<]*<[^>]*>|[^<]*)\s*$
+
+# Autogenerated revert commit message
+^This reverts commit [0-9a-f]{40}\.$
+
+# ignore long runs of a single character:
+\b([A-Za-z])\g{-1}{3,}\b
