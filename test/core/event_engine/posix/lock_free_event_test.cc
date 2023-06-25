@@ -78,7 +78,7 @@ TEST(LockFreeEventTest, BasicTest) {
   event.SetReady();
   EXPECT_FALSE(cv.WaitWithTimeout(&mu, absl::Seconds(10)));
 
-  // SetReady first first and then call NotifyOn
+  // SetReady first and then call NotifyOn
   event.SetReady();
   event.NotifyOn(
       PosixEngineClosure::TestOnlyToClosure([&mu, &cv](absl::Status status) {
