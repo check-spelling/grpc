@@ -112,7 +112,7 @@ class SliceBuffer {
   /// Removes the first slice in the SliceBuffer and returns it.
   Slice TakeFirst();
 
-  /// Prepends the slice to the the front of the SliceBuffer.
+  /// Prepends the slice to the front of the SliceBuffer.
   void Prepend(Slice slice);
 
   /// Increased the ref-count of slice at the specified index and returns the

@@ -265,7 +265,7 @@ message CommonTlsContext {
   // fetched/refreshed over the network asynchronously with respect to the TLS handshake.
   //
   // The same number and types of certificates as :ref:`tls_certificates <envoy_v3_api_field_extensions.transport_sockets.tls.v3.CommonTlsContext.tls_certificates>`
-  // are valid in the the certificates fetched through this setting.
+  // are valid in the certificates fetched through this setting.
   //
   // Only one of *tls_certificates*, *tls_certificate_sds_secret_configs*,
   // and *tls_certificate_provider_instance* may be used.

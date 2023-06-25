@@ -32,7 +32,7 @@ _SECURE = flags.DEFINE_bool(
     "secure",
     default=False,
     help=(
-        "Set to True if the the client/server were started "
+        "Set to True if the client/server were started "
         "with the PSM security enabled."
     ),
 )
