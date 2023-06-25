@@ -38,7 +38,7 @@ EXCLUDED_TARGETS=(
   "-//src/proto/grpc/testing:test_gen_proto"
 
   # This appears to be a legitimately broken BUILD file. There's a reference to
-  # a non-existent "link_dynamic_library.sh".
+  # a nonexistent "link_dynamic_library.sh".
   "-//third_party/toolchains/rbe_windows_bazel_5.2.0_vs2019:all"
   "-//third_party/toolchains:rbe_windows_default_toolchain_suite"
 

@@ -482,7 +482,7 @@ TEST_P(TimeoutTest, RdsSecondResourceNotPresentInRequest) {
   ClientHcmAccessor().Pack(http_connection_manager, &listener);
   balancer_->ads_service()->SetLdsResource(listener);
   // Create second channel for a new server name.
-  // This should fail because the LDS resource points to a non-existent RDS
+  // This should fail because the LDS resource points to a nonexistent RDS
   // resource.
   auto channel2 = CreateChannel(/*failover_timeout_ms=*/0, kNewServerName);
   auto stub2 = grpc::testing::EchoTestService::NewStub(channel2);

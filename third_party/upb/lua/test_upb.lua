@@ -493,7 +493,7 @@ function test_msg_primitives()
     optional_nested_message = test_messages_proto3['TestAllTypesProto3.NestedMessage']{a = 123},
   }
 
-  -- Attempts to access non-existent fields fail.
+  -- Attempts to access nonexistent fields fail.
   assert_error_match("no such field", function() msg.no_such = 1 end)
 
   assert_equal(10, msg.optional_int32)
