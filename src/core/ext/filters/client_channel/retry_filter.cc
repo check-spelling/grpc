@@ -564,7 +564,7 @@ class RetryFilter::CallData {
   // path for long-running streaming calls that minimizes overhead.
   OrphanablePtr<ClientChannel::FilterBasedLoadBalancedCall> committed_call_;
 
-  // When are are not yet fully committed to a particular call (i.e.,
+  // When we are not yet fully committed to a particular call (i.e.,
   // either we might still retry or we have committed to the call but
   // there are still some cached ops to be replayed on the call),
   // batches received from above will be added to this list, and they
