@@ -147,7 +147,7 @@ describe 'ClientStub' do  # rubocop:disable Metrics/BlockLength
       expect(&blk).to raise_error
     end
 
-    it 'can be created with test test credentials' do
+    it 'can be created with test credentials' do
       certs = load_test_certs
       blk = proc do
         opts = {
