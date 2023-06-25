@@ -743,7 +743,7 @@ void lupb_DefPool_pushwrapper(lua_State* L, int narg, const void* def,
     lua_pushvalue(L, narg);
     lua_setiuservalue(L, -2, LUPB_SYMTAB_INDEX);
 
-    /* Add wrapper to the the cache. */
+    /* Add wrapper to the cache. */
     lua_pushvalue(L, -1);
     lua_rawsetp(L, -3, def);
   }

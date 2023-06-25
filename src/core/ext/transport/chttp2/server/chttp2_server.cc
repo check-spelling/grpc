@@ -857,7 +857,7 @@ void Chttp2ServerListener::OnAccept(void* arg, grpc_endpoint* tcp,
   RefCountedPtr<Chttp2ServerListener> listener_ref;
   {
     MutexLock lock(&self->mu_);
-    // Shutdown the the connection if listener's stopped serving or if the
+    // Shutdown the connection if listener's stopped serving or if the
     // connection manager has changed.
     if (!self->shutdown_ && self->is_serving_ &&
         connection_manager == self->connection_manager_) {
