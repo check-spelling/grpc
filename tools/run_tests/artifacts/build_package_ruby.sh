@@ -43,7 +43,7 @@ for arch in {x86,x64}; do
       ;;
   esac
   for plat in {windows,linux,macos}; do
-    # skip non-existent macos x86 protoc artifact
+    # skip nonexistent macos x86 protoc artifact
     if [[ "${plat}_${arch}" == "macos_x86" ]]
     then
       continue

@@ -142,17 +142,17 @@ class Benchmark:
         return None
 
 
-def _read_json(filename, badjson_files, nonexistant_files):
+def _read_json(filename, badjson_files, nonexistent_files):
     stripped = ".".join(filename.split(".")[:-2])
     try:
         with open(filename) as f:
             r = f.read()
             return json.loads(r)
     except IOError as e:
-        if stripped in nonexistant_files:
-            nonexistant_files[stripped] += 1
+        if stripped in nonexistent_files:
+            nonexistent_files[stripped] += 1
         else:
-            nonexistant_files[stripped] = 1
+            nonexistent_files[stripped] = 1
         return None
     except ValueError as e:
         print(r)
@@ -171,7 +171,7 @@ def diff(bms, loops, regex, track, old, new):
     benchmarks = collections.defaultdict(Benchmark)
 
     badjson_files = {}
-    nonexistant_files = {}
+    nonexistent_files = {}
     for bm in bms:
         for loop in range(0, loops):
             for line in subprocess.check_output(
@@ -192,12 +192,12 @@ def diff(bms, loops, regex, track, old, new):
                 js_new_opt = _read_json(
                     "%s.%s.opt.%s.%d.json" % (bm, stripped_line, new, loop),
                     badjson_files,
-                    nonexistant_files,
+                    nonexistent_files,
                 )
                 js_old_opt = _read_json(
                     "%s.%s.opt.%s.%d.json" % (bm, stripped_line, old, loop),
                     badjson_files,
-                    nonexistant_files,
+                    nonexistent_files,
                 )
                 if js_new_opt:
                     for row in bm_json.expand_json(js_new_opt):
@@ -265,16 +265,16 @@ def diff(bms, loops, regex, track, old, new):
             "Corrupt JSON data (indicates timeout or crash): \n%s"
             % fmt_dict(badjson_files)
         )
-    if len(nonexistant_files):
+    if len(nonexistent_files):
         if note:
             note += (
                 "\n\nMissing files (indicates new benchmark): \n%s"
-                % fmt_dict(nonexistant_files)
+                % fmt_dict(nonexistent_files)
             )
         else:
             note = (
                 "\n\nMissing files (indicates new benchmark): \n%s"
-                % fmt_dict(nonexistant_files)
+                % fmt_dict(nonexistent_files)
             )
     if rows:
         return (

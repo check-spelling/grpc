@@ -611,7 +611,7 @@ TEST(GeneratedCode, StringMap) {
       msg, test_str_view, test_str_view2, arena);
   check_string_map_one_entry(msg);
 
-  /* Deleting a non-existent key does nothing. */
+  /* Deleting a nonexistent key does nothing. */
   EXPECT_FALSE(
       protobuf_test_messages_proto3_TestAllTypesProto3_map_string_string_delete(
           msg, test_str_view3));
@@ -732,7 +732,7 @@ TEST(GeneratedCode, Int32Map) {
       msg, test_int32, test_int32_2, arena);
   check_int32_map_one_entry(msg);
 
-  /* Deleting a non-existent key does nothing. */
+  /* Deleting a nonexistent key does nothing. */
   EXPECT_FALSE(
       protobuf_test_messages_proto3_TestAllTypesProto3_map_int32_int32_delete(
           msg, test_int32_3));

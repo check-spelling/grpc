@@ -65,7 +65,7 @@ class TestTypeMetadata(unittest.TestCase):
         metadata = Metadata(*self._MULTI_ENTRY_DATA)
         self.assertEqual(metadata.get_all("key1"), ["value1", "other value 1"])
         self.assertEqual(metadata.get_all("key2"), ["value2"])
-        self.assertEqual(metadata.get_all("non existing key"), [])
+        self.assertEqual(metadata.get_all("nonexistent key"), [])
 
     def test_container(self):
         metadata = Metadata(*self._MULTI_ENTRY_DATA)

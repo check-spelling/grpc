@@ -74,9 +74,9 @@ static void prepare_test(int is_client) {
   if (is_client) {
     // create a call, channel to a non existant server
     grpc_channel_credentials* creds = grpc_insecure_credentials_create();
-    g_state.chan = grpc_channel_create("nonexistant:54321", creds, nullptr);
+    g_state.chan = grpc_channel_create("nonexistent:54321", creds, nullptr);
     grpc_channel_credentials_release(creds);
-    grpc_slice host = grpc_slice_from_static_string("nonexistant");
+    grpc_slice host = grpc_slice_from_static_string("nonexistent");
     g_state.call = grpc_channel_create_call(
         g_state.chan, nullptr, GRPC_PROPAGATE_DEFAULTS, g_state.cq,
         grpc_slice_from_static_string("/Foo"), &host, g_state.deadline,

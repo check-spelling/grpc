@@ -242,7 +242,7 @@ try:
         .decode()
         .splitlines()
     )
-    # Filter out non-existent files (ie, file removed or renamed)
+    # Filter out nonexistent files (ie, file removed or renamed)
     filename_list = (f for f in filename_list if os.path.isfile(f))
 except subprocess.CalledProcessError:
     sys.exit(0)
