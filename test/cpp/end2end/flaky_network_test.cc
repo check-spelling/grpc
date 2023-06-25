@@ -385,7 +385,7 @@ TEST_P(FlakyNetworkTest, NetworkTransition) {
   sender.join();
 }
 
-// Traffic to server server is blackholed temporarily with keepalives enabled
+// Traffic to server is blackholed temporarily with keepalives enabled
 TEST_P(FlakyNetworkTest, ServerUnreachableWithKeepalive) {
   const int kKeepAliveTimeMs = 1000;
   const int kKeepAliveTimeoutMs = 1000;
@@ -434,7 +434,7 @@ TEST_P(FlakyNetworkTest, ServerUnreachableWithKeepalive) {
 }
 
 //
-// Traffic to server server is blackholed temporarily with keepalives disabled
+// Traffic to server is blackholed temporarily with keepalives disabled
 TEST_P(FlakyNetworkTest, ServerUnreachableNoKeepalive) {
   auto channel = BuildChannel("pick_first", ChannelArguments());
   auto stub = BuildStub(channel);
