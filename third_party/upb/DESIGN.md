@@ -18,7 +18,7 @@ goal is to be the core runtime for a higher-level API.
 - 32 or 64-bit CPU (assumes 4 or 8 byte pointers)
 - Uses pointer tagging, but avoids other implementation-defined behavior
 - Aims to never invoke undefined behavior (tests with ASAN, UBSAN, etc)
-- No global state, fully re-entrant
+- No global state, fully reentrant
 
 
 ## Overall Structure

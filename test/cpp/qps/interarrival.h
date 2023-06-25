@@ -68,7 +68,7 @@ class ExpDist final : public RandomDistInterface {
 };
 
 // A class library for generating pseudo-random interarrival times
-// in an efficient re-entrant way. The random table is built at construction
+// in an efficient reentrant way. The random table is built at construction
 // time, and each call must include the thread id of the invoker
 
 class InterarrivalTimer {
