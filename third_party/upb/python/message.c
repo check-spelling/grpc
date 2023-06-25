@@ -862,7 +862,7 @@ PyObject* PyUpb_Message_Get(upb_Message* u_msg, const upb_MessageDef* m,
  * a reified object with underlying data.  It appears that either could work
  * equally well, with no observable change to users.  There isn't a clear
  * advantage to either choice.  We choose to follow the behavior of the
- * pre-existing C++ behavior for consistency, but if it becomes apparent that
+ * preexisting C++ behavior for consistency, but if it becomes apparent that
  * there would be some benefit to reversing this decision, it should be totally
  * within the realm of possibility.
  */
