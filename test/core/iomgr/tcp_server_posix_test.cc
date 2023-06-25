@@ -677,7 +677,7 @@ static void test_pre_allocated_unix_fd() {
 
   grpc_error_handle res_conn = tcp_connect(&dst, &result);
   // If the path no longer exists, errno is 2. This can happen when
-  // runninig the test multiple times in parallel. Do not fail the test
+  // running the test multiple times in parallel. Do not fail the test
   if (absl::IsUnknown(res_conn) && res_conn.raw_code() == 2) {
     gpr_log(GPR_ERROR,
             "Unable to test pre_allocated unix socket: path does not exist");
