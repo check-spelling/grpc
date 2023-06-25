@@ -198,7 +198,7 @@ void CallCombiner::SetNotifyOnCancel(grpc_closure* closure) {
       if (GRPC_TRACE_FLAG_ENABLED(grpc_call_combiner_trace)) {
         gpr_log(GPR_INFO,
                 "call_combiner=%p: scheduling notify_on_cancel callback=%p "
-                "for pre-existing cancellation",
+                "for preexisting cancellation",
                 this, closure);
       }
       ExecCtx::Run(DEBUG_LOCATION, closure, original_error);

@@ -32,7 +32,7 @@ void grpc_tls_certificate_distributor::SetKeyMaterials(
   grpc_core::MutexLock lock(&mu_);
   auto& cert_info = certificate_info_map_[cert_name];
   if (pem_root_certs.has_value()) {
-    // Successful credential updates will clear any pre-existing error.
+    // Successful credential updates will clear any preexisting error.
     cert_info.SetRootError(absl::OkStatus());
     for (auto* watcher_ptr : cert_info.root_cert_watchers) {
       GPR_ASSERT(watcher_ptr != nullptr);
@@ -57,7 +57,7 @@ void grpc_tls_certificate_distributor::SetKeyMaterials(
     cert_info.pem_root_certs = std::move(*pem_root_certs);
   }
   if (pem_key_cert_pairs.has_value()) {
-    // Successful credential updates will clear any pre-existing error.
+    // Successful credential updates will clear any preexisting error.
     cert_info.SetIdentityError(absl::OkStatus());
     for (const auto watcher_ptr : cert_info.identity_cert_watchers) {
       GPR_ASSERT(watcher_ptr != nullptr);
