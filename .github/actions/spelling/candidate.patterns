@@ -1,5 +1,5 @@
 # bearer auth 0
-#(['"])Bearer .*?\g{-1}
+(['"])Bearer .*?\g{-1}
 
 # bearer auth 1
-#(['"])Bear[e][r] .*?\g{-1}
+(['"])Bear[e][r] .*?\g{-1}
