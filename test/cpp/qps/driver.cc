@@ -268,7 +268,7 @@ static void ReceiveFinalStatusFromClients(
       result.add_client_stats()->CopyFrom(stats);
       // Check that final status was should be the last message on the client
       // stream.
-      // TODO(jtattermusch): note that that waiting for Read to return can take
+      // TODO(jtattermusch): note that waiting for Read to return can take
       // long on some scenarios (e.g. unconstrained streaming_from_server). See
       // https://github.com/grpc/grpc/blob/3bd0cd208ea549760a2daf595f79b91b247fe240/test/cpp/qps/server_async.cc#L176
       // where the shutdown delay pretty much determines the wait here.
