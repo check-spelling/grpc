@@ -511,7 +511,7 @@ struct grpc_chttp2_stream {
   // TODO(yashykt): Find a better name for the below field and others in this
   //                struct to betteer distinguish inputs, return values, and
   //                internal state.
-  // sent_trailing_metadata_op allows the transport to fill in to the upper
+  // sent_trailing_metadata_op allows the transport to fill into the upper
   // layer whether this stream was able to send its trailing metadata (used for
   // detecting cancellation on the server-side)..
   bool* sent_trailing_metadata_op = nullptr;
