@@ -288,7 +288,7 @@ cdef class _AioCall(GrpcCallWrapper):
     async def unary_unary(self,
                           bytes request,
                           tuple outbound_initial_metadata):
-        """Performs a unary unary RPC.
+        """Performs a unary RPC.
 
         Args:
           request: the serialized requests in bytes.
