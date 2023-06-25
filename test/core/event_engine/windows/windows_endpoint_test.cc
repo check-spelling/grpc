@@ -112,7 +112,7 @@ TEST_F(WindowsEndpointTest, Conversation) {
     SliceBuffer read_buffer;
     SliceBuffer write_buffer;
     const std::vector<std::string> messages{
-        "Java is to Javascript what car is to carpet. -Heilmann",
+        "Java is to JavaScript what car is to carpet. -Heilmann",
         "Make it work, make it right, make it fast. -Beck",
         "First, solve the problem. Then write the code. -Johnson",
         "It works on my machine."};
