@@ -106,7 +106,7 @@ enum TCPOptStats {
   TCP_NLA_SRTT,                   // smoothed RTT in usecs
 };
 
-// tcp_info from from linux/tcp.h
+// tcp_info from linux/tcp.h
 struct tcp_info {
   uint8_t tcpi_state;
   uint8_t tcpi_ca_state;

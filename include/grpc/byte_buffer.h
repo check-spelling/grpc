@@ -68,7 +68,7 @@ GRPCAPI int grpc_byte_buffer_reader_init(grpc_byte_buffer_reader* reader,
 /** Cleanup and destroy \a reader */
 GRPCAPI void grpc_byte_buffer_reader_destroy(grpc_byte_buffer_reader* reader);
 
-/** Updates \a slice with the next piece of data from from \a reader and returns
+/** Updates \a slice with the next piece of data from \a reader and returns
  * 1. Returns 0 at the end of the stream. Caller is responsible for calling
  * grpc_slice_unref on the result. */
 GRPCAPI int grpc_byte_buffer_reader_next(grpc_byte_buffer_reader* reader,
@@ -76,7 +76,7 @@ GRPCAPI int grpc_byte_buffer_reader_next(grpc_byte_buffer_reader* reader,
 
 /** EXPERIMENTAL API - This function may be removed and changed, in the future.
  *
- * Updates \a slice with the next piece of data from from \a reader and returns
+ * Updates \a slice with the next piece of data from \a reader and returns
  * 1. Returns 0 at the end of the stream. Caller is responsible for making sure
  * the slice pointer remains valid when accessed.
  *
