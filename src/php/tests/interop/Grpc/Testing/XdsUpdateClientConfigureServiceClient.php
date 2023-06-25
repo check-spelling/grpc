@@ -36,7 +36,7 @@ class XdsUpdateClientConfigureServiceClient extends \Grpc\BaseStub {
     }
 
     /**
-     * Update the tes client's configuration.
+     * Update the test client's configuration.
      * @param \Grpc\Testing\ClientConfigureRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options

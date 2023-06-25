@@ -94,7 +94,7 @@ message ClientConfigureRequest {
 message ClientConfigureResponse {}
 
 service XdsUpdateClientConfigureService {
-  // Update the tes client's configuration.
+  // Update the test client's configuration.
   rpc Configure(ClientConfigureRequest) returns (ClientConfigureResponse);
 }
 ```
