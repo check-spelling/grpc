@@ -797,7 +797,7 @@ class SockToPolledFdMap {
     // use after free on polled_fd.
     GRPC_CARES_TRACE_LOG("CloseSocket called for socket: %s",
                          polled_fd->GetName());
-    // If a gRPC polled fd has not made it in to the driver's list yet, then
+    // If a gRPC polled fd has not made it into the driver's list yet, then
     // the driver has not and will never see this socket.
     if (!polled_fd->gotten_into_driver_list()) {
       polled_fd->ShutdownLocked(GRPC_ERROR_CREATE(

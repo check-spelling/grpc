@@ -3,7 +3,7 @@ gRPC on Android
 
 Note: Building the protobuf dependency for Android requires
 https://github.com/protocolbuffers/protobuf/pull/3878. This fix will be in the next
-protobuf release, but until then must be manually patched in to
+protobuf release, but until then must be manually patched into
 `third_party/protobuf` to build gRPC for Android.
 
 PREREQUISITES

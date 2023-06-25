@@ -462,7 +462,7 @@ static void timer_cancel(grpc_timer* timer) {
 
 // Rebalances the timer shard by computing a new 'queue_deadline_cap' and moving
 // all relevant timers in shard->list (i.e timers with deadlines earlier than
-// 'queue_deadline_cap') into into shard->heap.
+// 'queue_deadline_cap') into shard->heap.
 // Returns 'true' if shard->heap has at least ONE element
 // REQUIRES: shard->mu locked
 static bool refill_heap(timer_shard* shard, grpc_core::Timestamp now) {
