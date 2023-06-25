@@ -80,7 +80,7 @@ class GrpcPolledFdFactory {
 
 // Creates a new polled fd factory.
 // Note that even though ownership of mu is not transferred, the mu
-// parameter is guaranteed to be alive for the the whole lifetime of
+// parameter is guaranteed to be alive for the whole lifetime of
 // the resulting GrpcPolledFdFactory as well as any GrpcPolledFd
 // returned by the factory.
 std::unique_ptr<GrpcPolledFdFactory> NewGrpcPolledFdFactory(Mutex* mu);

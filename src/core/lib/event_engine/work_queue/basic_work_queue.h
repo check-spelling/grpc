@@ -56,7 +56,7 @@ class BasicWorkQueue : public WorkQueue {
   EventEngine::Closure* PopOldest() override ABSL_LOCKS_EXCLUDED(mu_);
   // Adds a closure to the queue.
   void Add(EventEngine::Closure* closure) override ABSL_LOCKS_EXCLUDED(mu_);
-  // Wraps an AnyInvocable and adds it to the the queue.
+  // Wraps an AnyInvocable and adds it to the queue.
   void Add(absl::AnyInvocable<void()> invocable) override
       ABSL_LOCKS_EXCLUDED(mu_);
 
