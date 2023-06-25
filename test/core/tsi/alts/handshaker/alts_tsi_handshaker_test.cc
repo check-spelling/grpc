@@ -515,7 +515,7 @@ static tsi_result mock_client_start(alts_handshaker_client* client) {
     return TSI_INTERNAL_ERROR;
   }
   // Note that the alts_tsi_handshaker needs to set its
-  // has_sent_start_message field field to true
+  // has_sent_start_message field to true
   // before the call to alts_handshaker_client_start is made because
   // because it's unsafe to access it afterwards.
   alts_handshaker_client_check_fields_for_testing(
