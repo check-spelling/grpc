@@ -88,7 +88,7 @@ def _access_token():
             except (KeyError, ValueError):
                 traceback.print_exc()
                 print("HTTP Status %d %s" % (resp.status_code, resp.reason))
-                print("Fetch access token from Github API failed:")
+                print("Fetch access token from GitHub API failed:")
                 print(resp.text)
                 if i != _ACCESS_TOKEN_FETCH_RETRIES - 1:
                     print(
