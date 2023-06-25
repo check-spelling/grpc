@@ -1056,7 +1056,7 @@ TEST_P(RingHashTest, TransientFailureSkipToAvailableReady) {
   // backend 0. So by purposely bringing down backend 0 and bringing up another
   // backend, this will ensure Picker's first choice of backend 0 will fail
   // and it will go through the remaining subchannels to find one in READY.
-  // Since the the entries in the ring are pretty distributed and we have
+  // Since the entries in the ring are pretty distributed and we have
   // unused ports to fill the ring, it is almost guaranteed that the Picker
   // will go through some non-READY entries and skip them as per design.
   gpr_log(GPR_INFO, "=== SHUTTING DOWN BACKEND 0 ===");

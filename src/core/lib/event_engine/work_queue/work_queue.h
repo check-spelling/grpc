@@ -52,7 +52,7 @@ class WorkQueue {
   virtual EventEngine::Closure* PopOldest() = 0;
   // Adds a closure to the queue.
   virtual void Add(EventEngine::Closure* closure) = 0;
-  // Wraps an AnyInvocable and adds it to the the queue.
+  // Wraps an AnyInvocable and adds it to the queue.
   virtual void Add(absl::AnyInvocable<void()> invocable) = 0;
 };
 
