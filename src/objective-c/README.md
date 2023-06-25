@@ -229,7 +229,7 @@ that are the same as OpenSSL. gRPC avoids conflicts of these symbols by renaming
 
 If you need gRPC to use OpenSSL instead of BoringSSL (e.g. for the benefit of reducing the binary
 size of your product), you need to make a local `gRPC-Core` podspec and tweak it accordingly:
-- Copy the version of `/gRPC-Core.podspec` you wish to use from Github into the repository of your
+- Copy the version of `/gRPC-Core.podspec` you wish to use from GitHub into the repository of your
   app;
 - In your `Podfile`, add the following line:
 ```
