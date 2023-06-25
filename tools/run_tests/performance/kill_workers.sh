@@ -17,7 +17,7 @@ set -ex
 
 cd "$(dirname "$0")/../../.."
 
-# Make sure there are no pre-existing QPS workers around before starting
+# Make sure there are no preexisting QPS workers around before starting
 # the performance test suite
 
 # C++
