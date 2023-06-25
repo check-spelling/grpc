@@ -364,7 +364,7 @@ void WireWriterImpl::TryScheduleTransaction() {
         num_outgoing_bytes_ + num_bytes_scheduled_in_combiner;
     // An estimation of number of bytes of traffic that will not be
     // acknowledged, assuming all tasks in combiner will be executed and we
-    // receive no new ack message fomr the other end of transport.
+    // receive no new ack message from the other end of transport.
     int64_t num_non_acked_bytes_estimation =
         num_total_bytes_will_be_sent - num_acknowledged_bytes_;
     if (num_non_acked_bytes_estimation < 0) {
