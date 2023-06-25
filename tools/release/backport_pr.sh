@@ -154,7 +154,7 @@ for BACKPORT_BRANCH in $BACKPORT_BRANCHES; do
                   -a "$REVIEWERS" | tail -n 1)
   BACKPORT_PRS+="$BACKPORT_PR\n"
 
-  # TODO: Turn on automerge once the Github API allows it.
+  # TODO: Turn on automerge once the GitHub API allows it.
 done
 
 printf "Your backport PRs have been created:\n$BACKPORT_PRS"

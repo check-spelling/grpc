@@ -21,7 +21,7 @@
 /**
  * The factory for gRPC Core + Cronet transport implementation. The
  * implementation is not part of the default transports of gRPC and is for
- * testing purpose only on Github.
+ * testing purpose only on GitHub.
  *
  * To use this transport, a user must include the GRPCCoreCronet module as a
  * dependency of the project and use gGRPCCoreCronetID in call options to
