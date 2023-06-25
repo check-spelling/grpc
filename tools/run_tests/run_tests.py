@@ -194,7 +194,7 @@ def _check_arch(arch, supported_arches):
 
 
 def _is_use_docker_child():
-    """Returns True if running running as a --use_docker child."""
+    """Returns True if running as a --use_docker child."""
     return True if os.getenv("DOCKER_RUN_SCRIPT_COMMAND") else False
 
 
