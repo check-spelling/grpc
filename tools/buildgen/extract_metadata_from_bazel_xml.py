@@ -251,7 +251,7 @@ def _extract_sources(bazel_rule: BuildMetadata) -> List[str]:
 def _extract_deps(
     bazel_rule: BuildMetadata, bazel_rules: BuildDict
 ) -> List[str]:
-    """Gets list of deps from from a bazel rule"""
+    """Gets list of deps from a bazel rule"""
     deps = set(bazel_rule["deps"])
     for src in bazel_rule["srcs"]:
         if (
