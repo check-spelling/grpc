@@ -95,7 +95,7 @@ message LoadBalancingFeedback {
 message Load {
   // The (plain text) tag used by the calls covered by this load report. The
   // tag is that part of the load balancer token after removing the load
-  // balancer id. Empty is equivalent to non-existent tag.
+  // balancer id. Empty is equivalent to nonexistent tag.
   string load_balance_tag = 1;
 
   // The user identity authenticated by the calls covered by this load

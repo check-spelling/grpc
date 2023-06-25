@@ -74,7 +74,7 @@ constexpr int kNumExchangedMessages = 100;
 
 }  // namespace
 
-// Create a connection using the test EventEngine to a non-existent listener
+// Create a connection using the test EventEngine to a nonexistent listener
 // and verify that the connection fails.
 TEST_F(EventEngineClientTest, ConnectToNonExistentListenerTest) {
   grpc_core::ExecCtx ctx;
@@ -83,7 +83,7 @@ TEST_F(EventEngineClientTest, ConnectToNonExistentListenerTest) {
   auto memory_quota = std::make_unique<grpc_core::MemoryQuota>("bar");
   std::string target_addr = absl::StrCat(
       "ipv6:[::1]:", std::to_string(grpc_pick_unused_port_or_die()));
-  // Create a test EventEngine client endpoint and connect to a non existent
+  // Create a test EventEngine client endpoint and connect to a nonexistent
   // listener.
   ChannelArgsEndpointConfig config;
   test_ee->Connect(
