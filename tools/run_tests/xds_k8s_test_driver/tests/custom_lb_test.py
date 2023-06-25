@@ -68,7 +68,7 @@ class CustomLbTest(xds_k8s_testcase.RegularXdsKubernetesTestCase):
         # Configures a custom, test LB on the client to instruct the servers
         # to always respond with a specific error code.
         #
-        # The first policy in the list is a non-existent one to verify that
+        # The first policy in the list is a nonexistent one to verify that
         # the gRPC client can gracefully move down the list to the valid one
         # once it determines the first one is not available.
         with self.subTest("1_create_backend_service"):
