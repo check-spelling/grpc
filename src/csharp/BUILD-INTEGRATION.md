@@ -391,7 +391,7 @@ You will see the warning message:
  if all these are true:
  * the location for the generated files is configured to a directory outside of the project, e.g. `OutputDir="..\outside-project\"`
  * `*Grpc.cs` files have not been created because the `.proto` file does not contain a
-service definintion
+service definition
 * you have not specified `GrpcServices="None"`
 
 This is because `Grpc.Tools` only creates empty `*Grpc.cs` files in directories
