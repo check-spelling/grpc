@@ -149,7 +149,7 @@ def grpc_cc_library(
       srcs: The source files.
       public_hdrs: The public headers.
       hdrs: The headers.
-      external_deps: External depdendencies to be resolved.
+      external_deps: External dependencies to be resolved.
       defines: Build defines to use.
       deps: cc_library deps.
       select_deps: deps included conditionally.
