@@ -50,7 +50,7 @@ constexpr double kMaxRatio = 10;
 // weights that are possibly accepting. In this case, without kMinRatio, it
 // would potentially require WeightedRoundRobin to perform thousands of picks
 // until it gets a single channel with near-zero weight. This was a part of what
-// hapenned in b/276292666.
+// happened in b/276292666.
 //
 // The current value of 0.01 was chosen without any experimenting. It should
 // ensure that WeightedRoundRobin doesn't do much more than an order of 100
