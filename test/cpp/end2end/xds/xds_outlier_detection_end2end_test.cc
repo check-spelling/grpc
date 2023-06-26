@@ -932,7 +932,7 @@ TEST_P(OutlierDetectionTest, SuccessRateAndFailurePercentage) {
   // Cause 2 errors on 1 backend and 1 error on 2 backends and wait for 2
   // backends to be ejected. The 2 errors to the 1 backend will make exactly 1
   // outlier from the success rate algorithm; all 4 errors will make 3 outliers
-  // from the failure pecentage algorithm because the threahold is set to 0. I
+  // from the failure percentage algorithm because the threahold is set to 0. I
   // have verified through debug logs we eject 1 backend because of success
   // rate, 1 backend because of failure percentage; but as we attempt to eject
   // another backend because of failure percentage we will stop as we have
