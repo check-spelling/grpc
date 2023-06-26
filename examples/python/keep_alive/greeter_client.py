@@ -62,7 +62,7 @@ def run():
         # Run 30s, run this with GRPC_VERBOSITY=DEBUG GRPC_TRACE=http_keepalive to observe logs.
         # Client will be closed after receveing GOAWAY from server.
         for i in range(30):
-            print(f"{i} seconds paased.")
+            print(f"{i} seconds passed.")
             sleep(1)
 
 
