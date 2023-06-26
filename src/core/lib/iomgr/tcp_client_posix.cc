@@ -351,7 +351,7 @@ int64_t grpc_tcp_client_create_from_prepared_fd(
   }
 
   if (err >= 0) {
-    // Connection already succeded. Return 0 to discourage any cancellation
+    // Connection already succeeded. Return 0 to discourage any cancellation
     // attempts.
     *ep = grpc_tcp_client_create_from_fd(fdobj, options, addr_uri.value());
     grpc_core::ExecCtx::Run(DEBUG_LOCATION, closure, absl::OkStatus());

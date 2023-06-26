@@ -251,7 +251,7 @@ EventEngine::ConnectionHandle PosixEventEngine::ConnectInternal(
   }
 
   if (err >= 0) {
-    // Connection already succeded. Return 0 to discourage any cancellation
+    // Connection already succeeded. Return 0 to discourage any cancellation
     // attempts.
     Run([on_connect = std::move(on_connect),
          ep = CreatePosixEndpoint(handle, nullptr, shared_from_this(),
