@@ -268,7 +268,7 @@ disturbances.
 ```shell
 # Help
 python -m tests.baseline_test --help
-python -m tests.baseline_test --helpfull
+python -m tests.baseline_test --helpful
 
 # Run the baseline test with local-dev.cfg settings
 python -m tests.baseline_test --flagfile="config/local-dev.cfg"
@@ -300,7 +300,7 @@ for as long as you need.
   * `python -m bin.script_name --flagfile=config/local-dev.cfg`
   * `./run.sh bin/script_name.py` automatically appends the flagfile
 * Use `--help` to see script-specific argument
-* Use `--helpfull` to see all available argument
+* Use `--helpful` to see all available argument
 
 #### Overview
 ```shell
@@ -337,7 +337,7 @@ This tool performs the following:
 
 EXAMPLES:
 ./run.sh bin/run_td_setup.py --help
-./run.sh bin/run_td_setup.py --helpfull
+./run.sh bin/run_td_setup.py --helpful
 XDS_K8S_CONFIG=./path-to-flagfile.cfg ./run.sh bin/run_td_setup.py --resource_suffix=override-suffix
 ./run.sh tests/baseline_test.py
 ./run.sh tests/security_test.py --verbosity=1 --logger_levels=__main__:DEBUG,framework:DEBUG
