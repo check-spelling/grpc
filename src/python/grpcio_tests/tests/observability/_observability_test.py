@@ -70,19 +70,19 @@ class TestExporter(_observability.Exporter):
         metrics: List[_observability.StatsData],
         spans: List[_observability.TracingData],
     ):
-        self.span_collecter = spans
-        self.metric_collecter = metrics
+        self.span_collector = spans
+        self.metric_collector = metrics
         self._server = None
 
     def export_stats_data(
         self, stats_data: List[_observability.StatsData]
     ) -> None:
-        self.metric_collecter.extend(stats_data)
+        self.metric_collector.extend(stats_data)
 
     def export_tracing_data(
         self, tracing_data: List[_observability.TracingData]
     ) -> None:
-        self.span_collecter.extend(tracing_data)
+        self.span_collector.extend(tracing_data)
 
 
 def handle_unary_unary(request, servicer_context):
