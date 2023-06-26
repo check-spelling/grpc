@@ -468,7 +468,7 @@ static bool tcp_cancel_connect(int64_t connection_handle) {
     ac->connect_cancelled = true;
     // Shutdown the fd. This would cause on_writable to run as soon as possible.
     // We dont need to pass a custom error here because it wont be used since
-    // the on_connect_closure is not run if connect cancellation is successfull.
+    // the on_connect_closure is not run if connect cancellation is successful.
     grpc_fd_shutdown(ac->fd, absl::OkStatus());
   }
   bool done = (--ac->refs == 0);
