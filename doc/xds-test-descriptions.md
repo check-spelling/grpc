@@ -770,7 +770,7 @@ Load balancer configuration:
     ```
 Assert:
 
-1.  The test driver asserts that traffic is equally distribted among the
+1.  The test driver asserts that traffic is equally distributed among the
 five backends, and all requests end with the `OK` status.
 2.  The test driver chooses one of the five backends to fail requests, and
 configures the client to send the metadata
