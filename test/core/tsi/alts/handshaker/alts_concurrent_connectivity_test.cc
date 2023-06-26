@@ -82,7 +82,7 @@ grpc_channel* create_secure_channel_for_test(
                                               true /* enable_untrusted_alts */);
   grpc_alts_credentials_options_destroy(alts_options);
   // The main goal of these tests are to stress concurrent ALTS handshakes,
-  // so we prevent subchnannel sharing.
+  // so we prevent subchannel sharing.
   std::vector<grpc_arg> new_args;
   new_args.push_back(grpc_channel_arg_integer_create(
       const_cast<char*>(GRPC_ARG_USE_LOCAL_SUBCHANNEL_POOL), true));
