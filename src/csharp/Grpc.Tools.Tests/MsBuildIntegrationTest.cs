@@ -50,7 +50,7 @@ namespace Grpc.Tools.Tests
     {
         private const string TASKS_ASSEMBLY_PROPERTY = "_Protobuf_MsBuildAssembly";
         private const string TASKS_ASSEMBLY_DLL = "Protobuf.MSBuild.dll";
-        private const string PROTBUF_FULLPATH_PROPERTY = "Protobuf_ProtocFullPath";
+        private const string PROTOBUF_FULLPATH_PROPERTY = "Protobuf_ProtocFullPath";
         private const string PLUGIN_FULLPATH_PROPERTY = "gRPC_PluginFullPath";
         private const string TOOLS_BUILD_DIR_PROPERTY = "GrpcToolsBuildDir";
 
@@ -258,7 +258,7 @@ namespace Grpc.Tools.Tests
                 + $" -p:BaseOutputPath={testOutDir}/bin/"
                 + $" -p:BaseIntermediateOutputPath={testOutDir}/obj/"
                 + $" -p:{TOOLS_BUILD_DIR_PROPERTY}={grpcToolsBuildDir}"
-                + $" -p:{PROTBUF_FULLPATH_PROPERTY}={fakeProtoc}"
+                + $" -p:{PROTOBUF_FULLPATH_PROPERTY}={fakeProtoc}"
                 + $" -p:{PLUGIN_FULLPATH_PROPERTY}=dummy-plugin-not-used"
                 + $" -fl -flp:LogFile={testOutDir}/log/msbuild.log;verbosity={MSBUILD_LOG_VERBOSITY}"
                 + $" msbuildtest.csproj";
