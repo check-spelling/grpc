@@ -165,7 +165,7 @@ class UnaryStreamClientInterceptor(ClientInterceptor, metaclass=ABCMeta):
         """Intercepts a unary-stream invocation asynchronously.
 
         The function could return the call object or an asynchronous
-        iterator, in case of being an asyncrhonous iterator this will
+        iterator, in case of being an asynchronous iterator this will
         become the source of the reads done by the caller.
 
         Args:
@@ -252,7 +252,7 @@ class StreamStreamClientInterceptor(ClientInterceptor, metaclass=ABCMeta):
         messages to it.
 
         The function could return the call object or an asynchronous
-        iterator, in case of being an asyncrhonous iterator this will
+        iterator, in case of being an asynchronous iterator this will
         become the source of the reads done by the caller.
 
         Args:
