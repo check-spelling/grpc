@@ -384,7 +384,7 @@ static void do_handshaker_next(handshaker_args* args) {
 }
 
 void tsi_test_do_handshake(tsi_test_fixture* fixture) {
-  // Initializaiton.
+  // Initialization.
   setup_handshakers(fixture);
   handshaker_args* client_args =
       handshaker_args_create(fixture, true /* is_client */);
