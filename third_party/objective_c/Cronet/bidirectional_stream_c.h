@@ -131,7 +131,7 @@ typedef struct bidirectional_stream_callback {
  * Returned |bidirectional_stream*| is owned by the caller, and must be
  * destroyed using |bidirectional_stream_destroy|.
  *
- * Both |calback| and |engine| must remain valid until stream is destroyed.
+ * Both |callback| and |engine| must remain valid until stream is destroyed.
  */
 GRPC_SUPPORT_EXPORT
 bidirectional_stream* bidirectional_stream_create(
