@@ -334,7 +334,7 @@ static tsi_result peer_property_from_x509_subject(X509* cert,
         property);
   } else {
     result = tsi_construct_string_peer_property(
-        TSI_X509_VERIFIED_ROOT_CERT_SUBECT_PEER_PROPERTY, contents,
+        TSI_X509_VERIFIED_ROOT_CERT_SUBJECT_PEER_PROPERTY, contents,
         static_cast<size_t>(len), property);
   }
   BIO_free(bio);
