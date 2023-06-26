@@ -207,7 +207,7 @@ module GRPC
     # @param assert_finished [true, false] when true(default), waits for
     # FINISHED.
     # @param metadata [Hash] metadata to send to the server. If a value is a
-    # list, mulitple metadata for its key are sent
+    # list, multiple metadata for its key are sent
     def send_status(code = OK, details = '', assert_finished = false,
                     metadata: {})
       send_initial_metadata
