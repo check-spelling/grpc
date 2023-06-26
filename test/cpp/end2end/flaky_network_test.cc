@@ -179,7 +179,7 @@ class FlakyNetworkTest : public ::testing::TestWithParam<TestScenario> {
     // TODO (pjaikumar): Ideally, we should allocate the port dynamically using
     // grpc_pick_unused_port_or_die(). That doesn't work inside some docker
     // containers because port_server listens on localhost which maps to
-    // ip6-looopback, but ipv6 support is not enabled by default in docker.
+    // ip6-loopback, but ipv6 support is not enabled by default in docker.
     port_ = SERVER_PORT;
 
     server_ = std::make_unique<ServerData>(port_, GetParam().credentials_type);
