@@ -128,7 +128,7 @@ TEST(PosixEngineListenerUtils, ListenerContainerAddAllLocalAddressesTest) {
             "does not have Ipv6/Ipv6 interfaces configured for listening.");
     return;
   }
-  // Some sockets have been created and bound to interfaces on the machiene.
+  // Some sockets have been created and bound to interfaces on the machine.
   // Verify that they are listening on the correct port.
   EXPECT_GT(*result, 0);
   port = *result;
