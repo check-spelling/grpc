@@ -75,7 +75,7 @@ typedef struct bidirectional_stream_callback {
    *
    * If |bytes_read| is 0, it means the remote side has signaled that it will
    * send no more data; future calls to bidirectional_stream_read()
-   * will result in the on_data_read() callback or on_succeded() callback if
+   * will result in the on_data_read() callback or on_succeeded() callback if
    * bidirectional_stream_write() was invoked with end_of_stream set to
    * true.
    */
@@ -103,7 +103,7 @@ typedef struct bidirectional_stream_callback {
    * closed successfully remotely and locally. Once invoked, no further callback
    * methods will be invoked.
    */
-  void (*on_succeded)(bidirectional_stream* stream);
+  void (*on_succeeded)(bidirectional_stream* stream);
 
   /**
    * Invoked if the stream failed for any reason after
