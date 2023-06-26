@@ -106,7 +106,7 @@ TEST_F(GrpclbTest, ParseResponseServerList) {
   auto* server = serverlist->add_servers();
   server->set_ip_address(Ip4ToPackedString("127.0.0.1"));
   server->set_port(12345);
-  server->set_load_balance_token("rate_limting");
+  server->set_load_balance_token("rate_limiting");
   server->set_drop(true);
   server = response.mutable_server_list()->add_servers();
   server->set_ip_address(Ip4ToPackedString("10.0.0.1"));
@@ -126,7 +126,7 @@ TEST_F(GrpclbTest, ParseResponseServerList) {
   EXPECT_EQ(resp.serverlist.size(), 2);
   EXPECT_EQ(PackedStringToIp(resp.serverlist[0]), "127.0.0.1");
   EXPECT_EQ(resp.serverlist[0].port, 12345);
-  EXPECT_STREQ(resp.serverlist[0].load_balance_token, "rate_limting");
+  EXPECT_STREQ(resp.serverlist[0].load_balance_token, "rate_limiting");
   EXPECT_TRUE(resp.serverlist[0].drop);
   EXPECT_EQ(PackedStringToIp(resp.serverlist[1]), "10.0.0.1");
   EXPECT_EQ(resp.serverlist[1].port, 54321);
