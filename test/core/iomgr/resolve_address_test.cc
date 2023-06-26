@@ -240,7 +240,7 @@ const address_sorting_source_addr_factory_vtable
 
 }  // namespace
 
-TEST_F(ResolveAddressTest, LocalhostResultHasIPv4FirstWhenIPv6IsntAvalailable) {
+TEST_F(ResolveAddressTest, LocalhostResultHasIPv4FirstWhenIPv6IsntAvailable) {
   if (std::string(g_resolver_type) != "ares") {
     GTEST_SKIP() << "this test is only valid with the c-ares resolver";
   }
