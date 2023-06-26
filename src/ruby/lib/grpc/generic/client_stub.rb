@@ -72,7 +72,7 @@ module GRPC
     #
     # - :channel_override
     # when present, this must be a pre-created GRPC::Core::Channel.  If it's
-    # present the host and arbitrary keyword arg areignored, and the RPC
+    # present the host and arbitrary keyword arg are ignored, and the RPC
     # connection uses this channel.
     #
     # - :timeout
