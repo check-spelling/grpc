@@ -34,7 +34,7 @@ EXCLUDED_TARGETS=(
   # done separately
   "-//fuzztest/..."
 
-  # This could be a legitmate failure due to bitrot.
+  # This could be a legitimate failure due to bitrot.
   "-//src/proto/grpc/testing:test_gen_proto"
 
   # This appears to be a legitimately broken BUILD file. There's a reference to
