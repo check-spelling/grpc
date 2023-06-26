@@ -19,7 +19,7 @@ jobs:
       matrix:
         include:
           - { NAME: "Debug", CC: clang, os: ubuntu-20.04, flags: "-c dbg" }
-          - { NAME: "Optmized", CC: clang, os: ubuntu-20.04, flags: "-c opt" }
+          - { NAME: "Optimized", CC: clang, os: ubuntu-20.04, flags: "-c opt" }
           - { NAME: "GCC Optimized", CC: gcc, os: ubuntu-20.04, flags: "-c opt" }
           - { NAME: "ASAN", CC: clang, os: ubuntu-20.04, flags: "--config=asan -c dbg" }
           - { NAME: "UBSAN", CC: clang, os: ubuntu-20.04, flags: "--config=ubsan -c dbg", install: "libunwind-dev" }
