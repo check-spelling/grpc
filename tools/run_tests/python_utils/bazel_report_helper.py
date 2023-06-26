@@ -171,7 +171,7 @@ def _create_bazel_wrapper(
 
     # generate the bazel wrapper for linux/macos
     with open(bazel_wrapper_filename, "w") as f:
-        intro_lines = [
+        header_lines = [
             "#!/bin/bash",
             "set -ex",
             "",
@@ -207,14 +207,14 @@ def _create_bazel_wrapper(
 
         lines = [
             line + "\n"
-            for line in intro_lines + upload_results_lines + footer_lines
+            for line in header_lines + upload_results_lines + footer_lines
         ]
         f.writelines(lines)
     os.chmod(bazel_wrapper_filename, 0o775)  # make the unix wrapper executable
 
     # generate bazel wrapper for windows
     with open(bazel_wrapper_bat_filename, "w") as f:
-        intro_lines = [
+        header_lines = [
             "@echo on",
             "",
             'bazel --bazelrc="%s" %%*' % bazel_rc_filename,
@@ -246,7 +246,7 @@ def _create_bazel_wrapper(
 
         lines = [
             line + "\n"
-            for line in intro_lines + upload_results_lines + footer_lines
+            for line in header_lines + upload_results_lines + footer_lines
         ]
         f.writelines(lines)
 
