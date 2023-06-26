@@ -348,7 +348,7 @@ class Server : public ServerInterface, private internal::GrpcLibrary {
   // cases since otherwise the size will be inconsistent.
   std::vector<CompletionQueue*> cq_list_;
 
-  // Whetner per-call load reporting is enabled.
+  // Whether per-call load reporting is enabled.
   bool call_metric_recording_enabled_ = false;
 
   // Interface to read or update server-wide metrics. Optional.
