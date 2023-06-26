@@ -37,7 +37,7 @@ class Fork {
 
   static void GlobalInit();
 
-  // Returns true if fork suppport is enabled, false otherwise
+  // Returns true if fork support is enabled, false otherwise
   static bool Enabled();
 
   // Increment the count of active ExecCtxs.
