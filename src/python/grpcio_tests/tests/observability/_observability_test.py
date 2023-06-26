@@ -61,7 +61,7 @@ _VALID_CONFIG_STATS_ONLY_STR = """
 # Depends on grpc_core::IsTransportSuppliesClientLatencyEnabled,
 # the following metrics might not exist.
 _SKIP_VEFIRY = [_cyobservability.MetricsName.CLIENT_TRANSPORT_LATENCY]
-_SPAN_PREFIXS = ["Recv", "Sent", "Attempt"]
+_SPAN_PREFIXES = ["Recv", "Sent", "Attempt"]
 
 
 class TestExporter(_observability.Exporter):
@@ -402,7 +402,7 @@ class ObservabilityTest(unittest.TestCase):
         self, tracing_data: List[_observability.TracingData]
     ) -> None:
         span_names = set(data.name for data in tracing_data)
-        for prefix in _SPAN_PREFIXS:
+        for prefix in _SPAN_PREFIXES:
             prefix_exist = any(prefix in name for name in span_names)
             if not prefix_exist:
                 logger.error(
