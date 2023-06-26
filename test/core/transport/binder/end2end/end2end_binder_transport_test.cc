@@ -305,7 +305,7 @@ TEST_P(End2EndBinderTransportTest,
 }
 
 TEST_P(End2EndBinderTransportTest,
-       ServerSteramingCallTryCancelDuringProcessing) {
+       ServerStreamingCallTryCancelDuringProcessing) {
   std::unique_ptr<grpc::testing::EchoTestService::Stub> stub = NewStub();
   constexpr size_t kServerResponseStreamsToSend = 2;
   grpc::ClientContext context;
@@ -331,7 +331,7 @@ TEST_P(End2EndBinderTransportTest,
 }
 
 TEST_P(End2EndBinderTransportTest,
-       ServerSteramingCallTryCancelAfterProcessing) {
+       ServerStreamingCallTryCancelAfterProcessing) {
   std::unique_ptr<grpc::testing::EchoTestService::Stub> stub = NewStub();
   constexpr size_t kServerResponseStreamsToSend = 100;
   grpc::ClientContext context;

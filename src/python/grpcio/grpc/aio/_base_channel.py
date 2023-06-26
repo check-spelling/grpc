@@ -305,7 +305,7 @@ class Channel(abc.ABC):
             is passed.
 
         Returns:
-          A UnarySteramMultiCallable value for the named unary-stream method.
+          A UnaryStreamMultiCallable value for the named unary-stream method.
         """
 
     @abc.abstractmethod
