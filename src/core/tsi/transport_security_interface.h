@@ -414,7 +414,7 @@ tsi_result tsi_handshaker_process_bytes_from_peer(tsi_handshaker* self,
 
 // TO BE DEPRECATED SOON.
 // Gets the result of the handshaker.
-// Returns TSI_OK if the hanshake completed successfully and there has been no
+// Returns TSI_OK if the handshake completed successfully and there has been no
 // errors. Returns TSI_HANDSHAKE_IN_PROGRESS if the handshaker is not done yet
 // but no error has been encountered so far. Otherwise the handshaker failed
 // with the returned error.
