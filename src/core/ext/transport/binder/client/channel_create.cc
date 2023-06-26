@@ -117,7 +117,7 @@ std::shared_ptr<grpc::Channel> CreateCustomBinderChannel(
   // `EndpointBinderPool` after the connection succeeds
   // TODO(mingcl): Consider if we want to delay the connection establishment
   // until SubchannelConnector start establishing connection. For now we don't
-  // see any benifits doing that.
+  // see any benefits doing that.
   grpc_binder::TryEstablishConnectionWithUri(static_cast<JNIEnv*>(jni_env_void),
                                              context, uri, connection_id);
 
