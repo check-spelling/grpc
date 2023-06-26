@@ -61,8 +61,8 @@ NSString *GRPCGetRemoteInteropTestServerAddress() {
   return address;
 }
 
-// Helper function to retrieve falke repeat from env variable settings.
-static NSUInteger GRPCGetTestFlakeRepeats() {
+// Helper function to retrieve fake repeat from env variable settings.
+static NSUInteger GRPCGetTestFakeRepeats() {
   static NSUInteger repeats = kGRPCDefaultTestFlakeRepeats;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
@@ -93,7 +93,7 @@ void GRPCPrintInteropTestServerDebugInfo() {
 }
 
 BOOL GRPCTestRunWithFlakeRepeats(XCTestCase *testCase, GRPCTestRunBlock testBlock) {
-  NSInteger repeats = GRPCGetTestFlakeRepeats();
+  NSInteger repeats = GRPCGetTestFakeRepeats();
   NSInteger runs = 0;
 
   while (runs < repeats) {
