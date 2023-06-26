@@ -126,7 +126,7 @@ void alts_handshaker_client_destroy(alts_handshaker_client* client);
 ///- target_name: the name of the endpoint that the channel is connecting to,
 ///  and will be used for secure naming check
 ///- grpc_cb: gRPC provided callbacks passed from TSI handshaker.
-///- cb: callback to be executed when tsi_handshaker_next API compltes.
+///- cb: callback to be executed when tsi_handshaker_next API completes.
 ///- user_data: argument passed to cb.
 ///- vtable_for_testing: ALTS handshaker client vtable instance used for
 ///  testing purpose.
