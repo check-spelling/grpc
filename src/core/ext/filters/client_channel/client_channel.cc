@@ -595,7 +595,7 @@ class ClientChannel::SubchannelWrapper : public SubchannelInterface {
   //
   // This class handles things like hopping into the WorkSerializer
   // before passing notifications to the LB policy and propagating
-  // keepalive information betwen subchannels.
+  // keepalive information between subchannels.
   class WatcherWrapper : public Subchannel::ConnectivityStateWatcherInterface {
    public:
     WatcherWrapper(
