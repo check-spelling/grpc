@@ -39,7 +39,7 @@ template <typename RequestT, typename ResponseT>
 class MessageHolder : public RpcAllocatorState {
  public:
   // Release this object. For example, if the custom allocator's
-  // AllocateMessasge creates an instance of a subclass with new, the Release()
+  // AllocateMessage creates an instance of a subclass with new, the Release()
   // should do a "delete this;".
   virtual void Release() = 0;
   RequestT* request() { return request_; }
