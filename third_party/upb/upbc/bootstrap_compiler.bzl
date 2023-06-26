@@ -69,7 +69,7 @@ def _stage0_proto_staleness_test(name, base_dir, src_files, src_rules, strip_pre
         outs = _generated_srcs(base_dir + "stage0", src_files),
         generated_pattern = "bootstrap_generated_sources/%s",
         target_files = native.glob([base_dir + "stage0/**"]),
-        # To avoid skew problems for descriptor.proto/pluging.proto between
+        # To avoid skew problems for descriptor.proto/plugin.proto between
         # GitHub repos.  It's not critical that the checked-in protos are up to
         # date for every change, they just needs to be complete enough to have
         # everything needed by the code generator itself.
