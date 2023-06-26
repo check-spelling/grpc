@@ -814,7 +814,7 @@ function test_gc()
       m = test_messages_proto3.TestAllTypesProto3()
       -- This will cause the arenas to fuse. But we stop referring to the child,
       -- so the Lua object is eligible for collection (and therefore its original
-      -- arena can be collected too). Only the fusing will keep the C mem alivd.
+      -- arena can be collected too). Only the fusing will keep the C mem alive.
       m.recursive_message = tmp
 
     end
