@@ -67,7 +67,7 @@ PyObject* PyUpb_Message_SerializeToString(PyObject* self, PyObject* args,
 PyObject* PyUpb_Message_SerializePartialToString(PyObject* self, PyObject* args,
                                                  PyObject* kwargs);
 
-// Sets fields of the message according to the attribuges in `kwargs`.
+// Sets fields of the message according to the attributes in `kwargs`.
 int PyUpb_Message_InitAttributes(PyObject* _self, PyObject* args,
                                  PyObject* kwargs);
 
