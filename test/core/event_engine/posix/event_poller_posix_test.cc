@@ -237,7 +237,7 @@ void ListenCb(server* sv, absl::Status status) {
     listen_em_fd->NotifyOnRead(sv->listen_closure);
     return;
   } else if (fd < 0) {
-    gpr_log(GPR_ERROR, "Failed to acceot a connection, returned error: %s",
+    gpr_log(GPR_ERROR, "Failed to accept a connection, returned error: %s",
             grpc_core::StrError(errno).c_str());
   }
   EXPECT_GE(fd, 0);
