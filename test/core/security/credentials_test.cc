@@ -2095,7 +2095,7 @@ TEST(CredentialsTest, TestAuthMetadataContext) {
   }
 }
 
-void validate_external_account_creds_token_exchage_request(
+void validate_external_account_creds_token_exchange_request(
     const grpc_http_request* request, const char* host, const char* path,
     const char* body, size_t body_size, bool /*expect_actor_token*/) {
   // Check that the body is constructed properly.
@@ -2130,7 +2130,7 @@ void validate_external_account_creds_token_exchage_request(
                     "Basic Y2xpZW50X2lkOmNsaWVudF9zZWNyZXQ=") == 0);
 }
 
-void validate_external_account_creds_token_exchage_request_with_url_encode(
+void validate_external_account_creds_token_exchange_request_with_url_encode(
     const grpc_http_request* request, const char* host, const char* path,
     const char* body, size_t body_size, bool /*expect_actor_token*/) {
   // Check that the body is constructed properly.
@@ -2182,7 +2182,7 @@ int external_account_creds_httpcli_post_success(
     const char* body, size_t body_size, Timestamp /*deadline*/,
     grpc_closure* on_done, grpc_http_response* response) {
   if (strcmp(path, "/token") == 0) {
-    validate_external_account_creds_token_exchage_request(
+    validate_external_account_creds_token_exchange_request(
         request, host, path, body, body_size, true);
     *response = http_response(
         200, valid_external_account_creds_token_exchange_response);
@@ -2193,7 +2193,7 @@ int external_account_creds_httpcli_post_success(
         200,
         valid_external_account_creds_service_account_impersonation_response);
   } else if (strcmp(path, "/token_url_encode") == 0) {
-    validate_external_account_creds_token_exchage_request_with_url_encode(
+    validate_external_account_creds_token_exchange_request_with_url_encode(
         request, host, path, body, body_size, true);
     *response = http_response(
         200, valid_external_account_creds_token_exchange_response);
@@ -2242,7 +2242,7 @@ int url_external_account_creds_httpcli_get_success(
   return 1;
 }
 
-void validate_aws_external_account_creds_token_exchage_request(
+void validate_aws_external_account_creds_token_exchange_request(
     const grpc_http_request* request, const char* host, const char* path,
     const char* body, size_t body_size, bool /*expect_actor_token*/) {
   // Check that the body is constructed properly.
@@ -2322,7 +2322,7 @@ int aws_external_account_creds_httpcli_post_success(
     const char* body, size_t body_size, Timestamp /*deadline*/,
     grpc_closure* on_done, grpc_http_response* response) {
   if (strcmp(path, "/token") == 0) {
-    validate_aws_external_account_creds_token_exchage_request(
+    validate_aws_external_account_creds_token_exchange_request(
         request, host, path, body, body_size, true);
     *response = http_response(
         200, valid_external_account_creds_token_exchange_response);
