@@ -244,9 +244,9 @@ std::string ExternalAccountCredentials::debug_string() {
 // and the subject token is received in OnRetrieveSubjectTokenInternal().
 // 2. Exchange token - ExchangeToken() gets called with the
 // subject token from #1. Receive the response in OnExchangeTokenInternal().
-// 3. (Optional) Impersonate service account - ImpersenateServiceAccount() gets
+// 3. (Optional) Impersonate service account - ImpersonateServiceAccount() gets
 // called with the access token of the response from #2. Get an impersonated
-// access token in OnImpersenateServiceAccountInternal().
+// access token in OnImpersonateServiceAccountInternal().
 // 4. Finish token fetch - Return back the response that contains an access
 // token in FinishTokenFetch().
 // TODO(chuanr): Avoid starting the remaining requests if the channel gets shut
@@ -385,12 +385,12 @@ void ExternalAccountCredentials::OnExchangeTokenInternal(
       }
       FinishTokenFetch(absl::OkStatus());
     } else {
-      ImpersenateServiceAccount();
+      ImpersonateServiceAccount();
     }
   }
 }
 
-void ExternalAccountCredentials::ImpersenateServiceAccount() {
+void ExternalAccountCredentials::ImpersonateServiceAccount() {
   absl::string_view response_body(ctx_->response.body,
                                   ctx_->response.body_length);
   auto json = JsonParse(response_body);
@@ -436,7 +436,7 @@ void ExternalAccountCredentials::ImpersenateServiceAccount() {
   request.body_length = body.size();
   grpc_http_response_destroy(&ctx_->response);
   ctx_->response = {};
-  GRPC_CLOSURE_INIT(&ctx_->closure, OnImpersenateServiceAccount, this, nullptr);
+  GRPC_CLOSURE_INIT(&ctx_->closure, OnImpersonateServiceAccount, this, nullptr);
   // TODO(ctiller): Use the callers resource quota.
   GPR_ASSERT(http_request_ == nullptr);
   RefCountedPtr<grpc_channel_credentials> http_request_creds;
@@ -454,14 +454,14 @@ void ExternalAccountCredentials::ImpersenateServiceAccount() {
   grpc_http_request_destroy(&request);
 }
 
-void ExternalAccountCredentials::OnImpersenateServiceAccount(
+void ExternalAccountCredentials::OnImpersonateServiceAccount(
     void* arg, grpc_error_handle error) {
   ExternalAccountCredentials* self =
       static_cast<ExternalAccountCredentials*>(arg);
-  self->OnImpersenateServiceAccountInternal(error);
+  self->OnImpersonateServiceAccountInternal(error);
 }
 
-void ExternalAccountCredentials::OnImpersenateServiceAccountInternal(
+void ExternalAccountCredentials::OnImpersonateServiceAccountInternal(
     grpc_error_handle error) {
   http_request_.reset();
   if (!error.ok()) {
