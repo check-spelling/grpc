@@ -99,7 +99,7 @@ def grpc_objc_examples_library(
         defines = [],
         sdk_frameworks = [],
         includes = []):
-    """objc_library for testing, only works in //src/objective-c/exmaples
+    """objc_library for testing, only works in //src/objective-c/examples
 
     Args:
         name: name of target
