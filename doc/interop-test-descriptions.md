@@ -1252,7 +1252,7 @@ Failed TLS hostname verification (ejona?)
 
 Large amount of headers to cause CONTINUATIONs; 63K of 'X's, all in one header.
 
-#### To priorize:
+#### To prioritize:
 
 Start streaming RPC but don't send any requests, server responds
 
