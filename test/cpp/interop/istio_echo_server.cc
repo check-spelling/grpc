@@ -158,7 +158,7 @@ int main(int argc, char** argv) {
   //  "--grpc=8080,9090".
   //  2. replace '-' to '_'. So "--istio-version=123" becomes
   //  "--istio_version=123".
-  //  3. remove --version since that is specially interpretted by absl
+  //  3. remove --version since that is specially interpreted by absl
   std::map<std::string, std::vector<std::string>> argv_dict;
   for (int i = 0; i < argc; i++) {
     std::string arg(argv[i]);
