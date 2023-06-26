@@ -1428,7 +1428,7 @@ def test_api_listener(
         )
         if not gcp.service_port:
             raise Exception(
-                "Faied to find a valid port for the forwarding rule"
+                "Failed to find a valid port for the forwarding rule"
             )
         potential_ip_addresses = []
         max_attempts = 10
