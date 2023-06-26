@@ -156,7 +156,7 @@ TEST(LockFreeEventTest, MultiThreadedTest) {
 namespace {
 
 // A trivial callback sceduler which inherits from the Scheduler interface but
-// immediatey runs the callback/closure.
+// immediately runs the callback/closure.
 class BenchmarkCallbackScheduler : public Scheduler {
  public:
   BenchmarkCallbackScheduler() = default;
