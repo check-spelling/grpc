@@ -57,7 +57,7 @@ constexpr double kMaxRatio = 10;
 // picks of non-accepting channels with high weights in such corner cases. But
 // it also makes WeightedRoundRobin to send slightly more requests to
 // potentially very bad tasks (that would have near-zero weights) than zero.
-// This is not necesserily a downside, though. Perhaps this is not a problem at
+// This is not necessarily a downside, though. Perhaps this is not a problem at
 // all and we should increase this value (to 0.05 or 0.1) to save CPU cycles.
 //
 // Note that this class treats weights that are exactly equal to zero as unknown
