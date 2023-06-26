@@ -123,7 +123,7 @@ def parse_test_cases(arg):
             test_cases = test_cases.union([arg])
     if not all([test_case in all_test_cases for test_case in test_cases]):
         raise Exception("Failed to parse test cases %s" % arg)
-    # Perserve order.
+    # Preserve order.
     return [x for x in all_test_cases if x in test_cases]
 
 
