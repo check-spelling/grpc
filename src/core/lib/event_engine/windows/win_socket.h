@@ -107,7 +107,7 @@ class WinSocket {
   ThreadPool* thread_pool_;
   // These OpStates are effectively synchronized using their respective
   // OVERLAPPED structures and the Overlapped I/O APIs. For example, OpState
-  // users should not attempt to read their bytes_transeferred until
+  // users should not attempt to read their bytes_transferred until
   // GetOverlappedResult has returned, to ensure there are no two threads
   // reading and writing the same values concurrently.
   //
