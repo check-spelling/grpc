@@ -587,7 +587,7 @@ ArenaPromise<ServerMetadataHandle> MakeServerCallPromise(
       GetContext<Arena>());
   auto* party = static_cast<Party*>(Activity::current());
 
-  // Arifacts we need for the lifetime of the call.
+  // Artifacts we need for the lifetime of the call.
   struct CallData {
     Pipe<MessageHandle> server_to_client;
     Pipe<MessageHandle> client_to_server;
