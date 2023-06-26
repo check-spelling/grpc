@@ -15,7 +15,7 @@ Therefore, gRPC will use the LTS version only, preferably the latest one.
 ## Libraries that are not ready to use
 
 Most of Abseil libraries are okay to use but there are some exceptions
-because they're not going well yet on some of our test machinaries or
+because they're not going well yet on some of our test machineries or
 platforms it supports. The following is a list of targets that are NOT
 ready to use.
 
