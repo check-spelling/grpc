@@ -2098,7 +2098,7 @@ TEST_F(RlsTest, InvalidGrpcLbPolicyConfig) {
             "errors validating RouteConfiguration resource: ["
             "field:cluster_specifier_plugins[0].extension.typed_config "
             "error:ClusterSpecifierPlugin returned invalid LB policy config: "
-            "errors validing RLS LB policy config: ["
+            "errors validating RLS LB policy config: ["
             "field:routeLookupConfig.lookupService error:field not present]]")
       << decode_result.resource.status();
 }
