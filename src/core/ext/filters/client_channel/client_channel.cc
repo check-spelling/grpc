@@ -2593,7 +2593,7 @@ void ClientChannel::LoadBalancedCall::RemoveCallFromLbQueuedCallsLocked() {
   grpc_polling_entity_del_from_pollset_set(pollent(),
                                            chand_->interested_parties_);
   // Note: There's no need to actually remove the call from the queue
-  // here, beacuse that will be done in either
+  // here, because that will be done in either
   // LbQueuedCallCanceller::CancelLocked() or
   // in ClientChannel::UpdateStateAndPickerLocked().
 }
