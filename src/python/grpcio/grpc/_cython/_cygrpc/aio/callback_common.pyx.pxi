@@ -114,7 +114,7 @@ cdef prepend_send_initial_metadata_op(tuple ops, tuple metadata):
 
 async def _receive_message(GrpcCallWrapper grpc_call_wrapper,
                            object loop):
-    """Retrives parsed messages from Core.
+    """Retrieves parsed messages from Core.
 
     The messages maybe already in Core's buffer, so there isn't a 1-to-1
     mapping between this and the underlying "socket.read()". Also, eventually,
