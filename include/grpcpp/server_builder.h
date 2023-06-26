@@ -297,7 +297,7 @@ class ServerBuilder {
   };
 
   /// Set the allocator for creating and releasing callback server context.
-  /// Takes the owndership of the allocator.
+  /// Takes the ownership of the allocator.
   ServerBuilder& SetContextAllocator(
       std::unique_ptr<grpc::ContextAllocator> context_allocator);
 
