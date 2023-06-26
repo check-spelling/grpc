@@ -107,7 +107,7 @@ void PendingVerifierRequestInit(
       char* ip = CopyCoreString(prop->value.data, prop->value.length);
       ip_names.emplace_back(ip);
     } else if (strcmp(prop->name,
-                      TSI_X509_VERIFIED_ROOT_CERT_SUBECT_PEER_PROPERTY) == 0) {
+                      TSI_X509_VERIFIED_ROOT_CERT_SUBJECT_PEER_PROPERTY) == 0) {
       request->peer_info.verified_root_cert_subject =
           CopyCoreString(prop->value.data, prop->value.length);
       has_verified_root_cert_subject = true;
