@@ -206,7 +206,7 @@ namespace Grpc.Tools.Tests
             // for debug/release builds etc).
             tasksAssembly = Path.Combine(assemblyDir, TASKS_ASSEMBLY_DLL);
 
-            // put test ouptput directory outside of Grpc.Tools.Tests to avoid problems with
+            // put test output directory outside of Grpc.Tools.Tests to avoid problems with
             // repeated builds.
             testOutBaseDir = NormalizePath(Path.GetFullPath($"{assemblyDir}/../../../../test-out/grpc_tools_integration_tests"));
         }
