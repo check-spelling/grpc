@@ -174,7 +174,7 @@ describe GenericService do
       it 'raises if a type arg only has the unmarshal method' do
         # a bad message type with only an unmarshal method
         class OnlyUnmarshal
-          def self.ummarshal(o)
+          def self.unmarshal(o)
             o
           end
         end
