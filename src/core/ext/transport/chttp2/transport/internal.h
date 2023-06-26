@@ -493,7 +493,7 @@ struct grpc_chttp2_stream {
   // field MUST be right after `t` and `refcount`.
   struct Reffer {
     explicit Reffer(grpc_chttp2_stream* s);
-  } reffer;
+  } refer;
 
   grpc_closure destroy_stream;
   grpc_closure* destroy_stream_arg;

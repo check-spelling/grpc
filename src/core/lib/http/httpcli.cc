@@ -375,7 +375,7 @@ void HttpRequest::NextAddress(grpc_error_handle error) {
 
 void HttpRequest::OnResolved(
     absl::StatusOr<std::vector<grpc_resolved_address>> addresses_or) {
-  RefCountedPtr<HttpRequest> unreffer(this);
+  RefCountedPtr<HttpRequest> unrefer(this);
   MutexLock lock(&mu_);
   dns_request_handle_.reset();
   if (cancelled_) {
