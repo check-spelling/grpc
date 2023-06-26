@@ -2457,7 +2457,7 @@ class RlsLbFactory : public LoadBalancingPolicyFactory {
   absl::StatusOr<RefCountedPtr<LoadBalancingPolicy::Config>>
   ParseLoadBalancingConfig(const Json& json) const override {
     return LoadFromJson<RefCountedPtr<RlsLbConfig>>(
-        json, JsonArgs(), "errors validing RLS LB policy config");
+        json, JsonArgs(), "errors validating RLS LB policy config");
   }
 };
 
