@@ -2139,9 +2139,9 @@ void validate_external_account_creds_token_exchage_request_with_url_encode(
   GPR_ASSERT(
       strcmp(
           std::string(body, body_size).c_str(),
-          "audience=audience_!%40%23%24&grant_type=urn%3Aietf%3Aparams%3Aoauth%"
-          "3Agrant-type%3Atoken-exchange&requested_token_type=urn%3Aietf%"
-          "3Aparams%3Aoauth%3Atoken-type%3Aaccess_token&subject_token_type="
+          "audience=audience_!%40%23%24&grant_type=urn%3Aietf%3Aparams%3Aoauth"
+          "%3Agrant-type%3Atoken-exchange&requested_token_type=urn%3Aietf"
+          "%3Aparams%3Aoauth%3Atoken-type%3Aaccess_token&subject_token_type="
           "subject_token_type_!%40%23%24&subject_token=test_subject_token&"
           "scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&"
           "options=%7B%7D") == 0);
