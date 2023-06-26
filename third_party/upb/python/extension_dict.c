@@ -37,7 +37,7 @@
 
 typedef struct {
   PyObject_HEAD;
-  PyObject* msg;  // Owning ref to our parent pessage.
+  PyObject* msg;  // Owning ref to our parent message.
 } PyUpb_ExtensionDict;
 
 PyObject* PyUpb_ExtensionDict_New(PyObject* msg) {
