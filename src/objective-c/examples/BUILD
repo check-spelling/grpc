@@ -135,7 +135,7 @@ grpc_objc_examples_library(
 
 grpc_objc_examples_library(
     name = "watchOS-sample-extension-lib",
-    srcs = glob(["watchOS-sample/WatchKit-Extention/**/*.m"]),
+    srcs = glob(["watchOS-sample/WatchKit-Extension/**/*.m"]),
     hdrs = glob(["watchOS-sample/WatchKit-Extension/**/*.h"]),
     sdk_frameworks = [
         "WatchConnectivity",
