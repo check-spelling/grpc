@@ -67,10 +67,10 @@ function hardAssertIfStatusOk($status)
 function qps_client_main($proxy_address, $server_ind) {
     echo "[php-client] Initiating php client\n";
 
-    $proxystubopts = [];
-    $proxystubopts['credentials'] = Grpc\ChannelCredentials::createInsecure();
-    $proxystub = new Grpc\Testing\ProxyClientServiceClient($proxy_address, $proxystubopts);
-    list($config, $status) = $proxystub->GetConfig(new Grpc\Testing\PBVoid())->wait();
+    $proxiestubopts = [];
+    $proxiestubopts['credentials'] = Grpc\ChannelCredentials::createInsecure();
+    $proxiestub = new Grpc\Testing\ProxyClientServiceClient($proxy_address, $proxiestubopts);
+    list($config, $status) = $proxiestub->GetConfig(new Grpc\Testing\PBVoid())->wait();
     hardAssertIfStatusOk($status);
     hardAssert($config->getOutstandingRpcsPerChannel() == 1, "Only 1 outstanding RPC supported");
 
@@ -120,7 +120,7 @@ function qps_client_main($proxy_address, $server_ind) {
     $histogram->clean();
     $count = 0;
     $histogram_result = new Grpc\Testing\HistogramData;
-    $telehist = $proxystub->ReportHist();
+    $telehist = $proxiestub->ReportHist();
     if ($config->getRpcType() == Grpc\Testing\RpcType::UNARY) {
         while (1) {
             if ($poisson) {
