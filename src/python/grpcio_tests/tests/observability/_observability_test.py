@@ -60,7 +60,7 @@ _VALID_CONFIG_STATS_ONLY_STR = """
 """
 # Depends on grpc_core::IsTransportSuppliesClientLatencyEnabled,
 # the following metrics might not exist.
-_SKIP_VEFIRY = [_cyobservability.MetricsName.CLIENT_TRANSPORT_LATENCY]
+_SKIP_VERIFY = [_cyobservability.MetricsName.CLIENT_TRANSPORT_LATENCY]
 _SPAN_PREFIXES = ["Recv", "Sent", "Attempt"]
 
 
@@ -388,7 +388,7 @@ class ObservabilityTest(unittest.TestCase):
     ) -> None:
         metric_names = set(metric.name for metric in metrics)
         for name in _cyobservability.MetricsName:
-            if name in _SKIP_VEFIRY:
+            if name in _SKIP_VERIFY:
                 continue
             if name not in metric_names:
                 logger.error(
