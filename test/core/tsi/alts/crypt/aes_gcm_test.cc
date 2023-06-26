@@ -359,9 +359,8 @@ static void gsec_test_multiple_random_encrypt_decrypt(
 
     struct iovec* ciphertext_vecs = nullptr;
     size_t ciphertext_vecs_length = 0;
-    gsec_randomly_slice(ciphertext_and_tags[ind],
-                        ciphertext_bytes_written[ind], &ciphertext_vecs,
-                        &ciphertext_vecs_length);
+    gsec_randomly_slice(ciphertext_and_tags[ind], ciphertext_bytes_written[ind],
+                        &ciphertext_vecs, &ciphertext_vecs_length);
 
     size_t decrypted_length = plaintext_lengths[ind];
     uint8_t* decrypted = static_cast<uint8_t*>(malloc(decrypted_length));

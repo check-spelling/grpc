@@ -54,7 +54,7 @@ void AuthMetadataProcessorAsyncWrapper::Process(
   if (w->processor_->IsBlocking()) {
     w->thread_pool_->Add([w, context, md, num_md, cb, user_data] {
       w->AuthMetadataProcessorAsyncWrapper::InvokeProcessor(context, md, num_md,
-                                                           cb, user_data);
+                                                            cb, user_data);
     });
   } else {
     // invoke directly.
