@@ -30,7 +30,7 @@ GRPC_VERSION="$(ruby -e 'require ENV["EXTERNAL_GIT_ROOT"] + "/src/ruby/lib/grpc/
 if [[ "$PACKAGE_TYPE" == "source" ]]; then
   GEM_NAME="grpc-${GRPC_VERSION}.gem"
 else
-  [[ "$PACKAGE_TYPE" == "binary" ]] || die "unexpeced package type: $PACKAGE_TYPE"
+  [[ "$PACKAGE_TYPE" == "binary" ]] || die "unexpected package type: $PACKAGE_TYPE"
   GEM_NAME="grpc-${GRPC_VERSION}-${ARCH}-${PLATFORM}.gem"
 fi
 # Create an indexed local gem source with gRPC gems to test
