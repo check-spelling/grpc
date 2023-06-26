@@ -440,7 +440,7 @@ def grpc_cc_test(name, srcs = [], deps = [], external_deps = [], args = [], data
         timeout: The test timeout.
         tags: The tags for the test.
         exec_compatible_with: A list of constraint values that must be
-            satisifed for the platform.
+            satisfied for the platform.
         exec_properties: A dictionary of strings that will be added to the
             exec_properties of a platform selected for this target.
         shard_count: The number of shards for this test.
@@ -559,7 +559,7 @@ def grpc_sh_test(name, srcs = [], args = [], data = [], uses_polling = True, siz
         timeout: The test timeout.
         tags: The tags for the test.
         exec_compatible_with: A list of constraint values that must be
-            satisifed for the platform.
+            satisfied for the platform.
         exec_properties: A dictionary of strings that will be added to the
             exec_properties of a platform selected for this target.
         shard_count: The number of shards for this test.
