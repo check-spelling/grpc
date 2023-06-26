@@ -22,7 +22,7 @@ module GRPC
   # converted to a GoogleRpcStatus due to the server not providing
   # the necessary trailers.
   # Raises an error if the server did provide the necessary trailers
-  # but they fail to deseriliaze into a GoogleRpcStatus protobuf.
+  # but they fail to deserialize into a GoogleRpcStatus protobuf.
   class GoogleRpcStatusUtils
     def self.extract_google_rpc_status(status)
       fail ArgumentError, 'bad type' unless status.is_a? Struct::Status
