@@ -36,7 +36,7 @@ proto_library(
     ],
 )
 
-# Test that .proto files can be located in strict subdiretories of the package.
+# Test that .proto files can be located in strict subdirectories of the package.
 proto_library(
     name = "hello_dep_proto",
     srcs = ["subdir/hello_dep.proto"],
