@@ -210,7 +210,7 @@ class Channel(abc.ABC):
         all cases.
 
         If a grace period is specified, this method wait until all active
-        RPCs are finshed, once the grace period is reached the ones that haven't
+        RPCs are finished, once the grace period is reached the ones that haven't
         been terminated are cancelled. If a grace period is not specified
         (by passing None for grace), all existing RPCs are cancelled immediately.
 

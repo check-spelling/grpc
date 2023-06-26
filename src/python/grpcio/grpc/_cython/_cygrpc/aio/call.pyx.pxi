@@ -235,7 +235,7 @@ cdef class _AioCall(GrpcCallWrapper):
     async def status(self):
         """Returns the status of the RPC call.
 
-        It returns the finshed status of the RPC. If the RPC
+        It returns the finished status of the RPC. If the RPC
         has not finished yet this function will wait until the RPC
         gets finished.
 
