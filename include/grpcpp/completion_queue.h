@@ -350,7 +350,7 @@ class CompletionQueue : private grpc::internal::GrpcLibrary {
   /// Performs a single polling pluck on \a tag. Calls tag->FinalizeResult if
   /// the pluck() was successful and returned the tag.
   ///
-  /// This exects tag->FinalizeResult (if called) to return 'false' i.e expects
+  /// This expects tag->FinalizeResult (if called) to return 'false' i.e expects
   /// that the tag is internal not something that is returned to the user.
   void TryPluck(grpc::internal::CompletionQueueTag* tag,
                 gpr_timespec deadline) {
