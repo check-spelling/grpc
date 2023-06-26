@@ -207,7 +207,7 @@ class XdsOverrideHostLb : public LoadBalancingPolicy {
       grpc_closure closure_;
     };
 
-    absl::optional<LoadBalancingPolicy::PickResult> PickOverridenHost(
+    absl::optional<LoadBalancingPolicy::PickResult> PickOverriddenHost(
         absl::string_view override_host);
 
     RefCountedPtr<XdsOverrideHostLb> policy_;
@@ -293,7 +293,7 @@ class XdsOverrideHostLb : public LoadBalancingPolicy {
   void UnsetSubchannel(absl::string_view key, SubchannelWrapper* subchannel);
 
   RefCountedPtr<SubchannelWrapper> GetSubchannelByAddress(
-      absl::string_view address, XdsHealthStatusSet overriden_health_statuses);
+      absl::string_view address, XdsHealthStatusSet overridden_health_statuses);
 
   void OnSubchannelConnectivityStateChange(absl::string_view subchannel_key)
       ABSL_NO_THREAD_SAFETY_ANALYSIS;  // Called from within the worker
@@ -335,7 +335,7 @@ XdsOverrideHostLb::Picker::Picker(
 }
 
 absl::optional<LoadBalancingPolicy::PickResult>
-XdsOverrideHostLb::Picker::PickOverridenHost(absl::string_view override_host) {
+XdsOverrideHostLb::Picker::PickOverriddenHost(absl::string_view override_host) {
   if (override_host.length() == 0) {
     return absl::nullopt;
   }
@@ -363,7 +363,7 @@ LoadBalancingPolicy::PickResult XdsOverrideHostLb::Picker::Pick(
   auto* override_host = static_cast<XdsOverrideHostAttribute*>(
       call_state->GetCallAttribute(XdsOverrideHostAttribute::TypeName()));
   auto overridden_host_pick =
-      PickOverridenHost(override_host != nullptr ? override_host->host_name()
+      PickOverriddenHost(override_host != nullptr ? override_host->host_name()
                                                  : absl::string_view());
   if (overridden_host_pick.has_value()) {
     return std::move(*overridden_host_pick);
@@ -570,7 +570,7 @@ void XdsOverrideHostLb::UnsetSubchannel(absl::string_view key,
 
 RefCountedPtr<XdsOverrideHostLb::SubchannelWrapper>
 XdsOverrideHostLb::GetSubchannelByAddress(
-    absl::string_view address, XdsHealthStatusSet overriden_health_statuses) {
+    absl::string_view address, XdsHealthStatusSet overridden_health_statuses) {
   MutexLock lock(&subchannel_map_mu_);
   auto it = subchannel_map_.find(address);
   if (it == subchannel_map_.end() || it->second.GetSubchannel() == nullptr) {
@@ -580,7 +580,7 @@ XdsOverrideHostLb::GetSubchannelByAddress(
     }
     return nullptr;
   }
-  if (!overriden_health_statuses.Contains(it->second.eds_health_status())) {
+  if (!overridden_health_statuses.Contains(it->second.eds_health_status())) {
     if (GRPC_TRACE_FLAG_ENABLED(grpc_lb_xds_override_host_trace)) {
       gpr_log(GPR_INFO, "Subchannel %s health status is not overridden (%s)",
               std::string(address).c_str(),
