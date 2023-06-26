@@ -80,7 +80,7 @@ class CliCall final {
   void WritesDoneAndWait();
 
   // Thread-safe Read. Blockingly receive a generic response message. Notify
-  // writes if they are finished when this read is waiting for a resposne.
+  // writes if they are finished when this read is waiting for a response.
   bool ReadAndMaybeNotifyWrite(
       std::string* response,
       IncomingMetadataContainer* server_initial_metadata);
