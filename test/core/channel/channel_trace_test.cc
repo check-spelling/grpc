@@ -143,7 +143,7 @@ TEST(ChannelTracerTest, BasicTest) {
 }
 
 // Tests more complex functionality, like a parent channel tracking
-// subchannles. This exercises the ref/unref patterns since the parent tracer
+// subchanneles. This exercises the ref/unref patterns since the parent tracer
 // and this function will both hold refs to the subchannel.
 TEST(ChannelTracerTest, ComplexTest) {
   ExecCtx exec_ctx;
