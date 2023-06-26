@@ -22,10 +22,10 @@
 #include "test/core/util/test_config.h"
 
 TEST(ServerSslTest, MainTest) {
-  // Handshake succeeeds when the client supplies the standard ALPN list.
+  // Handshake succeeds when the client supplies the standard ALPN list.
   const char* full_alpn_list[] = {"grpc-exp", "h2"};
   ASSERT_TRUE(server_ssl_test(full_alpn_list, 2, "grpc-exp"));
-  // Handshake succeeeds when the client supplies only h2 as the ALPN list. This
+  // Handshake succeeds when the client supplies only h2 as the ALPN list. This
   // covers legacy gRPC clients which don't support grpc-exp.
   const char* h2_only_alpn_list[] = {"h2"};
   ASSERT_TRUE(server_ssl_test(h2_only_alpn_list, 1, "h2"));
