@@ -223,7 +223,7 @@ We can still leverage these features to solve the problem in **five** operations
 ### Handling remaining bytes
 
 For remaining input less than 16 bytes, we will fallback to naive byte by byte approach to validate them, which is actually faster than SIMD processing.
-* Look back last 16 bytes buffer to find First Byte. At most three bytes need to look back. Otherwise we either happen to be at character boundray, or there are some errors we already detected.
+* Look back last 16 bytes buffer to find First Byte. At most three bytes need to look back. Otherwise we either happen to be at character boundary, or there are some errors we already detected.
 * Validate string byte by byte starting from the First Byte.
 
 ## Tests
