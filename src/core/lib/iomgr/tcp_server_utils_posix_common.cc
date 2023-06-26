@@ -114,7 +114,7 @@ static grpc_error_handle add_socket_to_server(grpc_tcp_server* s, int fd,
   sp->fd = fd;
   sp->emfd = grpc_fd_create(fd, name.c_str(), true);
 
-  // Check and set fd as prellocated
+  // Check and set fd as preallocated
   if (grpc_tcp_server_pre_allocated_fd(s) == fd) {
     grpc_fd_set_pre_allocated(sp->emfd);
   }
