@@ -2171,7 +2171,7 @@ def test_circuit_breaking(
     """
     Since backend service circuit_breakers configuration cannot be unset,
     which causes trouble for restoring validate_for_proxy flag in target
-    proxy/global forwarding rule. This test uses dedicated backend sevices.
+    proxy/global forwarding rule. This test uses dedicated backend services.
     The url_map and backend services undergoes the following state changes:
 
     Before test:
