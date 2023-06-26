@@ -777,7 +777,7 @@ describe 'ClientStub' do  # rubocop:disable Metrics/BlockLength
 
         it 'receives a grpc status code when writes to a bidi stream fail' do
           # This test tries to trigger the case when a 'SEND_MESSAGE' op
-          # and subseqeunt 'SEND_CLOSE_FROM_CLIENT' op of a bidi stream fails.
+          # and subsequent 'SEND_CLOSE_FROM_CLIENT' op of a bidi stream fails.
           # In this case, iteration through the response stream should result
           # in a grpc status code, and the writer thread should not raise an
           # exception.
