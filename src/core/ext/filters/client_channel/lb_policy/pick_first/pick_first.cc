@@ -198,7 +198,7 @@ class PickFirst : public LoadBalancingPolicy {
 
   void AttemptToConnectUsingLatestUpdateArgsLocked();
 
-  // Lateset update args.
+  // Latest update args.
   UpdateArgs latest_update_args_;
   // All our subchannels.
   RefCountedPtr<PickFirstSubchannelList> subchannel_list_;
