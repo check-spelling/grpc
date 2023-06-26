@@ -76,7 +76,7 @@ class Server {
   }
 
   static bool SetPayload(PayloadType type, int size, Payload* payload) {
-    // TODO(yangg): Support UNCOMPRESSABLE payload.
+    // TODO(yangg): Support UNCOMPRESSIBLE payload.
     if (type != PayloadType::COMPRESSABLE) {
       return false;
     }
