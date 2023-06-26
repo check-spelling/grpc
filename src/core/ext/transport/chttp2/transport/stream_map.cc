@@ -133,7 +133,7 @@ void* grpc_chttp2_stream_map_delete(grpc_chttp2_stream_map* map, uint32_t key) {
   GPR_DEBUG_ASSERT(out != nullptr);
   *pvalue = nullptr;
   map->free++;
-  // recognize complete emptyness and ensure we can skip
+  // recognize complete emptiness and ensure we can skip
   // defragmentation later
   if (map->free == map->count) {
     map->free = map->count = 0;
