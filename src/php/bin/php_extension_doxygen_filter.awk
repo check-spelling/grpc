@@ -143,7 +143,7 @@ inPhpMe && /ZEND_ACC_STATIC/ {
     methodStatics[method] = 1;
 }
 
-# closing bracet of PHP_ME(...)
+# closing bracket of PHP_ME(...)
 iinPhpMe && /\)$/ {
     inPhpMe = 0;
 }
@@ -156,7 +156,7 @@ $0 ~ phpConstantLineRegs {
     constantDocs[constant] = docComment;
 }
 
-# closing bracet of REGISTER_LONG_CONSTANT(...)
+# closing bracket of REGISTER_LONG_CONSTANT(...)
 inPhpConstant && /\)[ \t]*;[ \t]*$/ {
     inPhpConstant = 0;
     docComment = "";
