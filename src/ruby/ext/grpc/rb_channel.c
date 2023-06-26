@@ -744,7 +744,7 @@ static void* set_abort_channel_polling_without_gil(void* arg) {
  * https://github.com/GoogleCloudPlatform/google-cloud-ruby/issues/899.
  * Transports in idle channels can get destroyed. Normally c-core re-connects,
  * but in grpc-ruby core never gets a thread until an RPC is made, because ruby
- * only calls c-core's "completion_queu_pluck" API.
+ * only calls c-core's "completion_queue_pluck" API.
  * This uses a global background thread that calls
  * "completion_queue_next" on registered "watch_channel_connectivity_state"
  * calls - so that c-core can reconnect if needed, when there aren't any RPC's.
