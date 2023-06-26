@@ -159,7 +159,7 @@ class PerCpuCallCountingHelper {
   // It'll probably work out ok, but it's not guaranteed across allocators.
   // (in the bad case where this gets split across cachelines we'll just have
   // two cpus fighting over the same cacheline with a slight performance
-  // degregation).
+  // degredation).
   // TODO(ctiller): When we move to C++17 delete the duplicate definition.
 #if __cplusplus >= 201703L
   struct alignas(GPR_CACHELINE_SIZE) PerCpuData {
