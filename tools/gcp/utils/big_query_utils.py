@@ -86,7 +86,7 @@ def create_partitioned_table(
     partition_type="DAY",
     expiration_ms=_EXPIRATION_MS,
 ):
-    """Creates a partitioned table. By default, a date-paritioned table is created with
+    """Creates a partitioned table. By default, a date-partitioned table is created with
     each partition lasting 30 days after it was last modified.
     """
     fields = [
