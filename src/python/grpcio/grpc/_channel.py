@@ -792,7 +792,7 @@ class _MultiThreadedRendezvous(
     on the threading.Condition object in the _RPCState object.
 
     This extra thread allows _MultiThreadedRendezvous to fulfill the grpc.Future interface
-    and to mediate a bidirection streaming RPC.
+    and to mediate a bidirectional streaming RPC.
     """
 
     _state: _RPCState

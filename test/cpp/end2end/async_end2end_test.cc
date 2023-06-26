@@ -1675,7 +1675,7 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
     }
   }
 
-  // Helper for testing bidirectinal-streaming RPCs which are cancelled on the
+  // Helper for testing bidirectional-streaming RPCs which are cancelled on the
   // server.
   //
   // Depending on the value of server_try_cancel parameter, this will
