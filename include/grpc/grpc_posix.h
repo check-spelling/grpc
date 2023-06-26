@@ -49,7 +49,7 @@ GRPCAPI grpc_channel* grpc_channel_create_from_fd(
    descriptor corresponding to a connected socket. Events from the file
    descriptor may come on any of the server completion queues (i.e completion
    queues registered via the grpc_server_register_completion_queue API).
-   Note that this API currently only supports inseure server credentials
+   Note that this API currently only supports insecure server credentials
    Using other types of credentials will result in a failure.
    TODO(hork): add channel_args to this API to allow endpoints and transports
    created in this function to participate in the resource quota feature. */
