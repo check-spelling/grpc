@@ -176,8 +176,8 @@ class Test(_common.RpcTest, unittest.TestCase):
         expecteds = [
             (_common.SUCCESSFUL_OPERATION_RESULT,) * 5
         ] * _common.RPC_COUNT
-        actuallys = _common.execute_many_times(self._do_rpcs)
-        self.assertSequenceEqual(expecteds, actuallys)
+        actually = _common.execute_many_times(self._do_rpcs)
+        self.assertSequenceEqual(expecteds, actually)
 
 
 if __name__ == "__main__":
