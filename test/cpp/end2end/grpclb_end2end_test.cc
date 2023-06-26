@@ -1030,14 +1030,14 @@ TEST_F(SingleBalancerTest, InitiallyEmptyServerlist) {
   const auto t0 = system_clock::now();
   // Client will block: LB will initially send empty serverlist.
   CheckRpcSendOk(1, kCallDeadlineMs, true /* wait_for_ready */);
-  const auto ellapsed_ms =
+  const auto elapsed_ms =
       std::chrono::duration_cast<std::chrono::milliseconds>(
           system_clock::now() - t0);
   // but eventually, the LB sends a serverlist update that allows the call to
   // proceed. The call delay must be larger than the delay in sending the
   // populated serverlist but under the call's deadline (which is enforced by
   // the call's deadline).
-  EXPECT_GT(ellapsed_ms.count(), kServerlistDelayMs);
+  EXPECT_GT(elapsed_ms.count(), kServerlistDelayMs);
   balancers_[0]->service_.NotifyDoneWithServerlists();
   // The balancer got a single request.
   EXPECT_EQ(1U, balancers_[0]->service_.request_count());
