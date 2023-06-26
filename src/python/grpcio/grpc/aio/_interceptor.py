@@ -1133,7 +1133,7 @@ class UnaryStreamCallResponseIterator(
     """UnaryStreamCall class wich uses an alternative response iterator."""
 
     async def read(self) -> ResponseType:
-        # Behind the scenes everyting goes through the
+        # Behind the scenes everything goes through the
         # async iterator. So this path should not be reached.
         raise NotImplementedError()
 
@@ -1144,18 +1144,18 @@ class StreamStreamCallResponseIterator(
     """StreamStreamCall class wich uses an alternative response iterator."""
 
     async def read(self) -> ResponseType:
-        # Behind the scenes everyting goes through the
+        # Behind the scenes everything goes through the
         # async iterator. So this path should not be reached.
         raise NotImplementedError()
 
     async def write(self, request: RequestType) -> None:
-        # Behind the scenes everyting goes through the
+        # Behind the scenes everything goes through the
         # async iterator provided by the InterceptedStreamStreamCall.
         # So this path should not be reached.
         raise NotImplementedError()
 
     async def done_writing(self) -> None:
-        # Behind the scenes everyting goes through the
+        # Behind the scenes everything goes through the
         # async iterator provided by the InterceptedStreamStreamCall.
         # So this path should not be reached.
         raise NotImplementedError()
