@@ -143,7 +143,7 @@ class MpscReceiver {
   // maximum number of elements that can be queued in the center of the pipe.
   // The receiver also holds some of the buffered elements (up to half of them!)
   // so the total outstanding is equal to max_buffer_hint (unless it's 1 in
-  // which case instantaneosly we may have two elements buffered).
+  // which case instantaneously we may have two elements buffered).
   explicit MpscReceiver(size_t max_buffer_hint)
       : center_(MakeRefCounted<mpscpipe_detail::Center<T>>(
             std::max(static_cast<size_t>(1), max_buffer_hint / 2))) {}
