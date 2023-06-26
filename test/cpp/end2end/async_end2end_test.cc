@@ -234,7 +234,7 @@ bool plugin_has_sync_methods(std::unique_ptr<ServerBuilderPlugin>& plugin) {
 }
 
 // This class disables the server builder plugins that may add sync services to
-// the server. If there are sync services, UnimplementedRpc test will triger
+// the server. If there are sync services, UnimplementedRpc test will trigger
 // the sync unknown rpc routine on the server side, rather than the async one
 // that needs to be tested here.
 class ServerBuilderSyncPluginDisabler : public grpc::ServerBuilderOption {
