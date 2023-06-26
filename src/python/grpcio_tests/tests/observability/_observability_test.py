@@ -59,7 +59,7 @@ _VALID_CONFIG_STATS_ONLY_STR = """
 }
 """
 # Depends on grpc_core::IsTransportSuppliesClientLatencyEnabled,
-# the following metrcis might not exist.
+# the following metrics might not exist.
 _SKIP_VEFIRY = [_cyobservability.MetricsName.CLIENT_TRANSPORT_LATENCY]
 _SPAN_PREFIXS = ["Recv", "Sent", "Attempt"]
 
