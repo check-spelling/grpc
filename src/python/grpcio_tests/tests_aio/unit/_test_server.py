@@ -89,7 +89,7 @@ class TestServiceServicer(test_pb2_grpc.TestServiceServicer):
             else:
                 yield messages_pb2.StreamingOutputCallResponse()
 
-    # Next methods are extra ones that are registred programatically
+    # Next methods are extra ones that are registered programatically
     # when the sever is instantiated. They are not being provided by
     # the proto file.
     async def UnaryCallWithSleep(self, unused_request, unused_context):
