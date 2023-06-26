@@ -117,7 +117,7 @@ absl::Status WindowsEndpoint::AsyncIOState::DoTcpRead(SliceBuffer* buffer) {
     // Async read returned immediately with an error
     return GRPC_WSA_ERROR(
         wsa_error,
-        absl::StrFormat("WindowsEndpont::%p Read failed", this).c_str());
+        absl::StrFormat("WindowsEndpoint::%p Read failed", this).c_str());
   }
   socket->NotifyOnRead(&handle_read_event);
   return absl::OkStatus();
