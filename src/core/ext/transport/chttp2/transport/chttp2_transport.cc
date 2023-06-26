@@ -802,7 +802,7 @@ grpc_chttp2_stream::grpc_chttp2_stream(grpc_chttp2_transport* t,
                                        grpc_core::Arena* arena)
     : t(t),
       refcount(refcount),
-      reffer(this),
+      refer(this),
       initial_metadata_buffer(arena),
       trailing_metadata_buffer(arena),
       flow_control(&t->flow_control) {
