@@ -25,7 +25,7 @@ enum PayloadType {
   // Compressable text format.
   COMPRESSABLE = 0;
 
-  // Uncompressable binary format.
+  // Uncompressible binary format.
   UNCOMPRESSABLE = 1;
 
   // Randomly chosen from all other formats defined in this enum.
