@@ -546,7 +546,7 @@ TEST_P(EdsTest, AllServersUnreachableFailFast) {
   EdsResourceArgs args({{"locality0", std::move(endpoints)}});
   balancer_->ads_service()->SetEdsResource(BuildEdsResource(args));
   // The error shouldn't be DEADLINE_EXCEEDED because timeout is set to 5
-  // seconds, and we should disocver in that time that the target backend is
+  // seconds, and we should discover in that time that the target backend is
   // down.
   CheckRpcSendFailure(DEBUG_LOCATION, StatusCode::UNAVAILABLE,
                       MakeConnectionFailureRegex(
