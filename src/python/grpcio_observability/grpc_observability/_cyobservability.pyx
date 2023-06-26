@@ -218,7 +218,7 @@ def _get_stats_data(object measurement, object labels) -> _observability.StatsDa
       name -> cMetricsName
       type -> MeasurementType
       value -> {value_double: float | value_int: int}
-  labels: Labels assciociated with stats data with type of dict[str, str].
+  labels: Labels associated with stats data with type of dict[str, str].
   """
   measurement: Measurement
   labels: Mapping[str, str]
