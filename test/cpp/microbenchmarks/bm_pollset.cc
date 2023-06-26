@@ -70,7 +70,7 @@ BENCHMARK(BM_CreateDestroyPollset);
 
 #ifdef GRPC_LINUX_MULTIPOLL_WITH_EPOLL
 static void BM_PollEmptyPollset_SpeedOfLight(benchmark::State& state) {
-  // equivalent to BM_PollEmptyPollset, but just use the OS primitives to guage
+  // equivalent to BM_PollEmptyPollset, but just use the OS primitives to gauge
   // what the speed of light would be if we abstracted perfectly
   int epfd = epoll_create1(0);
   GPR_ASSERT(epfd != -1);
