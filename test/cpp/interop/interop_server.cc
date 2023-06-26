@@ -124,7 +124,7 @@ bool CheckExpectedCompression(const ServerContext& context,
     }
     if (!(inspector.WasCompressed())) {
       gpr_log(GPR_ERROR,
-              "Failure: Requested compression in a compressable request, but "
+              "Failure: Requested compression in a compressible request, but "
               "compression bit in message flags not set.");
       return false;
     }

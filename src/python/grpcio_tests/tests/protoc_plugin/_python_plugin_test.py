@@ -74,7 +74,7 @@ class _ServicerMethods(object):
     def UnaryCall(self, request, unused_rpc_context):
         response = response_pb2.SimpleResponse()
         response.payload.payload_type = payload_pb2.COMPRESSABLE
-        response.payload.payload_compressable = "a" * request.response_size
+        response.payload.payload_compressible = "a" * request.response_size
         self._control()
         return response
 
@@ -82,7 +82,7 @@ class _ServicerMethods(object):
         for parameter in request.response_parameters:
             response = response_pb2.StreamingOutputCallResponse()
             response.payload.payload_type = payload_pb2.COMPRESSABLE
-            response.payload.payload_compressable = "a" * parameter.size
+            response.payload.payload_compressible = "a" * parameter.size
             self._control()
             yield response
 
@@ -90,7 +90,7 @@ class _ServicerMethods(object):
         response = response_pb2.StreamingInputCallResponse()
         aggregated_payload_size = 0
         for request in request_iter:
-            aggregated_payload_size += len(request.payload.payload_compressable)
+            aggregated_payload_size += len(request.payload.payload_compressible)
         response.aggregated_payload_size = aggregated_payload_size
         self._control()
         return response
@@ -100,7 +100,7 @@ class _ServicerMethods(object):
             for parameter in request.response_parameters:
                 response = response_pb2.StreamingOutputCallResponse()
                 response.payload.payload_type = payload_pb2.COMPRESSABLE
-                response.payload.payload_compressable = "a" * parameter.size
+                response.payload.payload_compressible = "a" * parameter.size
                 self._control()
                 yield response
 
@@ -110,7 +110,7 @@ class _ServicerMethods(object):
             for parameter in request.response_parameters:
                 response = response_pb2.StreamingOutputCallResponse()
                 response.payload.payload_type = payload_pb2.COMPRESSABLE
-                response.payload.payload_compressable = "a" * parameter.size
+                response.payload.payload_compressible = "a" * parameter.size
                 self._control()
                 responses.append(response)
         for response in responses:
@@ -199,7 +199,7 @@ def _streaming_input_request_iterator():
     for _ in range(3):
         request = request_pb2.StreamingInputCallRequest()
         request.payload.payload_type = payload_pb2.COMPRESSABLE
-        request.payload.payload_compressable = "a"
+        request.payload.payload_compressible = "a"
         yield request
 
 
