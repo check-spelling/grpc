@@ -348,7 +348,7 @@ void WireWriterImpl::TryScheduleTransaction() {
   while (true) {
     grpc_core::MutexLock lock(&flow_control_mu_);
     if (pending_outgoing_tx_.empty()) {
-      // Nothing to be schduled.
+      // Nothing to be scheduled.
       break;
     }
     // Number of bytes we have scheduled in combiner but have not yet be
