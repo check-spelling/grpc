@@ -842,7 +842,7 @@ cdef class _ConcurrentRpcLimiter:
 
     def __cinit__(self, int maximum_concurrent_rpcs, object loop):
         if maximum_concurrent_rpcs <= 0:
-            raise ValueError("maximum_concurrent_rpcs should be a postive integer")
+            raise ValueError("maximum_concurrent_rpcs should be a positive integer")
         self._maximum_concurrent_rpcs = maximum_concurrent_rpcs
         self._active_rpcs = 0
         self._active_rpcs_condition = asyncio.Condition()
