@@ -212,7 +212,7 @@ static void test_wait(struct test* m) {
   }
 }
 
-// Get an integer thread id in the raneg 0..nthreads-1
+// Get an integer thread id in the range 0..nthreads-1
 static int thread_id(struct test* m) {
   int id;
   gpr_mu_lock(&m->mu);
