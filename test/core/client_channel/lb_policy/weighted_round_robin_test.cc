@@ -127,7 +127,7 @@ class WeightedRoundRobinTest : public TimeAwareLoadBalancingPolicyTest {
     EXPECT_EQ(ApplyUpdate(BuildUpdate(update_addresses, config_builder.Build()),
                           lb_policy_.get()),
               absl::OkStatus());
-    // Expect the initial CONNECTNG update with a picker that queues.
+    // Expect the initial CONNECTING update with a picker that queues.
     ExpectConnectingUpdate(location);
     // RR should have created a subchannel for each address.
     for (size_t i = 0; i < addresses.size(); ++i) {
