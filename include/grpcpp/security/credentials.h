@@ -301,7 +301,7 @@ grpc::Status StsCredentialsOptionsFromJson(const std::string& json_string,
 
 /// Creates STS credentials options from the $STS_CREDENTIALS environment
 /// variable. This environment variable points to the path of a JSON file
-/// comforming to the schema described above.
+/// conforming to the schema described above.
 grpc::Status StsCredentialsOptionsFromEnv(StsCredentialsOptions* options);
 
 std::shared_ptr<CallCredentials> StsCredentials(
