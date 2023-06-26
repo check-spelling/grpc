@@ -54,7 +54,7 @@
 #endif /* WIN32_LEAN_AND_MEAN */
 
 #ifndef NOMINMAX
-#define GRPC_NOMINMX_WAS_NOT_DEFINED
+#define GRPC_NOMINMAX_WAS_NOT_DEFINED
 #define NOMINMAX
 #endif /* NOMINMAX */
 
