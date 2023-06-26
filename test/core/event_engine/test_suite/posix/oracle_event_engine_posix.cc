@@ -407,7 +407,7 @@ absl::StatusOr<int> PosixOracleListener::Bind(
     return absl::UnknownError(
         absl::StrCat("Error creating socket: ", grpc_core::StrError(errno)));
   }
-  // MacOS biulds fail if SO_REUSEADDR and SO_REUSEPORT are set in the same
+  // MacOS builds fail if SO_REUSEADDR and SO_REUSEPORT are set in the same
   // setsockopt syscall. So they are set separately one after the other.
   if (setsockopt(new_socket, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt))) {
     return absl::UnknownError(absl::StrCat("Error setsockopt(SO_REUSEADDR): ",
