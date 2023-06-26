@@ -130,7 +130,7 @@ class FakeXdsTransportFactory : public XdsTransportFactory {
   // EventHandler::OnRequestSent() upon reading a request from the client.
   // If this is set to false, that behavior will be inhibited, and
   // EventHandler::OnRequestSent() will not be called until the test
-  // expicitly calls FakeStreamingCall::CompleteSendMessageFromClient().
+  // explicitly calls FakeStreamingCall::CompleteSendMessageFromClient().
   //
   // This value affects all transports created after this call is
   // complete.  Any transport that already exists prior to this call
