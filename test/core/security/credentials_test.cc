@@ -2766,7 +2766,7 @@ TEST(CredentialsTest, TestFileExternalAccountCredsSuccessFormatJson) {
 
 TEST(CredentialsTest, TestFileExternalAccountCredsFailureFileNotFound) {
   ExecCtx exec_ctx;
-  auto credential_source = JsonParse("{\"file\":\"non_exisiting_file\"}");
+  auto credential_source = JsonParse("{\"file\":\"non_existing_file\"}");
   GPR_ASSERT(credential_source.ok());
   ExternalAccountCredentials::Options options = {
       "external_account",                 // type;
