@@ -470,7 +470,7 @@ class _InterceptedStreamResponseMixin:
 
     def _init_stream_response_mixin(self) -> None:
         # Is initalized later, otherwise if the iterator is not finnally
-        # consumed a logging warning is emmited by Asyncio.
+        # consumed a logging warning is emitted by Asyncio.
         self._response_aiter = None
 
     async def _wait_for_interceptor_task_response_iterator(
