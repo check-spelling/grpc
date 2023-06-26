@@ -206,7 +206,7 @@ const char
         "\"headers\":{\"Metadata-Flavor\":\"Google\"}}";
 
 const char
-    valid_url_external_account_creds_options_credential_source_with_qurey_params_format_text
+    valid_url_external_account_creds_options_credential_source_with_query_params_format_text
         [] = "{\"url\":\"https://foo.com:5555/"
              "path/to/url/creds?p1=v1&p2=v2\","
              "\"headers\":{\"Metadata-Flavor\":\"Google\"}}";
@@ -2585,12 +2585,12 @@ TEST(CredentialsTest, TestUrlExternalAccountCredsSuccessFormatText) {
 }
 
 TEST(CredentialsTest,
-     TestUrlExternalAccountCredsSuccessWithQureyParamsFormatText) {
+     TestUrlExternalAccountCredsSuccessWithQueryParamsFormatText) {
   std::map<std::string, std::string> emd = {
       {"authorization", "Bearer token_exchange_access_token"}};
   ExecCtx exec_ctx;
   auto credential_source = JsonParse(
-      valid_url_external_account_creds_options_credential_source_with_qurey_params_format_text);
+      valid_url_external_account_creds_options_credential_source_with_query_params_format_text);
   GPR_ASSERT(credential_source.ok());
   ExternalAccountCredentials::Options options = {
       "external_account",                 // type;
