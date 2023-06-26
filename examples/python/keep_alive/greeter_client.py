@@ -60,7 +60,7 @@ def run():
         unary_call(stub, 1, "you")
 
         # Run 30s, run this with GRPC_VERBOSITY=DEBUG GRPC_TRACE=http_keepalive to observe logs.
-        # Client will be closed after receveing GOAWAY from server.
+        # Client will be closed after receiving GOAWAY from server.
         for i in range(30):
             print(f"{i} seconds passed.")
             sleep(1)
