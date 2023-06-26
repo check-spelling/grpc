@@ -1451,7 +1451,7 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
     bool want_done_tag = false;
     std::thread* server_try_cancel_thd = nullptr;
 
-    auto verif = Verifier();
+    auto verifier = Verifier();
 
     if (server_try_cancel == CANCEL_DURING_PROCESSING) {
       server_try_cancel_thd =
@@ -1464,7 +1464,7 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
       // Expect that we might possibly see the done tag that
       // indicates cancellation completion in this case
       want_done_tag = true;
-      verif.Expect(11, true);
+      verifier.Expect(11, true);
     }
 
     // Server reads 3 messages (tags 6, 7 and 8)
@@ -1474,14 +1474,14 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
       // Note that we'll add something to the verifier and verify that
       // something was seen, but it might be tag 11 and not what we
       // just added
-      int got_tag = verif.Expect(tag_idx, expected_server_cq_result)
+      int got_tag = verifier.Expect(tag_idx, expected_server_cq_result)
                         .Next(cq_.get(), ignore_cq_result);
       GPR_ASSERT((got_tag == tag_idx) || (got_tag == 11 && want_done_tag));
       if (got_tag == 11) {
         EXPECT_TRUE(srv_ctx.IsCancelled());
         want_done_tag = false;
         // Now get the other entry that we were waiting on
-        EXPECT_EQ(verif.Next(cq_.get(), ignore_cq_result), tag_idx);
+        EXPECT_EQ(verifier.Next(cq_.get(), ignore_cq_result), tag_idx);
       }
     }
 
@@ -1495,11 +1495,11 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
     if (server_try_cancel == CANCEL_AFTER_PROCESSING) {
       srv_ctx.TryCancel();
       want_done_tag = true;
-      verif.Expect(11, true);
+      verifier.Expect(11, true);
     }
 
     if (want_done_tag) {
-      verif.Verify(cq_.get());
+      verifier.Verify(cq_.get());
       EXPECT_TRUE(srv_ctx.IsCancelled());
       want_done_tag = false;
     }
@@ -1599,7 +1599,7 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
 
     std::thread* server_try_cancel_thd = nullptr;
 
-    auto verif = Verifier();
+    auto verifier = Verifier();
 
     if (server_try_cancel == CANCEL_DURING_PROCESSING) {
       server_try_cancel_thd =
@@ -1613,7 +1613,7 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
       // Expect that we might possibly see the done tag that
       // indicates cancellation completion in this case
       want_done_tag = true;
-      verif.Expect(11, true);
+      verifier.Expect(11, true);
     }
 
     // Server sends three messages (tags 3, 4 and 5)
@@ -1624,14 +1624,14 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
       // Note that we'll add something to the verifier and verify that
       // something was seen, but it might be tag 11 and not what we
       // just added
-      int got_tag = verif.Expect(tag_idx, expected_cq_result)
+      int got_tag = verifier.Expect(tag_idx, expected_cq_result)
                         .Next(cq_.get(), ignore_cq_result);
       GPR_ASSERT((got_tag == tag_idx) || (got_tag == 11 && want_done_tag));
       if (got_tag == 11) {
         EXPECT_TRUE(srv_ctx.IsCancelled());
         want_done_tag = false;
         // Now get the other entry that we were waiting on
-        EXPECT_EQ(verif.Next(cq_.get(), ignore_cq_result), tag_idx);
+        EXPECT_EQ(verifier.Next(cq_.get(), ignore_cq_result), tag_idx);
       }
     }
 
@@ -1643,11 +1643,11 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
     if (server_try_cancel == CANCEL_AFTER_PROCESSING) {
       srv_ctx.TryCancel();
       want_done_tag = true;
-      verif.Expect(11, true);
+      verifier.Expect(11, true);
     }
 
     if (want_done_tag) {
-      verif.Verify(cq_.get());
+      verifier.Verify(cq_.get());
       EXPECT_TRUE(srv_ctx.IsCancelled());
       want_done_tag = false;
     }
@@ -1713,12 +1713,12 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
                                 tag(2));
     Verifier().Expect(1, true).Expect(2, true).Verify(cq_.get());
 
-    auto verif = Verifier();
+    auto verifier = Verifier();
 
     // Client sends the first and the only message
     send_request.set_message("Ping");
     cli_stream->Write(send_request, tag(3));
-    verif.Expect(3, true);
+    verifier.Expect(3, true);
 
     bool expected_cq_result = true;
     bool ignore_cq_result = false;
@@ -1729,7 +1729,7 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
 
     if (server_try_cancel == CANCEL_BEFORE_PROCESSING) {
       srv_ctx.TryCancel();
-      verif.Expect(11, true);
+      verifier.Expect(11, true);
       // We know for sure that all server cq results will be false from
       // this point since the server cancelled the RPC. However, we can't
       // say for sure about the client
@@ -1737,7 +1737,7 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
       ignore_cq_result = true;
 
       do {
-        got_tag = verif.Next(cq_.get(), ignore_cq_result);
+        got_tag = verifier.Next(cq_.get(), ignore_cq_result);
         GPR_ASSERT(((got_tag == 3) && !tag_3_done) || (got_tag == 11));
         if (got_tag == 3) {
           tag_3_done = true;
@@ -1759,13 +1759,13 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
       // Expect that we might possibly see the done tag that
       // indicates cancellation completion in this case
       want_done_tag = true;
-      verif.Expect(11, true);
+      verifier.Expect(11, true);
     }
 
     srv_stream.Read(&recv_request, tag(4));
-    verif.Expect(4, expected_cq_result);
-    got_tag = tag_3_done ? 3 : verif.Next(cq_.get(), ignore_cq_result);
-    got_tag2 = verif.Next(cq_.get(), ignore_cq_result);
+    verifier.Expect(4, expected_cq_result);
+    got_tag = tag_3_done ? 3 : verifier.Next(cq_.get(), ignore_cq_result);
+    got_tag2 = verifier.Next(cq_.get(), ignore_cq_result);
     GPR_ASSERT((got_tag == 3) || (got_tag == 4) ||
                (got_tag == 11 && want_done_tag));
     GPR_ASSERT((got_tag2 == 3) || (got_tag2 == 4) ||
@@ -1775,18 +1775,18 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
     if (got_tag + got_tag2 != 7) {
       EXPECT_TRUE(srv_ctx.IsCancelled());
       want_done_tag = false;
-      got_tag = verif.Next(cq_.get(), ignore_cq_result);
+      got_tag = verifier.Next(cq_.get(), ignore_cq_result);
       GPR_ASSERT((got_tag == 3) || (got_tag == 4));
     }
 
     send_response.set_message("Pong");
     srv_stream.Write(send_response, tag(5));
-    verif.Expect(5, expected_cq_result);
+    verifier.Expect(5, expected_cq_result);
 
     cli_stream->Read(&recv_response, tag(6));
-    verif.Expect(6, expected_cq_result);
-    got_tag = verif.Next(cq_.get(), ignore_cq_result);
-    got_tag2 = verif.Next(cq_.get(), ignore_cq_result);
+    verifier.Expect(6, expected_cq_result);
+    got_tag = verifier.Next(cq_.get(), ignore_cq_result);
+    got_tag2 = verifier.Next(cq_.get(), ignore_cq_result);
     GPR_ASSERT((got_tag == 5) || (got_tag == 6) ||
                (got_tag == 11 && want_done_tag));
     GPR_ASSERT((got_tag2 == 5) || (got_tag2 == 6) ||
@@ -1796,24 +1796,24 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
     if (got_tag + got_tag2 != 11) {
       EXPECT_TRUE(srv_ctx.IsCancelled());
       want_done_tag = false;
-      got_tag = verif.Next(cq_.get(), ignore_cq_result);
+      got_tag = verifier.Next(cq_.get(), ignore_cq_result);
       GPR_ASSERT((got_tag == 5) || (got_tag == 6));
     }
 
     // This is expected to succeed in all cases
     cli_stream->WritesDone(tag(7));
-    verif.Expect(7, true);
+    verifier.Expect(7, true);
     // TODO(vjpai): Consider whether the following is too flexible
     // or whether it should just be reset to ignore_cq_result
     bool ignore_cq_wd_result =
         ignore_cq_result || (server_try_cancel == CANCEL_BEFORE_PROCESSING);
-    got_tag = verif.Next(cq_.get(), ignore_cq_wd_result);
+    got_tag = verifier.Next(cq_.get(), ignore_cq_wd_result);
     GPR_ASSERT((got_tag == 7) || (got_tag == 11 && want_done_tag));
     if (got_tag == 11) {
       EXPECT_TRUE(srv_ctx.IsCancelled());
       want_done_tag = false;
       // Now get the other entry that we were waiting on
-      EXPECT_EQ(verif.Next(cq_.get(), ignore_cq_wd_result), 7);
+      EXPECT_EQ(verifier.Next(cq_.get(), ignore_cq_wd_result), 7);
     }
 
     // This is expected to fail in all cases i.e for all values of
@@ -1821,14 +1821,14 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
     // more msgs from the client (because client called WritesDone) or the RPC
     // is cancelled on the server
     srv_stream.Read(&recv_request, tag(8));
-    verif.Expect(8, false);
-    got_tag = verif.Next(cq_.get(), ignore_cq_result);
+    verifier.Expect(8, false);
+    got_tag = verifier.Next(cq_.get(), ignore_cq_result);
     GPR_ASSERT((got_tag == 8) || (got_tag == 11 && want_done_tag));
     if (got_tag == 11) {
       EXPECT_TRUE(srv_ctx.IsCancelled());
       want_done_tag = false;
       // Now get the other entry that we were waiting on
-      EXPECT_EQ(verif.Next(cq_.get(), ignore_cq_result), 8);
+      EXPECT_EQ(verifier.Next(cq_.get(), ignore_cq_result), 8);
     }
 
     if (server_try_cancel_thd != nullptr) {
@@ -1839,11 +1839,11 @@ class AsyncEnd2endServerTryCancelTest : public AsyncEnd2endTest {
     if (server_try_cancel == CANCEL_AFTER_PROCESSING) {
       srv_ctx.TryCancel();
       want_done_tag = true;
-      verif.Expect(11, true);
+      verifier.Expect(11, true);
     }
 
     if (want_done_tag) {
-      verif.Verify(cq_.get());
+      verifier.Verify(cq_.get());
       EXPECT_TRUE(srv_ctx.IsCancelled());
       want_done_tag = false;
     }
