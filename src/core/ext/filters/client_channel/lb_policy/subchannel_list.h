@@ -244,7 +244,7 @@ class SubchannelList : public DualRefCounted<SubchannelListType> {
 };
 
 //
-// implementation -- no user-servicable parts below
+// implementation -- no user-serviceable parts below
 //
 
 //
