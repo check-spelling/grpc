@@ -52,7 +52,7 @@ void ForceEnableExperiment(absl::string_view experiment_name, bool enable);
 struct ExperimentMetadata {
   const char* name;
   const char* description;
-  const char* additional_constaints;
+  const char* additional_constraints;
   bool default_value;
   bool allow_in_fuzzing_config;
 };
