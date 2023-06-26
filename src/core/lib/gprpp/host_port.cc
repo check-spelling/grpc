@@ -78,7 +78,7 @@ bool DoSplitHostPort(absl::string_view name, absl::string_view* host,
       *port = name.substr(colon + 1, name.size() - colon - 1);
       *has_port = true;
     } else {
-      // 0 or 2+ colons.  Bare hostname or IPv6 litearal.
+      // 0 or 2+ colons.  Bare hostname or IPv6 literal.
       *host = name;
       *port = absl::string_view();
     }
