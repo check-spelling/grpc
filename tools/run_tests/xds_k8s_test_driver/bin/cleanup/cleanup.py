@@ -492,7 +492,7 @@ def main(argv):
     dry_run: bool = DRY_RUN.value
 
     td_resource_rules = [
-        # itmes in each tuple, in order
+        # items in each tuple, in order
         # - regex to match
         # - prefix of the resource (only used by gke resources)
         # - function to check of the resource should be kept
