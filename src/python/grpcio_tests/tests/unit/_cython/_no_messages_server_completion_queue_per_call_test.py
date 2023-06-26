@@ -173,11 +173,11 @@ class Test(_common.RpcTest, unittest.TestCase):
         )
 
     def test_rpcs(self):
-        expecteds = [
+        expected = [
             (_common.SUCCESSFUL_OPERATION_RESULT,) * 5
         ] * _common.RPC_COUNT
         actually = _common.execute_many_times(self._do_rpcs)
-        self.assertSequenceEqual(expecteds, actually)
+        self.assertSequenceEqual(expected, actually)
 
 
 if __name__ == "__main__":
