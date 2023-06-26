@@ -169,7 +169,7 @@ GcpObservabilityConfig ReadAndActivateObservabilityConfig() {
     }
   }
 
-  // Clound logging
+  // Cloud logging
   if (config->cloud_logging.has_value()) {
     // TODO(xuanwn): Read cloud logging config
   }
