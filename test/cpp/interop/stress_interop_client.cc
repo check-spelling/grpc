@@ -47,7 +47,7 @@ WeightedRandomTestSelector::WeightedRandomTestSelector(
 }
 
 // Returns a weighted-randomly selected test case based on the test weights
-// passed in the constructror
+// passed in the constructor
 TestCaseType WeightedRandomTestSelector::GetNextTest() const {
   int random = 0;
   TestCaseType selected_test = UNKNOWN_TEST;
