@@ -711,7 +711,7 @@ static grpc_error_handle process_epoll_events(grpc_pollset* /*pollset*/) {
 
 // NOTE ON SYNCHRONIZATION: At any point of time, only the g_active_poller
 // (i.e the designated poller thread) will be calling this function. So there is
-// no need for any synchronization when accesing fields in g_epoll_set
+// no need for any synchronization when accessing fields in g_epoll_set
 static grpc_error_handle do_epoll_wait(grpc_pollset* ps,
                                        grpc_core::Timestamp deadline) {
   int r;
