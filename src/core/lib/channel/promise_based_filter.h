@@ -745,7 +745,7 @@ class ServerCallData : public BaseCallData {
   //   - return a wrapper around PollTrailingMetadata as the promise.
   ArenaPromise<ServerMetadataHandle> MakeNextPromise(CallArgs call_args);
   // Wrapper to make it look like we're calling the next filter as a promise.
-  // All polls: await sending the trailing metadata, then foward it down the
+  // All polls: await sending the trailing metadata, then forward it down the
   // stack.
   Poll<ServerMetadataHandle> PollTrailingMetadata();
   static void RecvInitialMetadataReadyCallback(void* arg,
