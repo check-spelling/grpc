@@ -326,15 +326,15 @@ void ExternalAccountCredentials::ExchangeToken(
     scope = absl::StrJoin(scopes_, " ");
   }
   body_parts.push_back(absl::StrFormat("scope=%s", UrlEncode(scope).c_str()));
-  Json::Object addtional_options_json_object;
+  Json::Object additional_options_json_object;
   if (options_.client_id.empty() && options_.client_secret.empty()) {
-    addtional_options_json_object["userProject"] =
+    additional_options_json_object["userProject"] =
         Json::FromString(options_.workforce_pool_user_project);
   }
-  Json addtional_options_json =
-      Json::FromObject(std::move(addtional_options_json_object));
+  Json additional_options_json =
+      Json::FromObject(std::move(additional_options_json_object));
   body_parts.push_back(absl::StrFormat(
-      "options=%s", UrlEncode(JsonDump(addtional_options_json)).c_str()));
+      "options=%s", UrlEncode(JsonDump(additional_options_json)).c_str()));
   std::string body = absl::StrJoin(body_parts, "&");
   request.body = const_cast<char*>(body.c_str());
   request.body_length = body.size();
