@@ -260,11 +260,11 @@ static void gsec_test_multiple_random_encrypt_decrypt(
 
   size_t* ciphertext_and_tag_lengths =
       static_cast<size_t*>(gpr_malloc(sizeof(size_t) * count));
-  size_t* ciphertext_bytes_writtens =
+  size_t* ciphertext_bytes_written =
       static_cast<size_t*>(gpr_malloc(sizeof(size_t) * count));
   size_t* plaintext_lengths =
       static_cast<size_t*>(gpr_malloc(sizeof(size_t) * count));
-  size_t* plaintext_bytes_writtens =
+  size_t* plaintext_bytes_written =
       static_cast<size_t*>(gpr_malloc(sizeof(size_t) * count));
   uint8_t** ciphertext_and_tags =
       static_cast<uint8_t**>(gpr_malloc(sizeof(uint8_t*) * count));
@@ -283,11 +283,11 @@ static void gsec_test_multiple_random_encrypt_decrypt(
     grpc_status_code status = gsec_aead_crypter_encrypt(
         crypter, nonces[ind], nonce_length, aads[ind], aad_length,
         messages[ind], message_length, ciphertext_and_tags[ind],
-        ciphertext_and_tag_lengths[ind], &(ciphertext_bytes_writtens[ind]),
+        ciphertext_and_tag_lengths[ind], &(ciphertext_bytes_written[ind]),
         nullptr);
     ASSERT_EQ(status, GRPC_STATUS_OK);
     ASSERT_EQ(message_length + tag_length, ciphertext_and_tag_lengths[ind]);
-    ASSERT_EQ(ciphertext_bytes_writtens[ind], ciphertext_and_tag_lengths[ind]);
+    ASSERT_EQ(ciphertext_bytes_written[ind], ciphertext_and_tag_lengths[ind]);
   }
   // Do Decryption
   for (ind = 0; ind < count; ind++) {
@@ -295,16 +295,16 @@ static void gsec_test_multiple_random_encrypt_decrypt(
     size_t message_length =
         (message_lengths == nullptr) ? 0 : message_lengths[ind];
     gsec_aead_crypter_max_plaintext_length(crypter,
-                                           ciphertext_bytes_writtens[ind],
+                                           ciphertext_bytes_written[ind],
                                            &(plaintext_lengths[ind]), nullptr);
     plaintexts[ind] = static_cast<uint8_t*>(gpr_malloc(plaintext_lengths[ind]));
     grpc_status_code status = gsec_aead_crypter_decrypt(
         crypter, nonces[ind], nonce_length, aads[ind], aad_length,
-        ciphertext_and_tags[ind], ciphertext_bytes_writtens[ind],
+        ciphertext_and_tags[ind], ciphertext_bytes_written[ind],
         plaintexts[ind], plaintext_lengths[ind],
-        &(plaintext_bytes_writtens[ind]), nullptr);
+        &(plaintext_bytes_written[ind]), nullptr);
     ASSERT_EQ(status, GRPC_STATUS_OK);
-    ASSERT_EQ(message_length, plaintext_bytes_writtens[ind]);
+    ASSERT_EQ(message_length, plaintext_bytes_written[ind]);
     if (message_length != 0) {
       ASSERT_EQ(memcmp(messages[ind], plaintexts[ind], message_length), 0);
     }
@@ -360,7 +360,7 @@ static void gsec_test_multiple_random_encrypt_decrypt(
     struct iovec* ciphertext_vecs = nullptr;
     size_t ciphertext_vecs_length = 0;
     gsec_randomly_slice(ciphertext_and_tags[ind],
-                        ciphertext_bytes_writtens[ind], &ciphertext_vecs,
+                        ciphertext_bytes_written[ind], &ciphertext_vecs,
                         &ciphertext_vecs_length);
 
     size_t decrypted_length = plaintext_lengths[ind];
@@ -394,9 +394,9 @@ static void gsec_test_multiple_random_encrypt_decrypt(
   gpr_free(aads);
   gpr_free(messages);
   gpr_free(ciphertext_and_tag_lengths);
-  gpr_free(ciphertext_bytes_writtens);
+  gpr_free(ciphertext_bytes_written);
   gpr_free(plaintext_lengths);
-  gpr_free(plaintext_bytes_writtens);
+  gpr_free(plaintext_bytes_written);
   gpr_free(ciphertext_and_tags);
   gpr_free(plaintexts);
 }
