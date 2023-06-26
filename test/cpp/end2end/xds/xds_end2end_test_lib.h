@@ -866,7 +866,7 @@ class XdsEnd2endTest : public ::testing::TestWithParam<XdsTestType> {
                            const RpcOptions& rpc_options = RpcOptions());
 
   // Sends num_rpcs RPCs, counting how many of them fail with a message
-  // matching the specfied expected_message_prefix.
+  // matching the specified expected_message_prefix.
   // Any failure with a non-matching status or message is a test failure.
   size_t SendRpcsAndCountFailuresWithMessage(
       const grpc_core::DebugLocation& debug_location, size_t num_rpcs,
