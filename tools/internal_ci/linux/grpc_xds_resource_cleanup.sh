@@ -43,7 +43,7 @@ python3 -m bin.cleanup.cleanup \
 # namespaces, which won't provide much value in debugging. The keep hours is
 # reduced to 6.
 activate_gke_cluster GKE_CLUSTER_PSM_BASIC
-# Invoking the get-crednetials directly, because the
+# Invoking the get-credentials directly, because the
 # gcloud_get_cluster_credentials re-sets readonly Bash variables, which is nice
 # safety mechanism to keep.
 gcloud container clusters get-credentials "${GKE_CLUSTER_NAME}" --zone "${GKE_CLUSTER_ZONE}"
