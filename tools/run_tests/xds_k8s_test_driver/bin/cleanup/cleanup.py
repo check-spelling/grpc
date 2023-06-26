@@ -275,10 +275,10 @@ def remove_relative_resources_run_xds_tests(
     )
 
 
-# cleanup_td creates TrafficDirectorManager (and its varients for security and
+# cleanup_td creates TrafficDirectorManager (and its variants for security and
 # AppNet), and then calls the cleanup() methods.
 #
-# Note that the varients are all based on the basic TrafficDirectorManager, so
+# Note that the variants are all based on the basic TrafficDirectorManager, so
 # their `cleanup()` might do duplicate work. But deleting an non-exist resource
 # returns 404, and is OK.
 def cleanup_td_for_gke(project, network, resource_prefix, resource_suffix):
