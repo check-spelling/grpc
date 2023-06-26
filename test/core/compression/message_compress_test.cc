@@ -39,13 +39,13 @@ typedef enum {
   SHOULD_NOT_COMPRESS,
   SHOULD_COMPRESS,
   MAYBE_COMPRESSES
-} compressability;
+} compressibility;
 
 static void assert_passthrough(grpc_slice value,
                                grpc_compression_algorithm algorithm,
                                grpc_slice_split_mode uncompressed_split_mode,
                                grpc_slice_split_mode compressed_split_mode,
-                               compressability compress_result_check) {
+                               compressibility compress_result_check) {
   grpc_slice_buffer input;
   grpc_slice_buffer compressed_raw;
   grpc_slice_buffer compressed;
@@ -111,7 +111,7 @@ static grpc_slice repeated(char c, size_t length) {
   return out;
 }
 
-static compressability get_compressability(
+static compressibility get_compressibility(
     test_value id, grpc_compression_algorithm algorithm) {
   if (algorithm == GRPC_COMPRESS_NONE) return SHOULD_NOT_COMPRESS;
   switch (id) {
@@ -321,7 +321,7 @@ int main(int argc, char** argv) {
               slice, static_cast<grpc_compression_algorithm>(i),
               static_cast<grpc_slice_split_mode>(j),
               static_cast<grpc_slice_split_mode>(k),
-              get_compressability(static_cast<test_value>(m),
+              get_compressibility(static_cast<test_value>(m),
                                   static_cast<grpc_compression_algorithm>(i)));
           grpc_slice_unref(slice);
         }
