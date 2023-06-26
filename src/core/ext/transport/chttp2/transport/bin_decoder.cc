@@ -142,7 +142,7 @@ bool grpc_base64_decode_partial(struct grpc_base64_decode_context* ctx) {
     }
 
   } else if (ctx->contains_tail && input_tail > 1) {
-    // Process the input data without pad chars, but constains_tail is set
+    // Process the input data without pad chars, but contains_tail is set
     if (ctx->output_end >= ctx->output_cur + tail_xtra[input_tail]) {
       if (!input_is_valid(ctx->input_cur, input_tail)) return false;
       switch (input_tail) {
