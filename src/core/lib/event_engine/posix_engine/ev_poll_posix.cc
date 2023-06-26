@@ -383,7 +383,7 @@ void PollEventHandle::OrphanHandle(PosixEngineClosure* on_done, int* release_fd,
     if (!IsWatched()) {
       CloseFd();
     } else {
-      // It is watched i.e we cannot take action wihout breaking from the
+      // It is watched i.e we cannot take action without breaking from the
       // blocking poll. Mark it as Unwatched and kick the thread executing
       // Work(...). That thread should proceed with the cleanup.
       SetWatched(-1);
