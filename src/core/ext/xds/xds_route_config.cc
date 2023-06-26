@@ -1041,7 +1041,7 @@ XdsRouteConfigResource XdsRouteConfigResource::Parse(
     const envoy_config_route_v3_RouteConfiguration* route_config,
     ValidationErrors* errors) {
   XdsRouteConfigResource rds_update;
-  // Get the cluster spcifier plugin map.
+  // Get the cluster specifier plugin map.
   if (XdsRlsEnabled()) {
     rds_update.cluster_specifier_plugin_map =
         ClusterSpecifierPluginParse(context, route_config, errors);
