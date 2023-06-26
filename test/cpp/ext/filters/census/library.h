@@ -158,7 +158,7 @@ class StatsPluginEnd2EndTest : public ::testing::Test {
   }
 
   void SetUp() override {
-    // Set up a synchronous server on a different thread to avoid the asynch
+    // Set up a synchronous server on a different thread to avoid the async
     // interface.
     grpc::ServerBuilder builder;
     int port;
