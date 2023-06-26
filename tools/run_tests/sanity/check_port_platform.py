@@ -52,7 +52,7 @@ def check_port_platform_inclusion(directory_root, legal_list):
                             bad_files.append(path)
                         elif all_lines_in_file[index + 1] != "\n":
                             # Require a blank line after including port_platform.h in
-                            # order to prevent the formatter from reording it's
+                            # order to prevent the formatter from reording its
                             # inclusion order upon future changes.
                             bad_files.append(path)
                         break
