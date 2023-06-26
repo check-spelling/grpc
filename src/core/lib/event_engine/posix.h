@@ -47,7 +47,7 @@ class PosixEndpointWithFdSupport : public EventEngine::Endpoint {
   /// Read/Write operations until endpoint deletion should fail with an
   /// appropriate absl::Status.
   ///
-  /// \a on_release_fd - If specifed, the callback is invoked when the
+  /// \a on_release_fd - If specified, the callback is invoked when the
   /// endpoint is destroyed/deleted. The underlying file descriptor is
   /// released instead of being closed. The callback will get the released
   /// file descriptor as its argument if the release operation is successful.
