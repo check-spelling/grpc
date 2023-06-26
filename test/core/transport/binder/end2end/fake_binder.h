@@ -153,7 +153,7 @@ class PersistentFakeTransactionReceiver;
 // A fake transaction receiver.
 //
 // This is the receiving part of a pair of binders. When constructed, a binder
-// tunnle is created, and the sending part can be retrieved by calling
+// tunnel is created, and the sending part can be retrieved by calling
 // GetSender().
 //
 // It also provides a Receive() function to simulate the on-transaction
