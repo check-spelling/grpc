@@ -99,7 +99,7 @@ struct StatsWatchers {
   // Stores a set of watchers that should be notified upon outgoing RPC
   // completion
   std::set<XdsStatsWatcher*> watchers;
-  // Global watcher for accumululated stats.
+  // Global watcher for accumulated stats.
   XdsStatsWatcher* global_watcher;
   // Mutex for global_request_id and watchers
   std::mutex mu;
