@@ -17,7 +17,7 @@
 //
 
 // This is a sample openSSL engine which tests the openSSL
-// engine plugability with gRPC.
+// engine pluggability with gRPC.
 // This sample engine expects KeyId to be actual PEM encoded
 // key itself and just calls standard openSSL functions.
 
