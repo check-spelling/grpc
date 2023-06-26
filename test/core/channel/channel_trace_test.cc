@@ -291,7 +291,7 @@ TEST(ChannelTracerTest, TestMultipleEviction) {
   }
   // at this point the list is full, and each subsequent entry will cause an
   // eviction. We will now add in a trace event that has a copied string. This
-  // uses more memory, so it will cause a double eviciction
+  // uses more memory, so it will cause a double eviction
   tracer.AddTraceEvent(
       ChannelTrace::Severity::Info,
       grpc_slice_from_copied_string(
