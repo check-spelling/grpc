@@ -438,7 +438,7 @@ def _compute_transitive_metadata(
                 )
     # This item is a "visited" flag
     bazel_rule["_PROCESSING_DONE"] = True
-    # Following items are described in the docstinrg.
+    # Following items are described in the docstring.
     bazel_rule["_TRANSITIVE_DEPS"] = list(sorted(transitive_deps))
     bazel_rule["_COLLAPSED_DEPS"] = list(sorted(collapsed_deps))
     bazel_rule["_COLLAPSED_SRCS"] = list(sorted(collapsed_srcs))
