@@ -37,7 +37,7 @@ def well_known_proto_libs():
     return ["@com_google_protobuf//:" + b for b in _WELL_KNOWN_PROTOS_BASE]
 
 def is_well_known(label):
-    # Bazel surfaces labels as their undelying identity, even if they are referenced
+    # Bazel surfaces labels as their underlying identity, even if they are referenced
     # via aliases. Bazel also does not currently provide a way to find the real label
     # underlying an alias. So the implementation detail that the WKTs present at the
     # top level of the protobuf repo are actually backed by targets in the
