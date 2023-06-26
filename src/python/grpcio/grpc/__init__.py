@@ -724,7 +724,7 @@ class UnaryUnaryMultiCallable(abc.ABC):
 
         Args:
           request: The request value for the RPC.
-          timeout: An optional durating of time in seconds to allow for
+          timeout: An optional duration of time in seconds to allow for
             the RPC.
           metadata: Optional :term:`metadata` to be transmitted to the
             service-side of the RPC.
