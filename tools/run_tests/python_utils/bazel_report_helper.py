@@ -191,7 +191,7 @@ def _create_bazel_wrapper(
         else:
             upload_results_lines = []
 
-        outro_lines = [
+        footer_lines = [
             'if [ "$FAILED" != "" ]',
             "then",
             "  exit 1",
@@ -207,7 +207,7 @@ def _create_bazel_wrapper(
 
         lines = [
             line + "\n"
-            for line in intro_lines + upload_results_lines + outro_lines
+            for line in intro_lines + upload_results_lines + footer_lines
         ]
         f.writelines(lines)
     os.chmod(bazel_wrapper_filename, 0o775)  # make the unix wrapper executable
@@ -232,7 +232,7 @@ def _create_bazel_wrapper(
         else:
             upload_results_lines = []
 
-        outro_lines = [
+        footer_lines = [
             "if %BAZEL_EXITCODE% == 0 (",
             (
                 "  @rem success: plant the pre-generated xml report that says"
@@ -246,7 +246,7 @@ def _create_bazel_wrapper(
 
         lines = [
             line + "\n"
-            for line in intro_lines + upload_results_lines + outro_lines
+            for line in intro_lines + upload_results_lines + footer_lines
         ]
         f.writelines(lines)
 
