@@ -936,7 +936,7 @@ TEST_P(RingHashTest, TransientFailureCheckNextOne) {
 // Test that when a backend goes down, we will move on to the next subchannel
 // (with a lower priority).  When the backend comes back up, traffic will move
 // back.
-TEST_P(RingHashTest, SwitchToLowerPrioirtyAndThenBack) {
+TEST_P(RingHashTest, SwitchToLowerPriorityAndThenBack) {
   CreateAndStartBackends(2);
   auto cluster = default_cluster_;
   cluster.set_lb_policy(Cluster::RING_HASH);
