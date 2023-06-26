@@ -724,7 +724,7 @@ describe 'ClientStub' do  # rubocop:disable Metrics/BlockLength
                                          requests_to_push,
                                          request_queue,
                                          expected_error_message)
-          # the write loop errror should cancel the call and end the
+          # the write loop error should cancel the call and end the
           # server's request stream
           th.join
         end
