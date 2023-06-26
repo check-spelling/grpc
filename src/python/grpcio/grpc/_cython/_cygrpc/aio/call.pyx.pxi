@@ -384,7 +384,7 @@ cdef class _AioCall(GrpcCallWrapper):
                            bytes request,
                            tuple outbound_initial_metadata):
         """Implementation of the start of a unary-stream call."""
-        # Peer may prematurely end this RPC at any point. We need a corutine
+        # Peer may prematurely end this RPC at any point. We need a coroutine
         # that watches if the server sends the final status.
         status_task = self._loop.create_task(self._handle_status_once_received())
 
@@ -483,7 +483,7 @@ cdef class _AioCall(GrpcCallWrapper):
         propagate the final status exception, then we have to raise it.
         Othersize, it would end normally and raise `StopAsyncIteration()`.
         """
-        # Peer may prematurely end this RPC at any point. We need a corutine
+        # Peer may prematurely end this RPC at any point. We need a coroutine
         # that watches if the server sends the final status.
         status_task = self._loop.create_task(self._handle_status_once_received())
 
