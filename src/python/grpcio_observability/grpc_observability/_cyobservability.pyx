@@ -166,7 +166,7 @@ def _c_measurement_to_measurement(object measurement
   """Convert Cython Measurement to Python measurement.
 
   Args:
-  measurement: Actual measurement repesented by Cython type Measurement, using object here
+  measurement: Actual measurement represented by Cython type Measurement, using object here
    since Cython refuse to automatically convert a union with unsafe type combinations.
 
   Returns:
