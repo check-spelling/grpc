@@ -89,7 +89,7 @@ class WireWriterImpl : public WireWriter {
                            WritableParcel* parcel, bool* is_last_chunk)
       ABSL_EXCLUSIVE_LOCKS_REQUIRED(write_mu_);
 
-  // Schdule `RunScheduledTxArgs*` in `pending_outgoing_tx_` to `combiner_`, as
+  // Schedule `RunScheduledTxArgs*` in `pending_outgoing_tx_` to `combiner_`, as
   // many as possible (under the constraint of `kFlowControlWindowSize`).
   void TryScheduleTransaction();
 
