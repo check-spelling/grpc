@@ -171,7 +171,7 @@ absl::Status ConnectionManager::BindAndStartListener(
     if (listeners_.find(addr) != listeners_.end()) {
       // There is already a listener at this address. Return error.
       return absl::AlreadyExistsError(
-          absl::StrCat("Listener already existis for address: ", addr));
+          absl::StrCat("Listener already exists for address: ", addr));
     }
   }
   EventEngine::Listener::AcceptCallback accept_cb =
