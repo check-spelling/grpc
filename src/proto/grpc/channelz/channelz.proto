@@ -401,7 +401,7 @@ message SocketOptionTcpInfo {
   uint32 tcpi_sacked = 14;
   uint32 tcpi_lost = 15;
   uint32 tcpi_retrans = 16;
-  uint32 tcpi_fackets = 17;
+  uint32 tcpi_packets = 17;
 
   uint32 tcpi_last_data_sent = 18;
   uint32 tcpi_last_ack_sent = 19;
