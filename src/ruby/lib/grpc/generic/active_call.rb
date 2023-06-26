@@ -587,7 +587,7 @@ module GRPC
 
     private
 
-    # To be called once the "input stream" has been completelly
+    # To be called once the "input stream" has been completely
     # read through (i.e, done reading from client or received status)
     # note this is idempotent
     def set_input_stream_done
@@ -597,7 +597,7 @@ module GRPC
       end
     end
 
-    # To be called once the "output stream" has been completelly
+    # To be called once the "output stream" has been completely
     # sent through (i.e, done sending from client or sent status)
     # note this is idempotent
     def set_output_stream_done
