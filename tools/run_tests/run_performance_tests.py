@@ -452,7 +452,7 @@ def create_scenarios(
                     if custom_server_lang and custom_client_lang:
                         raise Exception(
                             "Cannot set both custom CLIENT_LANGUAGE and"
-                            " SERVER_LANGUAGEin the same scenario"
+                            " SERVER_LANGUAGE in the same scenario"
                         )
                     if custom_server_lang:
                         if not workers_by_lang.get(custom_server_lang, []):
