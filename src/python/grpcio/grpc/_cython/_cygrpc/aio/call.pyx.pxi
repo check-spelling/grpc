@@ -426,7 +426,7 @@ cdef class _AioCall(GrpcCallWrapper):
 
         Needs to pay extra attention to the raise mechanism. If we want to
         propagate the final status exception, then we have to raise it.
-        Othersize, it would end normally and raise `StopAsyncIteration()`.
+        Otherwise, it would end normally and raise `StopAsyncIteration()`.
         """
         try:
             # Sends out initial_metadata ASAP.
@@ -481,7 +481,7 @@ cdef class _AioCall(GrpcCallWrapper):
 
         Needs to pay extra attention to the raise mechanism. If we want to
         propagate the final status exception, then we have to raise it.
-        Othersize, it would end normally and raise `StopAsyncIteration()`.
+        Otherwise, it would end normally and raise `StopAsyncIteration()`.
         """
         # Peer may prematurely end this RPC at any point. We need a coroutine
         # that watches if the server sends the final status.
