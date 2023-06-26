@@ -109,9 +109,9 @@ class ExternalAccountCredentials
   static void OnExchangeToken(void* arg, grpc_error_handle error);
   void OnExchangeTokenInternal(grpc_error_handle error);
 
-  void ImpersenateServiceAccount();
-  static void OnImpersenateServiceAccount(void* arg, grpc_error_handle error);
-  void OnImpersenateServiceAccountInternal(grpc_error_handle error);
+  void ImpersonateServiceAccount();
+  static void OnImpersonateServiceAccount(void* arg, grpc_error_handle error);
+  void OnImpersonateServiceAccountInternal(grpc_error_handle error);
 
   void FinishTokenFetch(grpc_error_handle error);
 
