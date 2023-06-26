@@ -41,7 +41,7 @@ This tool performs the following:
 
 EXAMPLES:
 $0 bin/run_td_setup.py --help      # list script-specific options
-$0 bin/run_td_setup.py --helpfull  # list all available options
+$0 bin/run_td_setup.py --helpful  # list all available options
 XDS_K8S_CONFIG=./path-to-flagfile.cfg ./run.sh bin/run_td_setup.py --resource_suffix=override-suffix
 $0 tests/baseline_test.py
 $0 tests/security_test.py --verbosity=1 --logger_levels=__main__:DEBUG,framework:DEBUG
