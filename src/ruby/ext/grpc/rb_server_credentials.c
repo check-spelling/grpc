@@ -128,7 +128,7 @@ static VALUE sym_private_key;
 
     pem_root_certs: (optional) PEM encoding of the server root certificate
     pem_private_key: (required) PEM encoding of the server's private keys
-    force_client_auth: indicatees
+    force_client_auth: indicates
 
     Initializes ServerCredential instances. */
 static VALUE grpc_rb_server_credentials_init(VALUE self, VALUE pem_root_certs,
