@@ -396,7 +396,7 @@ void Executor::Run(grpc_closure* closure, grpc_error_handle error,
 void Executor::ShutdownAll() {
   EXECUTOR_TRACE0("Executor::ShutdownAll() enter");
 
-  // Return if Executor:SshutdownAll() is already called earlier
+  // Return if Executor:ShutdownAll() is already called earlier
   if (executors[static_cast<size_t>(ExecutorType::DEFAULT)] == nullptr) {
     GPR_ASSERT(executors[static_cast<size_t>(ExecutorType::RESOLVER)] ==
                nullptr);
