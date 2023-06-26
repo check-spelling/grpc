@@ -52,7 +52,7 @@ typedef struct {
   // of '#' will be replaced with a null character before processing.
   const char* dns_names;
 
-  // Comma separated list of IP SANs to match aggainst
+  // Comma separated list of IP SANs to match against
   const char* ip_names;
 } cert_name_test_entry;
 
