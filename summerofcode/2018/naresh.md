@@ -76,7 +76,7 @@ simple Bazel can be to use. gRPC was already using a dockerized Bazel setup to
 build some of it's core code (but not as the primary build setup). Adding a new
 job on the internal CI ended up being as simple as creating a new shell script
 to install the required dependencies (which were python-dev and Bazel) and a
-new configuration file which pointed to the subdirectiory (src/python) under
+new configuration file which pointed to the subdirectory (src/python) under
 which to look for targets and run the tests accordingly.
 
 ### Handling imports in Python code
