@@ -76,7 +76,7 @@ namespace grpc_core {
 
 // Tracks an in-progress GET or POST request. Calling \a Start()
 // begins async work and calling \a Orphan() arranges for async work
-// to be completed as sooon as possible (possibly aborting the request
+// to be completed as soon as possible (possibly aborting the request
 // if it's in flight).
 // TODO(ctiller): allow caching and capturing multiple requests for the
 //                same content and combining them
