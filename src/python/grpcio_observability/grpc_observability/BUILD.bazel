@@ -37,7 +37,7 @@ cc_library(
     ],
     includes = ["."],
     deps = [
-        #TODO(xuanwn): Confirm only referenced code is inlcuded in shared object library
+        #TODO(xuanwn): Confirm only referenced code is included in shared object library
         "//:grpc",
         "//:grpc_rpc_encoding",
         "//src/cpp/ext/gcp:observability_config",
