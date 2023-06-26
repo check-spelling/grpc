@@ -99,7 +99,7 @@ Note that running this command will build the project even if it is not built be
 
 Finally, launch the app with one of the available runtimes:
 ```shell
-$ bazel run :HelloWorld --ios_simulator_version='<runtime>' --ios_sumlator_device='<device>'
+$ bazel run :HelloWorld --ios_simulator_version='<runtime>' --ios_simulator_device='<device>'
 ```
 
 ## Tutorial
