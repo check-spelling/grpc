@@ -516,7 +516,7 @@ void fail_helper_locked(inproc_stream* s, grpc_error_handle error) {
   if (s->send_trailing_md_op) {
     complete_if_batch_end_locked(
         s, error, s->send_trailing_md_op,
-        "fail_helper scheduling send-trailng-md-on-complete");
+        "fail_helper scheduling send-trailing-md-on-complete");
     s->send_trailing_md_op = nullptr;
   }
   if (s->recv_trailing_md_op) {
