@@ -465,7 +465,7 @@ class Party : public Activity, private Wakeable {
   virtual grpc_event_engine::experimental::EventEngine* event_engine()
       const = 0;
 
-  // Sentinal value for currently_polling_ when no participant is being polled.
+  // Sentinel value for currently_polling_ when no participant is being polled.
   static constexpr uint8_t kNotPolling = 255;
 
 #ifdef GRPC_PARTY_SYNC_USING_ATOMICS
