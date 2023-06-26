@@ -108,7 +108,7 @@
 
 @end
 
-#pragma mark Backwards compatibiity
+#pragma mark Backwards compatibility
 
 /** This protocol is kept for backwards compatibility with existing code. */
 DEPRECATED_MSG_ATTRIBUTE("Use NSDictionary or NSMutableDictionary instead.")
