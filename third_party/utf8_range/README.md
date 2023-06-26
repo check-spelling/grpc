@@ -192,7 +192,7 @@ NEON ```tbl``` instruction is very convenient for table lookup:
 Leverage these features, we can solve the problem with as few as **two** operations:
 * Precreate a 16x2 lookup table, where table[0]=2, table[13]=3, table[16]=3, table[20]=4, table[others]=0.
 * Substract input bytes with E0 (E0 -> 0, ED -> 13, F0 -> 16, F4 -> 20).
-* Use the substracted byte as index of lookup table and get range adjustment directly.
+* Use the subtracted byte as index of lookup table and get range adjustment directly.
   * For indices less than 32, we get zero or required adjustment value per input byte
   * For out of bound indices, we get zero per ```tbl``` behaviour
 
@@ -211,7 +211,7 @@ We can still leverage these features to solve the problem in **five** operations
 * Substract input bytes with EF (E0 -> 241, ED -> 254, F0 -> 1, F4 -> 5) to get the temporary indices
 * Get range index for E0,ED
   * Saturate substract temporary indices with 240 (E0 -> 1, ED -> 14, all values below 240 becomes 0)
-  * Use substracted indices to look up table_df, get the correct adjustment
+  * Use subtracted indices to look up table_df, get the correct adjustment
 * Get range index for F0,F4
   * Saturate add temporary indices with 112(0x70) (F0 -> 0x71, F4 -> 0x75, all values above 16 will be larger than 128(7-th bit set))
   * Use added indices to look up table_ef, get the correct adjustment (index 0x71,0x75 returns 1st,5th elements, per ```pshufb``` behaviour)
