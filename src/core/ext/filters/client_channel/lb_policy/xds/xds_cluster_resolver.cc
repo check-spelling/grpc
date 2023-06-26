@@ -401,7 +401,7 @@ class XdsClusterResolverLb : public LoadBalancingPolicy {
   // Internal state.
   bool shutting_down_ = false;
 
-  // Vector of discovery mechansism entries in priority order.
+  // Vector of discovery mechanism entries in priority order.
   std::vector<DiscoveryMechanismEntry> discovery_mechanisms_;
 
   OrphanablePtr<LoadBalancingPolicy> child_policy_;
