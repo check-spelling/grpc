@@ -201,7 +201,7 @@ void tsi_test_frame_protector_fixture_init(
 void tsi_test_frame_protector_fixture_destroy(
     tsi_test_frame_protector_fixture* fixture);
 
-// This method performs a protect opeation on raw data and sends the result to
+// This method performs a protect operation on raw data and sends the result to
 // peer.
 void tsi_test_frame_protector_send_message_to_peer(
     tsi_test_frame_protector_config* config, tsi_test_channel* channel,
