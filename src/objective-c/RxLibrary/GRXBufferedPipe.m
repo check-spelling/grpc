@@ -46,7 +46,7 @@
 
 - (void)writeValue:(id)value {
   if ([value respondsToSelector:@selector(copy)]) {
-    // Even if we're paused and with enqueued values, we can't excert back-pressure to our writer.
+    // Even if we're paused and with enqueued values, we can't exert back-pressure to our writer.
     // So just buffer the new value.
     // We need a copy, so that it doesn't mutate before it's written at the other end of the pipe.
     value = [value copy];
