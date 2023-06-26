@@ -279,7 +279,7 @@ ChannelArguments ServerBuilder::BuildChannelArgs() {
 std::unique_ptr<grpc::Server> ServerBuilder::BuildAndStart() {
   ChannelArguments args = BuildChannelArgs();
 
-  // == Determine if the server has any syncrhonous methods ==
+  // == Determine if the server has any synchronous methods ==
   bool has_sync_methods = false;
   for (const auto& value : services_) {
     if (value->service->has_synchronous_methods()) {
