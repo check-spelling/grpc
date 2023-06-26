@@ -69,7 +69,7 @@ struct GlobalRunLoopContext {
 };
 
 struct GrpcAppleWorker {
-  // The condition varible to kick the worker. Works with the pollset's lock
+  // The condition variable to kick the worker. Works with the pollset's lock
   // (GrpcApplePollset.mu).
   grpc_core::CondVar cv;
 
