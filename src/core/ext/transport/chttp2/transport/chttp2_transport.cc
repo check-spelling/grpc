@@ -788,7 +788,7 @@ void grpc_chttp2_stream_unref(grpc_chttp2_stream* s) {
 }
 #endif
 
-grpc_chttp2_stream::Reffer::Reffer(grpc_chttp2_stream* s) {
+grpc_chttp2_stream::Refer::Refer(grpc_chttp2_stream* s) {
   // We reserve one 'active stream' that's dropped when the stream is
   //   read-closed. The others are for Chttp2IncomingByteStreams that are
   //   actively reading
@@ -802,7 +802,7 @@ grpc_chttp2_stream::grpc_chttp2_stream(grpc_chttp2_transport* t,
                                        grpc_core::Arena* arena)
     : t(t),
       refcount(refcount),
-      reffer(this),
+      refer(this),
       initial_metadata_buffer(arena),
       trailing_metadata_buffer(arena),
       flow_control(&t->flow_control) {
