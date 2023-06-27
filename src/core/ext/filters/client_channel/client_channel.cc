@@ -1508,7 +1508,7 @@ void ClientChannel::UpdateServiceConfigInDataPlaneLocked() {
   GPR_ASSERT(dynamic_filters != nullptr);
   // Grab data plane lock to update service config.
   //
-  // We defer unreffing the old values (and deallocating memory) until
+  // We defer unrefing the old values (and deallocating memory) until
   // after releasing the lock to keep the critical section small.
   {
     MutexLock lock(&resolution_mu_);
@@ -3155,7 +3155,7 @@ class ClientChannel::FilterBasedLoadBalancedCall::LbQueuedCallCanceller {
                                     YieldCallCombinerIfPendingBatchesFound);
       }
     }
-    // Unref lb_call before unreffing the call stack, since unreffing
+    // Unref lb_call before unrefing the call stack, since unrefing
     // the call stack may destroy the arena in which lb_call is allocated.
     auto* owning_call = lb_call->owning_call_;
     self->lb_call_.reset();

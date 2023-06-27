@@ -216,7 +216,7 @@ bool ServerContextBase::CompletionOp::FinalizeResult(void** tag, bool* status) {
       if (has_tag) {
         *tag = tag_;
       }
-      // Release the lock before unreffing as Unref may delete this object
+      // Release the lock before unrefing as Unref may delete this object
       do_unref = true;
     } else {
       finalized_ = true;

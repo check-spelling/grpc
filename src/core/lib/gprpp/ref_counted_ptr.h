@@ -82,7 +82,7 @@ class RefCountedPtr {
   // Copy assignment.
   // NOLINTNEXTLINE(bugprone-unhandled-self-assignment)
   RefCountedPtr& operator=(const RefCountedPtr& other) {
-    // Note: Order of reffing and unreffing is important here in case value_
+    // Note: Order of reffing and unrefing is important here in case value_
     // and other.value_ are the same object.
     if (other.value_ != nullptr) other.value_->IncrementRefCount();
     reset(other.value_);
@@ -92,7 +92,7 @@ class RefCountedPtr {
   RefCountedPtr& operator=(const RefCountedPtr<Y>& other) {
     static_assert(std::has_virtual_destructor<T>::value,
                   "T does not have a virtual dtor");
-    // Note: Order of reffing and unreffing is important here in case value_
+    // Note: Order of reffing and unrefing is important here in case value_
     // and other.value_ are the same object.
     if (other.value_ != nullptr) other.value_->IncrementRefCount();
     reset(other.value_);
@@ -225,7 +225,7 @@ class WeakRefCountedPtr {
   // Copy assignment.
   // NOLINTNEXTLINE(bugprone-unhandled-self-assignment)
   WeakRefCountedPtr& operator=(const WeakRefCountedPtr& other) {
-    // Note: Order of reffing and unreffing is important here in case value_
+    // Note: Order of reffing and unrefing is important here in case value_
     // and other.value_ are the same object.
     if (other.value_ != nullptr) other.value_->IncrementWeakRefCount();
     reset(other.value_);
@@ -235,7 +235,7 @@ class WeakRefCountedPtr {
   WeakRefCountedPtr& operator=(const WeakRefCountedPtr<Y>& other) {
     static_assert(std::has_virtual_destructor<T>::value,
                   "T does not have a virtual dtor");
-    // Note: Order of reffing and unreffing is important here in case value_
+    // Note: Order of reffing and unrefing is important here in case value_
     // and other.value_ are the same object.
     if (other.value_ != nullptr) other.value_->IncrementWeakRefCount();
     reset(other.value_);

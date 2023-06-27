@@ -71,7 +71,7 @@ void Sleep::ActiveClosure::Run() {
 
 void Sleep::ActiveClosure::Cancel() {
   // If we cancel correctly then we must own both refs still and can simply
-  // delete without unreffing twice, otherwise try unreffing since this may be
+  // delete without unrefing twice, otherwise try unrefing since this may be
   // the last owned ref.
   if (HasRun() || GetContext<EventEngine>()->Cancel(timer_handle_) || Unref()) {
     delete this;

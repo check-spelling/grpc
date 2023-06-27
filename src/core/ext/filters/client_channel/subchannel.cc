@@ -492,7 +492,7 @@ RefCountedPtr<Subchannel> Subchannel::Create(
   }
   c = MakeRefCounted<Subchannel>(std::move(key), std::move(connector), args);
   // Try to register the subchannel before setting the subchannel pool.
-  // Otherwise, in case of a registration race, unreffing c in
+  // Otherwise, in case of a registration race, unrefing c in
   // RegisterSubchannel() will cause c to be tried to be unregistered, while
   // its key maps to a different subchannel.
   RefCountedPtr<Subchannel> registered =

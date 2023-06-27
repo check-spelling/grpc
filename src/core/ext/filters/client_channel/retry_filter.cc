@@ -788,7 +788,7 @@ void RetryFilter::CallData::CallAttempt::MaybeSwitchToFastPath() {
   if (GRPC_TRACE_FLAG_ENABLED(grpc_retry_trace)) {
     gpr_log(GPR_INFO,
             "chand=%p calld=%p attempt=%p: retry state no longer needed; "
-            "moving LB call to parent and unreffing the call attempt",
+            "moving LB call to parent and unrefing the call attempt",
             calld_->chand_, calld_, this);
   }
   calld_->committed_call_ = std::move(lb_call_);
