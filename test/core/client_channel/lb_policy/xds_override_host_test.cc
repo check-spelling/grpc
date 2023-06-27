@@ -377,7 +377,7 @@ TEST_F(XdsOverrideHostTest, OverrideHostStatus) {
   EXPECT_EQ(ExpectPickComplete(picker.get(),
                                MakeOverrideHostAttribute(kAddresses[2])),
             kAddresses[2]);
-  // UNKNOWN excluded - first chanel does not get overridden
+  // UNKNOWN excluded - first channel does not get overridden
   ApplyUpdateWithHealthStatuses(
       {{kAddresses[0], XdsHealthStatus::HealthStatus::kUnknown},
        {kAddresses[1], XdsHealthStatus::HealthStatus::kHealthy},
@@ -394,7 +394,7 @@ TEST_F(XdsOverrideHostTest, OverrideHostStatus) {
   EXPECT_EQ(ExpectPickComplete(picker.get(),
                                MakeOverrideHostAttribute(kAddresses[2])),
             kAddresses[2]);
-  // HEALTHY excluded - second chanel does not get overridden
+  // HEALTHY excluded - second channel does not get overridden
   ApplyUpdateWithHealthStatuses(
       {{kAddresses[0], XdsHealthStatus::HealthStatus::kUnknown},
        {kAddresses[1], XdsHealthStatus::HealthStatus::kHealthy},
@@ -411,7 +411,7 @@ TEST_F(XdsOverrideHostTest, OverrideHostStatus) {
             kAddresses[1]);
   ExpectRoundRobinPicks(picker.get(), {kAddresses[0], kAddresses[1]},
                         MakeOverrideHostAttribute(kAddresses[2]));
-  // DRAINING excluded - third chanel does not get overridden
+  // DRAINING excluded - third channel does not get overridden
   ApplyUpdateWithHealthStatuses(
       {{kAddresses[0], XdsHealthStatus::HealthStatus::kUnknown},
        {kAddresses[1], XdsHealthStatus::HealthStatus::kHealthy},
