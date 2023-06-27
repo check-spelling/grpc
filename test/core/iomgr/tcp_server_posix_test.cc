@@ -324,7 +324,7 @@ static grpc_error_handle tcp_connect(const test_addr* remote,
 // as destination addrs (port is not set). If dst_addrs is NULL, use listener
 // addrs as destination addrs. If test_dst_addrs is true, test connectivity with
 // each destination address, set grpc_resolved_address::len=0 for failures, but
-// don't fail the overall unitest.
+// don't fail the overall unittest.
 static void test_connect(size_t num_connects,
                          const grpc_channel_args* channel_args,
                          test_addrs* dst_addrs, bool test_dst_addrs) {
@@ -677,7 +677,7 @@ static void test_pre_allocated_unix_fd() {
 
   grpc_error_handle res_conn = tcp_connect(&dst, &result);
   // If the path no longer exists, errno is 2. This can happen when
-  // runninig the test multiple times in parallel. Do not fail the test
+  // running the test multiple times in parallel. Do not fail the test
   if (absl::IsUnknown(res_conn) && res_conn.raw_code() == 2) {
     gpr_log(GPR_ERROR,
             "Unable to test pre_allocated unix socket: path does not exist");

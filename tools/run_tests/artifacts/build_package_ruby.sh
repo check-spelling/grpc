@@ -30,7 +30,7 @@ mkdir -p artifacts/
 cp -r "${EXTERNAL_GIT_ROOT}"/input_artifacts/ruby_native_gem_*/* artifacts/ || true
 
 # Next, build the "grpc-tools" gem by collecting the protoc and grpc_ruby_plugin binaries
-# that have been built by the the artifact build phase previously.
+# that have been built by the artifact build phase previously.
 well_known_protos=( any api compiler/plugin descriptor duration empty field_mask source_context struct timestamp type wrappers )
 
 for arch in {x86,x64}; do
@@ -43,7 +43,7 @@ for arch in {x86,x64}; do
       ;;
   esac
   for plat in {windows,linux,macos}; do
-    # skip non-existent macos x86 protoc artifact
+    # skip nonexistent macos x86 protoc artifact
     if [[ "${plat}_${arch}" == "macos_x86" ]]
     then
       continue

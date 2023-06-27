@@ -118,7 +118,7 @@ std::string GetHeaderPrologue(grpc_generator::File* file,
 }
 
 // Convert from "a/b/c.proto" to "#include \"a/b/c$message_header_ext$\"\n"
-std::string ImportInludeFromProtoName(const std::string& proto_name) {
+std::string ImportIncludeFromProtoName(const std::string& proto_name) {
   return std::string("#include \"") +
          proto_name.substr(0, proto_name.size() - 6) +
          std::string("$message_header_ext$\"\n");
@@ -168,7 +168,8 @@ std::string GetHeaderIncludes(grpc_generator::File* file,
     if (params.include_import_headers) {
       const std::vector<std::string> import_names = file->GetImportNames();
       for (const auto& import_name : import_names) {
-        const std::string include_name = ImportInludeFromProtoName(import_name);
+        const std::string include_name =
+            ImportIncludeFromProtoName(import_name);
         printer->Print(vars, include_name.c_str());
       }
       printer->PrintRaw("\n");
@@ -2168,7 +2169,8 @@ std::string GetMockPrologue(grpc_generator::File* file,
     if (params.include_import_headers) {
       const std::vector<std::string> import_names = file->GetImportNames();
       for (const auto& import_name : import_names) {
-        const std::string include_name = ImportInludeFromProtoName(import_name);
+        const std::string include_name =
+            ImportIncludeFromProtoName(import_name);
         printer->Print(vars, include_name.c_str());
       }
       printer->PrintRaw("\n");

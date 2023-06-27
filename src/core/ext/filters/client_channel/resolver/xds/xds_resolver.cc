@@ -265,7 +265,7 @@ class XdsResolver : public Resolver {
   // A routing data including cluster refs and routes table held by the
   // XdsConfigSelector. A ref to this map will be taken by each call processed
   // by the XdsConfigSelector, stored in a the call's call attributes, and later
-  // unreffed by the ClusterSelection filter.
+  // unrefed by the ClusterSelection filter.
   class RouteConfigData : public RefCounted<RouteConfigData> {
    public:
     struct RouteEntry {

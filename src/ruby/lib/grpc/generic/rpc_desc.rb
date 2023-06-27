@@ -142,7 +142,7 @@ module GRPC
       GRPC.logger.warn("late call: #{active_call}")
       send_status(active_call, DEADLINE_EXCEEDED, 'late')
     rescue StandardError, NotImplementedError => e
-      # This will usuaally be an unhandled error in the handling code.
+      # This will usually be an unhandled error in the handling code.
       # Send back a UNKNOWN status to the client
       #
       # Note: this intentionally does not map NotImplementedError to

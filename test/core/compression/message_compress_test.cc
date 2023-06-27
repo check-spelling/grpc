@@ -39,13 +39,13 @@ typedef enum {
   SHOULD_NOT_COMPRESS,
   SHOULD_COMPRESS,
   MAYBE_COMPRESSES
-} compressability;
+} compressibility;
 
 static void assert_passthrough(grpc_slice value,
                                grpc_compression_algorithm algorithm,
                                grpc_slice_split_mode uncompressed_split_mode,
                                grpc_slice_split_mode compressed_split_mode,
-                               compressability compress_result_check) {
+                               compressibility compress_result_check) {
   grpc_slice_buffer input;
   grpc_slice_buffer compressed_raw;
   grpc_slice_buffer compressed;
@@ -111,7 +111,7 @@ static grpc_slice repeated(char c, size_t length) {
   return out;
 }
 
-static compressability get_compressability(
+static compressibility get_compressibility(
     test_value id, grpc_compression_algorithm algorithm) {
   if (algorithm == GRPC_COMPRESS_NONE) return SHOULD_NOT_COMPRESS;
   switch (id) {
@@ -181,7 +181,7 @@ TEST(MessageCompressTest, BadDecompressionDataCrc) {
   idx = GRPC_SLICE_LENGTH(corrupted.slices[1]) - 8;
   memcpy(GRPC_SLICE_START_PTR(corrupted.slices[1]) + idx, &bad, 4);
 
-  // try (and fail) to decompress the corrupted compresed buffer
+  // try (and fail) to decompress the corrupted comprised buffer
   ASSERT_EQ(0, grpc_msg_decompress(GRPC_COMPRESS_GZIP, &corrupted, &output));
 
   grpc_slice_buffer_destroy(&input);
@@ -227,7 +227,7 @@ TEST(MessageCompressTest, BadDecompressionDataTrailingGarbage) {
       &input, grpc_slice_from_copied_buffer(
                   "\x78\xda\x63\x60\x60\x60\x00\x00\x00\x04\x00\x01\x99", 13));
 
-  // try (and fail) to decompress the invalid compresed buffer
+  // try (and fail) to decompress the invalid comprised buffer
   grpc_core::ExecCtx exec_ctx;
   ASSERT_EQ(0, grpc_msg_decompress(GRPC_COMPRESS_DEFLATE, &input, &output));
 
@@ -244,7 +244,7 @@ TEST(MessageCompressTest, BadDecompressionDataStream) {
   grpc_slice_buffer_add(&input,
                         grpc_slice_from_copied_buffer("\x78\xda\xff\xff", 4));
 
-  // try (and fail) to decompress the invalid compresed buffer
+  // try (and fail) to decompress the invalid comprised buffer
   grpc_core::ExecCtx exec_ctx;
   ASSERT_EQ(0, grpc_msg_decompress(GRPC_COMPRESS_DEFLATE, &input, &output));
 
@@ -321,7 +321,7 @@ int main(int argc, char** argv) {
               slice, static_cast<grpc_compression_algorithm>(i),
               static_cast<grpc_slice_split_mode>(j),
               static_cast<grpc_slice_split_mode>(k),
-              get_compressability(static_cast<test_value>(m),
+              get_compressibility(static_cast<test_value>(m),
                                   static_cast<grpc_compression_algorithm>(i)));
           grpc_slice_unref(slice);
         }

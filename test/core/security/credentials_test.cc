@@ -206,7 +206,7 @@ const char
         "\"headers\":{\"Metadata-Flavor\":\"Google\"}}";
 
 const char
-    valid_url_external_account_creds_options_credential_source_with_qurey_params_format_text
+    valid_url_external_account_creds_options_credential_source_with_query_params_format_text
         [] = "{\"url\":\"https://foo.com:5555/"
              "path/to/url/creds?p1=v1&p2=v2\","
              "\"headers\":{\"Metadata-Flavor\":\"Google\"}}";
@@ -2095,7 +2095,7 @@ TEST(CredentialsTest, TestAuthMetadataContext) {
   }
 }
 
-void validate_external_account_creds_token_exchage_request(
+void validate_external_account_creds_token_exchange_request(
     const grpc_http_request* request, const char* host, const char* path,
     const char* body, size_t body_size, bool /*expect_actor_token*/) {
   // Check that the body is constructed properly.
@@ -2130,7 +2130,7 @@ void validate_external_account_creds_token_exchage_request(
                     "Basic Y2xpZW50X2lkOmNsaWVudF9zZWNyZXQ=") == 0);
 }
 
-void validate_external_account_creds_token_exchage_request_with_url_encode(
+void validate_external_account_creds_token_exchange_request_with_url_encode(
     const grpc_http_request* request, const char* host, const char* path,
     const char* body, size_t body_size, bool /*expect_actor_token*/) {
   // Check that the body is constructed properly.
@@ -2139,9 +2139,9 @@ void validate_external_account_creds_token_exchage_request_with_url_encode(
   GPR_ASSERT(
       strcmp(
           std::string(body, body_size).c_str(),
-          "audience=audience_!%40%23%24&grant_type=urn%3Aietf%3Aparams%3Aoauth%"
-          "3Agrant-type%3Atoken-exchange&requested_token_type=urn%3Aietf%"
-          "3Aparams%3Aoauth%3Atoken-type%3Aaccess_token&subject_token_type="
+          "audience=audience_!%40%23%24&grant_type=urn%3Aietf%3Aparams%3Aoauth"
+          "%3Agrant-type%3Atoken-exchange&requested_token_type=urn%3Aietf"
+          "%3Aparams%3Aoauth%3Atoken-type%3Aaccess_token&subject_token_type="
           "subject_token_type_!%40%23%24&subject_token=test_subject_token&"
           "scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&"
           "options=%7B%7D") == 0);
@@ -2182,7 +2182,7 @@ int external_account_creds_httpcli_post_success(
     const char* body, size_t body_size, Timestamp /*deadline*/,
     grpc_closure* on_done, grpc_http_response* response) {
   if (strcmp(path, "/token") == 0) {
-    validate_external_account_creds_token_exchage_request(
+    validate_external_account_creds_token_exchange_request(
         request, host, path, body, body_size, true);
     *response = http_response(
         200, valid_external_account_creds_token_exchange_response);
@@ -2193,7 +2193,7 @@ int external_account_creds_httpcli_post_success(
         200,
         valid_external_account_creds_service_account_impersonation_response);
   } else if (strcmp(path, "/token_url_encode") == 0) {
-    validate_external_account_creds_token_exchage_request_with_url_encode(
+    validate_external_account_creds_token_exchange_request_with_url_encode(
         request, host, path, body, body_size, true);
     *response = http_response(
         200, valid_external_account_creds_token_exchange_response);
@@ -2242,7 +2242,7 @@ int url_external_account_creds_httpcli_get_success(
   return 1;
 }
 
-void validate_aws_external_account_creds_token_exchage_request(
+void validate_aws_external_account_creds_token_exchange_request(
     const grpc_http_request* request, const char* host, const char* path,
     const char* body, size_t body_size, bool /*expect_actor_token*/) {
   // Check that the body is constructed properly.
@@ -2322,7 +2322,7 @@ int aws_external_account_creds_httpcli_post_success(
     const char* body, size_t body_size, Timestamp /*deadline*/,
     grpc_closure* on_done, grpc_http_response* response) {
   if (strcmp(path, "/token") == 0) {
-    validate_aws_external_account_creds_token_exchage_request(
+    validate_aws_external_account_creds_token_exchange_request(
         request, host, path, body, body_size, true);
     *response = http_response(
         200, valid_external_account_creds_token_exchange_response);
@@ -2585,12 +2585,12 @@ TEST(CredentialsTest, TestUrlExternalAccountCredsSuccessFormatText) {
 }
 
 TEST(CredentialsTest,
-     TestUrlExternalAccountCredsSuccessWithQureyParamsFormatText) {
+     TestUrlExternalAccountCredsSuccessWithQueryParamsFormatText) {
   std::map<std::string, std::string> emd = {
       {"authorization", "Bearer token_exchange_access_token"}};
   ExecCtx exec_ctx;
   auto credential_source = JsonParse(
-      valid_url_external_account_creds_options_credential_source_with_qurey_params_format_text);
+      valid_url_external_account_creds_options_credential_source_with_query_params_format_text);
   GPR_ASSERT(credential_source.ok());
   ExternalAccountCredentials::Options options = {
       "external_account",                 // type;
@@ -2766,7 +2766,7 @@ TEST(CredentialsTest, TestFileExternalAccountCredsSuccessFormatJson) {
 
 TEST(CredentialsTest, TestFileExternalAccountCredsFailureFileNotFound) {
   ExecCtx exec_ctx;
-  auto credential_source = JsonParse("{\"file\":\"non_exisiting_file\"}");
+  auto credential_source = JsonParse("{\"file\":\"non_existing_file\"}");
   GPR_ASSERT(credential_source.ok());
   ExternalAccountCredentials::Options options = {
       "external_account",                 // type;

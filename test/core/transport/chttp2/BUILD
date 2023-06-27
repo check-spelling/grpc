@@ -316,7 +316,7 @@ grpc_cc_test(
 grpc_cc_test(
     name = "remove_stream_from_stalled_lists_test",
     srcs = ["remove_stream_from_stalled_lists_test.cc"],
-    # use LARGE_MACHINE because this test needs a certaim amount
+    # use LARGE_MACHINE because this test needs a certain amount
     # of parallelism in order to reproduce the original crash that it's meant
     # to regression test for (a crash which is fixed by
     # https://github.com/grpc/grpc/pull/23984). Experiments show that if this

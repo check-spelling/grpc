@@ -28,7 +28,7 @@
 // Fast decoder: ~3x the speed of decode.c, but requires x86-64/ARM64.
 // Also the table size grows by 2x.
 //
-// Could potentially be ported to other 64-bit archs that pass at least six
+// Could potentially be ported to other 64-bit arches that pass at least six
 // arguments in registers and have 8 unused high bits in pointers.
 //
 // The overall design is to create specialized functions for every possible

@@ -200,7 +200,7 @@ class AddressSortingTest : public ::testing::Test {
 };
 
 // Tests for rule 1
-TEST_F(AddressSortingTest, TestDepriotizesUnreachableAddresses) {
+TEST_F(AddressSortingTest, TestDeprioritizesUnreachableAddresses) {
   bool ipv4_supported = true;
   bool ipv6_supported = true;
   OverrideAddressSortingSourceAddrFactory(
@@ -219,7 +219,7 @@ TEST_F(AddressSortingTest, TestDepriotizesUnreachableAddresses) {
                                 });
 }
 
-TEST_F(AddressSortingTest, TestDepriotizesUnsupportedDomainIpv6) {
+TEST_F(AddressSortingTest, TestDeprioritizesUnsupportedDomainIpv6) {
   bool ipv4_supported = true;
   bool ipv6_supported = false;
   OverrideAddressSortingSourceAddrFactory(
@@ -238,7 +238,7 @@ TEST_F(AddressSortingTest, TestDepriotizesUnsupportedDomainIpv6) {
                                 });
 }
 
-TEST_F(AddressSortingTest, TestDepriotizesUnsupportedDomainIpv4) {
+TEST_F(AddressSortingTest, TestDeprioritizesUnsupportedDomainIpv4) {
   bool ipv4_supported = false;
   bool ipv6_supported = true;
   OverrideAddressSortingSourceAddrFactory(
@@ -260,7 +260,7 @@ TEST_F(AddressSortingTest, TestDepriotizesUnsupportedDomainIpv4) {
 
 // Tests for rule 2
 
-TEST_F(AddressSortingTest, TestDepriotizesNonMatchingScope) {
+TEST_F(AddressSortingTest, TestDeprioritizesNonMatchingScope) {
   bool ipv4_supported = true;
   bool ipv6_supported = true;
   OverrideAddressSortingSourceAddrFactory(

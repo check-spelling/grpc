@@ -198,7 +198,7 @@ class Activity : public Orphanable {
   // - assert that there is a current activity (and catch bugs if there's not)
   // - indicate to thread safety analysis that the current activity is indeed
   //   locked
-  // - back up that assertation with a runtime check in debug builds (it's
+  // - back up that assertion with a runtime check in debug builds (it's
   //   prohibitively expensive in non-debug builds)
   static Activity* current() { return g_current_activity_; }
 
@@ -338,8 +338,8 @@ class FreestandingActivity : public Activity, private Wakeable {
   // If more than one action is received during a run, we use max() to resolve
   // which one to report (so Cancel overrides Wakeup).
   enum class ActionDuringRun : uint8_t {
-    kNone,    // No action occured during run.
-    kWakeup,  // A wakeup occured during run.
+    kNone,    // No action occurred during run.
+    kWakeup,  // A wakeup occurred during run.
     kCancel,  // Cancel was called during run.
   };
 
@@ -359,7 +359,7 @@ class FreestandingActivity : public Activity, private Wakeable {
   // completed.
   void WakeupComplete() { Unref(); }
 
-  // Set the action that occured during this run.
+  // Set the action that occurred during this run.
   // We use max to combine actions so that cancellation overrides wakeups.
   void SetActionDuringRun(ActionDuringRun action)
       ABSL_EXCLUSIVE_LOCKS_REQUIRED(mu_) {

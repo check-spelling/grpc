@@ -31,7 +31,7 @@ USAGE: $0 PR_ID GITHUB_USER BACKPORT_BRANCHES REVIEWERS [-c PER_BACKPORT_COMMAND
    GITHUB_USER: Your GitHub username.
    BACKPORT_BRANCHES: A space-separated list of branches to which the source PR will be backported.
    REVIEWERS: A comma-separated list of users to add as both reviewer and assignee.
-   PER_BACKPORT_COMMAND : An optional command to run after cherrypicking the PR to the target branch.
+   PER_BACKPORT_COMMAND : An optional command to run after cherry-picking the PR to the target branch.
      If you use this option, ensure your working directory is clean, as "git add -A" will be used to
      incorporate any generated files. Try running "git clean -xdff" beforehand.
 
@@ -154,7 +154,7 @@ for BACKPORT_BRANCH in $BACKPORT_BRANCHES; do
                   -a "$REVIEWERS" | tail -n 1)
   BACKPORT_PRS+="$BACKPORT_PR\n"
 
-  # TODO: Turn on automerge once the Github API allows it.
+  # TODO: Turn on automerge once the GitHub API allows it.
 done
 
 printf "Your backport PRs have been created:\n$BACKPORT_PRS"

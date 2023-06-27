@@ -165,7 +165,7 @@ class UnaryStreamClientInterceptor(ClientInterceptor, metaclass=ABCMeta):
         """Intercepts a unary-stream invocation asynchronously.
 
         The function could return the call object or an asynchronous
-        iterator, in case of being an asyncrhonous iterator this will
+        iterator, in case of being an asynchronous iterator this will
         become the source of the reads done by the caller.
 
         Args:
@@ -252,7 +252,7 @@ class StreamStreamClientInterceptor(ClientInterceptor, metaclass=ABCMeta):
         messages to it.
 
         The function could return the call object or an asynchronous
-        iterator, in case of being an asyncrhonous iterator this will
+        iterator, in case of being an asynchronous iterator this will
         become the source of the reads done by the caller.
 
         Args:
@@ -469,8 +469,8 @@ class _InterceptedStreamResponseMixin:
     _response_aiter: Optional[AsyncIterable[ResponseType]]
 
     def _init_stream_response_mixin(self) -> None:
-        # Is initalized later, otherwise if the iterator is not finnally
-        # consumed a logging warning is emmited by Asyncio.
+        # Is initialized later, otherwise if the iterator is not finally
+        # consumed a logging warning is emitted by Asyncio.
         self._response_aiter = None
 
     async def _wait_for_interceptor_task_response_iterator(
@@ -1133,7 +1133,7 @@ class UnaryStreamCallResponseIterator(
     """UnaryStreamCall class wich uses an alternative response iterator."""
 
     async def read(self) -> ResponseType:
-        # Behind the scenes everyting goes through the
+        # Behind the scenes everything goes through the
         # async iterator. So this path should not be reached.
         raise NotImplementedError()
 
@@ -1144,18 +1144,18 @@ class StreamStreamCallResponseIterator(
     """StreamStreamCall class wich uses an alternative response iterator."""
 
     async def read(self) -> ResponseType:
-        # Behind the scenes everyting goes through the
+        # Behind the scenes everything goes through the
         # async iterator. So this path should not be reached.
         raise NotImplementedError()
 
     async def write(self, request: RequestType) -> None:
-        # Behind the scenes everyting goes through the
+        # Behind the scenes everything goes through the
         # async iterator provided by the InterceptedStreamStreamCall.
         # So this path should not be reached.
         raise NotImplementedError()
 
     async def done_writing(self) -> None:
-        # Behind the scenes everyting goes through the
+        # Behind the scenes everything goes through the
         # async iterator provided by the InterceptedStreamStreamCall.
         # So this path should not be reached.
         raise NotImplementedError()

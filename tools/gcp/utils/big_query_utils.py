@@ -36,14 +36,14 @@ def create_big_query():
     )
 
 
-def create_dataset(biq_query, project_id, dataset_id):
+def create_dataset(big_query, project_id, dataset_id):
     is_success = True
     body = {
         "datasetReference": {"projectId": project_id, "datasetId": dataset_id}
     }
 
     try:
-        dataset_req = biq_query.datasets().insert(
+        dataset_req = big_query.datasets().insert(
             projectId=project_id, body=body
         )
         dataset_req.execute(num_retries=NUM_RETRIES)
@@ -86,7 +86,7 @@ def create_partitioned_table(
     partition_type="DAY",
     expiration_ms=_EXPIRATION_MS,
 ):
-    """Creates a partitioned table. By default, a date-paritioned table is created with
+    """Creates a partitioned table. By default, a date-partitioned table is created with
     each partition lasting 30 days after it was last modified.
     """
     fields = [

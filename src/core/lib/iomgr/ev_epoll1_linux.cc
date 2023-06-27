@@ -660,7 +660,7 @@ static int poll_deadline_to_millis_timeout(grpc_core::Timestamp millis) {
 // - This function then processes up-to MAX_EPOLL_EVENTS_PER_ITERATION and
 //   updates the g_epoll_set.cursor
 
-// NOTE ON SYNCRHONIZATION: Similar to do_epoll_wait(), this function is only
+// NOTE ON SYNCHRONIZATION: Similar to do_epoll_wait(), this function is only
 // called by g_active_poller thread. So there is no need for synchronization
 // when accessing fields in g_epoll_set
 static grpc_error_handle process_epoll_events(grpc_pollset* /*pollset*/) {
@@ -711,7 +711,7 @@ static grpc_error_handle process_epoll_events(grpc_pollset* /*pollset*/) {
 
 // NOTE ON SYNCHRONIZATION: At any point of time, only the g_active_poller
 // (i.e the designated poller thread) will be calling this function. So there is
-// no need for any synchronization when accesing fields in g_epoll_set
+// no need for any synchronization when accessing fields in g_epoll_set
 static grpc_error_handle do_epoll_wait(grpc_pollset* ps,
                                        grpc_core::Timestamp deadline) {
   int r;
@@ -1029,7 +1029,7 @@ static grpc_error_handle pollset_work(grpc_pollset* ps,
     // threads
 
     // process_epoll_events() returns very quickly: It just queues the work on
-    // exec_ctx but does not execute it (the actual exectution or more
+    // exec_ctx but does not execute it (the actual execution or more
     // accurately grpc_core::ExecCtx::Get()->Flush() happens in end_worker()
     // AFTER selecting a designated poller). So we are not waiting long periods
     // without a designated poller

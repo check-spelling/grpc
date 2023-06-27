@@ -27,7 +27,7 @@
   if (!handler) {
     return [[self alloc] init];
   }
-  // We nilify this variable when the block is invoked, so that handler is only invoked once even if
+  // We nil this variable when the block is invoked, so that handler is only invoked once even if
   // the writer tries to write multiple values.
   __block GRXEventHandler eventHandler = ^(BOOL done, id value, NSError *error) {
     // Nillify eventHandler before invoking handler, in case the latter causes the former to be

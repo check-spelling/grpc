@@ -2287,7 +2287,7 @@ ArenaPromise<ServerMetadataHandle> ServerCallData::MakeNextPromise(
 }
 
 // Wrapper to make it look like we're calling the next filter as a promise.
-// All polls: await sending the trailing metadata, then foward it down the
+// All polls: await sending the trailing metadata, then forward it down the
 // stack.
 Poll<ServerMetadataHandle> ServerCallData::PollTrailingMetadata() {
   if (grpc_trace_channel.enabled()) {

@@ -375,7 +375,7 @@ static void on_readable(void* arg, grpc_error_handle error) {
     // this ev_driver will be cancelled by the following ares_cancel() and the
     // on_done callbacks will be invoked with a status of ARES_ECANCELLED. The
     // remaining file descriptors in this ev_driver will be cleaned up in the
-    // follwing grpc_ares_notify_on_event_locked().
+    // following grpc_ares_notify_on_event_locked().
     ares_cancel(ev_driver->channel);
   }
   grpc_ares_notify_on_event_locked(ev_driver);
@@ -399,7 +399,7 @@ static void on_writable(void* arg, grpc_error_handle error) {
     // this ev_driver will be cancelled by the following ares_cancel() and the
     // on_done callbacks will be invoked with a status of ARES_ECANCELLED. The
     // remaining file descriptors in this ev_driver will be cleaned up in the
-    // follwing grpc_ares_notify_on_event_locked().
+    // following grpc_ares_notify_on_event_locked().
     ares_cancel(ev_driver->channel);
   }
   grpc_ares_notify_on_event_locked(ev_driver);

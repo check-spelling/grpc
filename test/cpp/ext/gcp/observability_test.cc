@@ -45,7 +45,7 @@ TEST(GcpObservabilityTest, ContinuesWorkingAfterFailure) {
   auto observability = grpc::GcpObservability::Init();
   EXPECT_FALSE(observability.ok());
 
-  // Set up a synchronous server on a different thread to avoid the asynch
+  // Set up a synchronous server on a different thread to avoid the async
   // interface.
   grpc::ServerBuilder builder;
   TestServiceImpl service;

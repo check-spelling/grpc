@@ -39,7 +39,7 @@ ServerRetryThrottleData::ServerRetryThrottleData(
     : max_milli_tokens_(max_milli_tokens),
       milli_token_ratio_(milli_token_ratio) {
   uintptr_t initial_milli_tokens = max_milli_tokens;
-  // If there was a pre-existing entry for this server name, initialize
+  // If there was a preexisting entry for this server name, initialize
   // the token count by scaling proportionately to the old data.  This
   // ensures that if we're already throttling retries on the old scale,
   // we will start out doing the same thing on the new one.
@@ -52,10 +52,10 @@ ServerRetryThrottleData::ServerRetryThrottleData(
         static_cast<uintptr_t>(token_fraction * max_milli_tokens);
   }
   gpr_atm_rel_store(&milli_tokens_, static_cast<gpr_atm>(initial_milli_tokens));
-  // If there was a pre-existing entry, mark it as stale and give it a
+  // If there was a preexisting entry, mark it as stale and give it a
   // pointer to the new entry, which is its replacement.
   if (old_throttle_data != nullptr) {
-    Ref().release();  // Ref held by pre-existing entry.
+    Ref().release();  // Ref held by preexisting entry.
     gpr_atm_rel_store(&old_throttle_data->replacement_,
                       reinterpret_cast<gpr_atm>(this));
   }

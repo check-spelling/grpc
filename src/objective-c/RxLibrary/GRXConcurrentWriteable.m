@@ -21,7 +21,7 @@
 #import <RxLibrary/GRXWriteable.h>
 
 @interface GRXConcurrentWriteable ()
-// This is atomic so that cancellation can nillify it from any thread.
+// This is atomic so that cancellation can nil it from any thread.
 @property(atomic, strong) id<GRXWriteable> writeable;
 @end
 

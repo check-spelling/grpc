@@ -936,7 +936,7 @@ TEST_P(RingHashTest, TransientFailureCheckNextOne) {
 // Test that when a backend goes down, we will move on to the next subchannel
 // (with a lower priority).  When the backend comes back up, traffic will move
 // back.
-TEST_P(RingHashTest, SwitchToLowerPrioirtyAndThenBack) {
+TEST_P(RingHashTest, SwitchToLowerPriorityAndThenBack) {
   CreateAndStartBackends(2);
   auto cluster = default_cluster_;
   cluster.set_lb_policy(Cluster::RING_HASH);
@@ -1056,7 +1056,7 @@ TEST_P(RingHashTest, TransientFailureSkipToAvailableReady) {
   // backend 0. So by purposely bringing down backend 0 and bringing up another
   // backend, this will ensure Picker's first choice of backend 0 will fail
   // and it will go through the remaining subchannels to find one in READY.
-  // Since the the entries in the ring are pretty distributed and we have
+  // Since the entries in the ring are pretty distributed and we have
   // unused ports to fill the ring, it is almost guaranteed that the Picker
   // will go through some non-READY entries and skip them as per design.
   gpr_log(GPR_INFO, "=== SHUTTING DOWN BACKEND 0 ===");
@@ -1120,7 +1120,7 @@ TEST_P(RingHashTest, ReattemptWhenGoingFromTransientFailureToIdle) {
   EXPECT_EQ(GRPC_CHANNEL_READY, channel_->GetState(false));
 }
 
-// Test unspported hash policy types are all ignored before a supported
+// Test unsupported hash policy types are all ignored before a supported
 // policy.
 TEST_P(RingHashTest, UnsupportedHashPolicyUntilChannelIdHashing) {
   CreateAndStartBackends(2);

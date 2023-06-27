@@ -595,7 +595,7 @@ class ClientChannel::SubchannelWrapper : public SubchannelInterface {
   //
   // This class handles things like hopping into the WorkSerializer
   // before passing notifications to the LB policy and propagating
-  // keepalive information betwen subchannels.
+  // keepalive information between subchannels.
   class WatcherWrapper : public Subchannel::ConnectivityStateWatcherInterface {
    public:
     WatcherWrapper(
@@ -1508,21 +1508,21 @@ void ClientChannel::UpdateServiceConfigInDataPlaneLocked() {
   GPR_ASSERT(dynamic_filters != nullptr);
   // Grab data plane lock to update service config.
   //
-  // We defer unreffing the old values (and deallocating memory) until
+  // We defer unrefing the old values (and deallocating memory) until
   // after releasing the lock to keep the critical section small.
   {
     MutexLock lock(&resolution_mu_);
     resolver_transient_failure_error_ = absl::OkStatus();
     // Update service config.
     received_service_config_data_ = true;
-    // Old values will be unreffed after lock is released.
+    // Old values will be unrefed after lock is released.
     service_config_.swap(service_config);
     config_selector_.swap(config_selector);
     dynamic_filters_.swap(dynamic_filters);
     // Re-process queued calls asynchronously.
     ReprocessQueuedResolverCalls();
   }
-  // Old values will be unreffed after lock is released when they go out
+  // Old values will be unrefed after lock is released when they go out
   // of scope.
 }
 
@@ -1602,7 +1602,7 @@ void ClientChannel::UpdateStateAndPickerLocked(
   UpdateStateLocked(state, status, reason);
   // Grab the LB lock to update the picker and trigger reprocessing of the
   // queued picks.
-  // Old picker will be unreffed after releasing the lock.
+  // Old picker will be unrefed after releasing the lock.
   MutexLock lock(&lb_mu_);
   picker_.swap(picker);
   // Reprocess queued picks.
@@ -1909,7 +1909,7 @@ absl::optional<absl::Status> ClientChannel::CallData::CheckResolution(
   }
   // We have a result.  Apply service config to call.
   grpc_error_handle error = ApplyServiceConfigToCallLocked(config_selector);
-  // ConfigSelector must be unreffed inside the WorkSerializer.
+  // ConfigSelector must be unrefed inside the WorkSerializer.
   if (config_selector.ok()) {
     chand()->work_serializer_->Run(
         [config_selector = std::move(*config_selector)]() mutable {
@@ -2595,7 +2595,7 @@ void ClientChannel::LoadBalancedCall::RemoveCallFromLbQueuedCallsLocked() {
   grpc_polling_entity_del_from_pollset_set(pollent(),
                                            chand_->interested_parties_);
   // Note: There's no need to actually remove the call from the queue
-  // here, beacuse that will be done in either
+  // here, because that will be done in either
   // LbQueuedCallCanceller::CancelLocked() or
   // in ClientChannel::UpdateStateAndPickerLocked().
 }
@@ -3155,7 +3155,7 @@ class ClientChannel::FilterBasedLoadBalancedCall::LbQueuedCallCanceller {
                                     YieldCallCombinerIfPendingBatchesFound);
       }
     }
-    // Unref lb_call before unreffing the call stack, since unreffing
+    // Unref lb_call before unrefing the call stack, since unrefing
     // the call stack may destroy the arena in which lb_call is allocated.
     auto* owning_call = lb_call->owning_call_;
     self->lb_call_.reset();

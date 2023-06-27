@@ -237,7 +237,7 @@ class Server : public ServerInterface, private internal::GrpcLibrary {
   void RegisterAsyncGenericService(AsyncGenericService* service) override;
 
   /// Register a callback-based generic service. This call does not take
-  /// ownership of theservice. The service must exist for the lifetime of the
+  /// ownership of the service. The service must exist for the lifetime of the
   /// Server instance.
   void RegisterCallbackGenericService(CallbackGenericService* service) override;
 
@@ -348,7 +348,7 @@ class Server : public ServerInterface, private internal::GrpcLibrary {
   // cases since otherwise the size will be inconsistent.
   std::vector<CompletionQueue*> cq_list_;
 
-  // Whetner per-call load reporting is enabled.
+  // Whether per-call load reporting is enabled.
   bool call_metric_recording_enabled_ = false;
 
   // Interface to read or update server-wide metrics. Optional.

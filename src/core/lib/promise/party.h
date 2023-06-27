@@ -85,7 +85,7 @@ class PartySyncUsingAtomics {
   GRPC_MUST_USE_RESULT bool Unref() {
     uint64_t prev_state = state_.fetch_sub(kOneRef, std::memory_order_acq_rel);
     if ((prev_state & kRefMask) == kOneRef) {
-      return UnreffedLast();
+      return UnrefedLast();
     }
     return false;
   }
@@ -186,7 +186,7 @@ class PartySyncUsingAtomics {
   GRPC_MUST_USE_RESULT bool ScheduleWakeup(WakeupMask mask);
 
  private:
-  bool UnreffedLast();
+  bool UnrefedLast();
 
   // State bits:
   // The atomic state_ field is composed of the following:
@@ -465,7 +465,7 @@ class Party : public Activity, private Wakeable {
   virtual grpc_event_engine::experimental::EventEngine* event_engine()
       const = 0;
 
-  // Sentinal value for currently_polling_ when no participant is being polled.
+  // Sentinel value for currently_polling_ when no participant is being polled.
   static constexpr uint8_t kNotPolling = 255;
 
 #ifdef GRPC_PARTY_SYNC_USING_ATOMICS

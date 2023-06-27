@@ -314,7 +314,7 @@ static void recv_trailing_metadata_locked(void* arg,
       gbs->recv_trailing_metadata = nullptr;
       grpc_core::ExecCtx::Run(DEBUG_LOCATION, cb, error);
     } else {
-      // According to transport explaineer - "Server extra: This op shouldn't
+      // According to transport explainer - "Server extra: This op shouldn't
       // actually be considered complete until the server has also sent trailing
       // metadata to provide the other side with final status"
       //
@@ -547,7 +547,7 @@ static void perform_stream_op_locked(void* stream_op,
     status = gbt->wire_writer->RpcCall(std::move(tx));
     if (!gbs->is_client && op->send_trailing_metadata) {
       gbs->trailing_metadata_sent = true;
-      // According to transport explaineer - "Server extra: This op shouldn't
+      // According to transport explainer - "Server extra: This op shouldn't
       // actually be considered complete until the server has also sent trailing
       // metadata to provide the other side with final status"
       //

@@ -47,7 +47,7 @@
 #define TSI_X509_URI_PEER_PROPERTY "x509_uri"
 #define TSI_X509_EMAIL_PEER_PROPERTY "x509_email"
 #define TSI_X509_IP_PEER_PROPERTY "x509_ip"
-#define TSI_X509_VERIFIED_ROOT_CERT_SUBECT_PEER_PROPERTY \
+#define TSI_X509_VERIFIED_ROOT_CERT_SUBJECT_PEER_PROPERTY \
   "x509_verified_root_cert_subject"
 
 // --- tsi_ssl_root_certs_store object ---
@@ -95,7 +95,7 @@ static constexpr bool tsi_tls_session_key_logging_supported() {
 // --- tsi_ssl_client_handshaker_factory object ---
 
 // This object creates a client tsi_handshaker objects implemented in terms of
-// the TLS 1.2 specificiation.
+// the TLS 1.2 specification.
 
 typedef struct tsi_ssl_client_handshaker_factory
     tsi_ssl_client_handshaker_factory;
@@ -231,7 +231,7 @@ void tsi_ssl_client_handshaker_factory_unref(
 // --- tsi_ssl_server_handshaker_factory object ---
 
 // This object creates a client tsi_handshaker objects implemented in terms of
-// the TLS 1.2 specificiation.
+// the TLS 1.2 specification.
 
 typedef struct tsi_ssl_server_handshaker_factory
     tsi_ssl_server_handshaker_factory;

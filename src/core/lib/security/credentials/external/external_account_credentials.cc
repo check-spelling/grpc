@@ -244,9 +244,9 @@ std::string ExternalAccountCredentials::debug_string() {
 // and the subject token is received in OnRetrieveSubjectTokenInternal().
 // 2. Exchange token - ExchangeToken() gets called with the
 // subject token from #1. Receive the response in OnExchangeTokenInternal().
-// 3. (Optional) Impersonate service account - ImpersenateServiceAccount() gets
+// 3. (Optional) Impersonate service account - ImpersonateServiceAccount() gets
 // called with the access token of the response from #2. Get an impersonated
-// access token in OnImpersenateServiceAccountInternal().
+// access token in OnImpersonateServiceAccountInternal().
 // 4. Finish token fetch - Return back the response that contains an access
 // token in FinishTokenFetch().
 // TODO(chuanr): Avoid starting the remaining requests if the channel gets shut
@@ -326,15 +326,15 @@ void ExternalAccountCredentials::ExchangeToken(
     scope = absl::StrJoin(scopes_, " ");
   }
   body_parts.push_back(absl::StrFormat("scope=%s", UrlEncode(scope).c_str()));
-  Json::Object addtional_options_json_object;
+  Json::Object additional_options_json_object;
   if (options_.client_id.empty() && options_.client_secret.empty()) {
-    addtional_options_json_object["userProject"] =
+    additional_options_json_object["userProject"] =
         Json::FromString(options_.workforce_pool_user_project);
   }
-  Json addtional_options_json =
-      Json::FromObject(std::move(addtional_options_json_object));
+  Json additional_options_json =
+      Json::FromObject(std::move(additional_options_json_object));
   body_parts.push_back(absl::StrFormat(
-      "options=%s", UrlEncode(JsonDump(addtional_options_json)).c_str()));
+      "options=%s", UrlEncode(JsonDump(additional_options_json)).c_str()));
   std::string body = absl::StrJoin(body_parts, "&");
   request.body = const_cast<char*>(body.c_str());
   request.body_length = body.size();
@@ -385,12 +385,12 @@ void ExternalAccountCredentials::OnExchangeTokenInternal(
       }
       FinishTokenFetch(absl::OkStatus());
     } else {
-      ImpersenateServiceAccount();
+      ImpersonateServiceAccount();
     }
   }
 }
 
-void ExternalAccountCredentials::ImpersenateServiceAccount() {
+void ExternalAccountCredentials::ImpersonateServiceAccount() {
   absl::string_view response_body(ctx_->response.body,
                                   ctx_->response.body_length);
   auto json = JsonParse(response_body);
@@ -436,7 +436,7 @@ void ExternalAccountCredentials::ImpersenateServiceAccount() {
   request.body_length = body.size();
   grpc_http_response_destroy(&ctx_->response);
   ctx_->response = {};
-  GRPC_CLOSURE_INIT(&ctx_->closure, OnImpersenateServiceAccount, this, nullptr);
+  GRPC_CLOSURE_INIT(&ctx_->closure, OnImpersonateServiceAccount, this, nullptr);
   // TODO(ctiller): Use the callers resource quota.
   GPR_ASSERT(http_request_ == nullptr);
   RefCountedPtr<grpc_channel_credentials> http_request_creds;
@@ -454,14 +454,14 @@ void ExternalAccountCredentials::ImpersenateServiceAccount() {
   grpc_http_request_destroy(&request);
 }
 
-void ExternalAccountCredentials::OnImpersenateServiceAccount(
+void ExternalAccountCredentials::OnImpersonateServiceAccount(
     void* arg, grpc_error_handle error) {
   ExternalAccountCredentials* self =
       static_cast<ExternalAccountCredentials*>(arg);
-  self->OnImpersenateServiceAccountInternal(error);
+  self->OnImpersonateServiceAccountInternal(error);
 }
 
-void ExternalAccountCredentials::OnImpersenateServiceAccountInternal(
+void ExternalAccountCredentials::OnImpersonateServiceAccountInternal(
     grpc_error_handle error) {
   http_request_.reset();
   if (!error.ok()) {

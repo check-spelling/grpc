@@ -59,7 +59,7 @@ class GrpcByteBufferPeer;
 /// A sequence of bytes.
 class ByteBuffer final {
  public:
-  /// Constuct an empty buffer.
+  /// Construct an empty buffer.
   ByteBuffer() : buffer_(nullptr) {}
 
   /// Construct buffer from \a slices, of which there are \a nslices.
@@ -118,7 +118,7 @@ class ByteBuffer final {
   // slice referencing that array.
   Status TrySingleSlice(Slice* slice) const;
 
-  /// Dump (read) the buffer contents into \a slics.
+  /// Dump (read) the buffer contents into \a slice.
   Status DumpToSingleSlice(Slice* slice) const;
 
   /// Dump (read) the buffer contents into \a slices.

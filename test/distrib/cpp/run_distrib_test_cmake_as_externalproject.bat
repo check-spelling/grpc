@@ -16,7 +16,7 @@
 cd /d %~dp0\..\..\..
 
 @rem TODO(jtattermusch): Kokoro has pre-installed protoc.exe in C:\Program Files\ProtoC and that directory
-@rem is on PATH. To avoid picking up the older version protoc.exe, we change the path to something non-existent.
+@rem is on PATH. To avoid picking up the older version protoc.exe, we change the path to something nonexistent.
 set PATH=%PATH:ProtoC=DontPickupProtoC%
 
 @rem Download OpenSSL-Win32 originally installed from https://slproweb.com/products/Win32OpenSSL.html

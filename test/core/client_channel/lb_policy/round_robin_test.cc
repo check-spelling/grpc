@@ -42,7 +42,7 @@ class RoundRobinTest : public LoadBalancingPolicyTest {
   void ExpectStartup(absl::Span<const absl::string_view> addresses) {
     EXPECT_EQ(ApplyUpdate(BuildUpdate(addresses, nullptr), lb_policy_.get()),
               absl::OkStatus());
-    // Expect the initial CONNECTNG update with a picker that queues.
+    // Expect the initial CONNECTING update with a picker that queues.
     ExpectConnectingUpdate();
     // RR should have created a subchannel for each address.
     for (size_t i = 0; i < addresses.size(); ++i) {

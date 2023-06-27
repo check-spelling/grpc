@@ -67,7 +67,7 @@ static _upb_ArenaRoot _upb_Arena_FindRoot(upb_Arena* a) {
       //
       // This is true because:
       // - If no fuses occur, this will eventually become the root.
-      // - If fuses are actively occuring, the root may change, but the
+      // - If fuses are actively occurring, the root may change, but the
       //   invariant is that `parent_or_count` merely points to *a* parent.
       //
       // In other words, it is moving towards "the" root, and that root may move
@@ -278,7 +278,7 @@ static void _upb_Arena_DoFuseArenaLists(upb_Arena* const parent,
 
 static upb_Arena* _upb_Arena_DoFuse(upb_Arena* a1, upb_Arena* a2,
                                     uintptr_t* ref_delta) {
-  // `parent_or_count` has two disctint modes
+  // `parent_or_count` has two distinct modes
   // -  parent pointer mode
   // -  refcount mode
   //

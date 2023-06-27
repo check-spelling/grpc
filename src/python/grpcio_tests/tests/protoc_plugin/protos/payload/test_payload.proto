@@ -20,8 +20,8 @@ enum PayloadType {
   // Compressable text format.
   COMPRESSABLE= 0;
 
-  // Uncompressable binary format.
-  UNCOMPRESSABLE = 1;
+  // Uncompressible binary format.
+  UNCOMPRESSIBLE = 1;
 
   // Randomly chosen from all other formats defined in this enum.
   RANDOM = 2;
@@ -30,7 +30,7 @@ enum PayloadType {
 message Payload {
   PayloadType payload_type = 1;
   oneof payload_body {
-    string payload_compressable = 2;
-    bytes payload_uncompressable = 3;
+    string payload_compressible = 2;
+    bytes payload_uncompressible = 3;
   }
 }

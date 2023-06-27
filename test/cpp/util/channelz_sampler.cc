@@ -176,10 +176,10 @@ class ChannelzSampler final {
     return get_socket_response.socket();
   }
 
-  // get the descedent channels/subchannels/sockets of a channel
-  // push descedent channels/subchannels to queue for layer traverse
-  // store descedent channels/subchannels/sockets for dumping data
-  void GetChannelDescedence(
+  // get the descendent channels/subchannels/sockets of a channel
+  // push descendent channels/subchannels to queue for layer traverse
+  // store descendent channels/subchannels/sockets for dumping data
+  void GetChannelDescendents(
       const grpc::channelz::v1::Channel& channel,
       std::queue<grpc::channelz::v1::Channel>& channel_queue,
       std::queue<grpc::channelz::v1::Subchannel>& subchannel_queue) {
@@ -230,10 +230,10 @@ class ChannelzSampler final {
     std::cout << std::endl;
   }
 
-  // get the descedent channels/subchannels/sockets of a subchannel
-  // push descedent channels/subchannels to queue for layer traverse
-  // store descedent channels/subchannels/sockets for dumping data
-  void GetSubchannelDescedence(
+  // get the descendent channels/subchannels/sockets of a subchannel
+  // push descendent channels/subchannels to queue for layer traverse
+  // store descendent channels/subchannels/sockets for dumping data
+  void GetSubchannelDescendents(
       grpc::channelz::v1::Subchannel& subchannel,
       std::queue<grpc::channelz::v1::Channel>& channel_queue,
       std::queue<grpc::channelz::v1::Subchannel>& subchannel_queue) {
@@ -413,7 +413,7 @@ class ChannelzSampler final {
       std::queue<grpc::channelz::v1::Channel> channel_queue;
       std::queue<grpc::channelz::v1::Subchannel> subchannel_queue;
       std::cout << "Tree depth = " << tree_depth << std::endl;
-      GetChannelDescedence(_topchannel, channel_queue, subchannel_queue);
+      GetChannelDescendents(_topchannel, channel_queue, subchannel_queue);
       while (!channel_queue.empty() || !subchannel_queue.empty()) {
         ++tree_depth;
         std::cout << "Tree depth = " << tree_depth << std::endl;
@@ -422,12 +422,12 @@ class ChannelzSampler final {
         for (int i = 0; i < ch_q_size; ++i) {
           grpc::channelz::v1::Channel ch = channel_queue.front();
           channel_queue.pop();
-          GetChannelDescedence(ch, channel_queue, subchannel_queue);
+          GetChannelDescendents(ch, channel_queue, subchannel_queue);
         }
         for (int i = 0; i < subch_q_size; ++i) {
           grpc::channelz::v1::Subchannel subch = subchannel_queue.front();
           subchannel_queue.pop();
-          GetSubchannelDescedence(subch, channel_queue, subchannel_queue);
+          GetSubchannelDescendents(subch, channel_queue, subchannel_queue);
         }
       }
       std::cout << std::endl;

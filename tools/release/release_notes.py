@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""Generate draft and release notes in Markdown from Github PRs.
+"""Generate draft and release notes in Markdown from GitHub PRs.
 
 You'll need a github API token to avoid being rate-limited. See
 https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
@@ -38,7 +38,7 @@ content_header = """Draft Release Notes For {version}
 --
 Final release notes will be generated from the PR titles that have *"release notes:yes"* label. If you have any additional notes please add them below. These will be appended to auto generated release notes. Previous release notes are [here](https://github.com/grpc/grpc/releases).
 
-**Also, look at the PRs listed below against your name.** Please apply the missing labels and make necessary corrections (like fixing the title) to the PR in Github. Final release notes will be generated just before the release on {date}.
+**Also, look at the PRs listed below against your name.** Please apply the missing labels and make necessary corrections (like fixing the title) to the PR in GitHub. Final release notes will be generated just before the release on {date}.
 
 Add additional notes not in PRs
 --
@@ -128,7 +128,7 @@ def get_pr_titles(gitLogs):
     print("\nPRs matching 'Merge pull request #<num>':")
     print(prlist_merge_pr)
     print("\n")
-    # PRs using Github's squash & merge feature
+    # PRs using GitHub's squash & merge feature
     match_sq = "\(#(\d+)\)$"
     prlist_sq = re.findall(match_sq, gitLogs, re.MULTILINE)
     print("\nPRs matching '[PR Description](#<num>)$'")
@@ -198,7 +198,7 @@ def get_pr_titles(gitLogs):
 
 def write_draft(langs_pr, file, version, date):
     file.write(content_header.format(version=version, date=date))
-    file.write("PRs with missing release notes label - please fix in Github\n")
+    file.write("PRs with missing release notes label - please fix in GitHub\n")
     file.write("---\n")
     file.write("\n")
     if langs_pr["nolabel"]:
@@ -208,7 +208,7 @@ def write_draft(langs_pr, file, version, date):
         file.write("- None")
     file.write("\n")
     file.write("\n")
-    file.write("PRs with missing lang label - please fix in Github\n")
+    file.write("PRs with missing lang label - please fix in GitHub\n")
     file.write("---\n")
     file.write("\n")
     if langs_pr["nolang"]:
@@ -219,7 +219,7 @@ def write_draft(langs_pr, file, version, date):
     file.write("\n")
     file.write("\n")
     file.write(
-        "PRs going into release notes - please check title and fix in Github."
+        "PRs going into release notes - please check title and fix in GitHub."
         " Do not edit here.\n"
     )
     file.write("---\n")
@@ -364,7 +364,7 @@ def main():
             pass
     if TOKEN == "":
         print(
-            "Error: Github API token required. Either include param"
+            "Error: GitHub API token required. Either include param"
             " --token=<your github token> or set environment variable"
             " GITHUB_TOKEN to your github token"
         )

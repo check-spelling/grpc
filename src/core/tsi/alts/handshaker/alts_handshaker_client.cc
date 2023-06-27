@@ -302,7 +302,7 @@ void alts_handshaker_client_handle_response(alts_handshaker_client* c,
       gpr_log(GPR_ERROR, "%s", error.c_str());
     }
   }
-  // TODO(apolcyn): consider short ciruiting handle_response_done and
+  // TODO(apolcyn): consider short circuiting handle_response_done and
   // invoking the TSI callback directly if we aren't done yet, if
   // handle_response_done's allocation per message received causes
   // a performance issue.

@@ -67,7 +67,7 @@ std::string sampling_times = "2";
 std::string sampling_interval_seconds = "3";
 std::string output_json("output.json");
 
-// Creata an echo server
+// Create an echo server
 class EchoServerImpl final : public grpc::testing::TestService::Service {
   Status EmptyCall(ServerContext* /*context*/,
                    const grpc::testing::Empty* /*request*/,

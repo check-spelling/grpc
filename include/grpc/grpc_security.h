@@ -321,7 +321,7 @@ grpc_service_account_jwt_access_credentials_create(const char* json_key,
 
 /** Builds External Account credentials.
  - json_string is the JSON string containing the credentials options.
- - scopes_string contains the scopes to be binded with the credentials.
+ - scopes_string contains the scopes to be bound with the credentials.
    This API is used for experimental purposes for now and may change in the
  future. */
 GRPCAPI grpc_call_credentials* grpc_external_account_credentials_create(
@@ -364,10 +364,10 @@ typedef struct {
   const char* actor_token_type;           /* Optional. */
 } grpc_sts_credentials_options;
 
-/** Creates an STS credentials following the STS Token Exchanged specifed in the
-   IETF draft https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16.
-   This API is used for experimental purposes for now and may change in the
-   future. */
+/** Creates an STS credentials following the STS Token Exchanged specified in
+   the IETF draft
+   https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16. This API is
+   used for experimental purposes for now and may change in the future. */
 GRPCAPI grpc_call_credentials* grpc_sts_credentials_create(
     const grpc_sts_credentials_options* options, void* reserved);
 

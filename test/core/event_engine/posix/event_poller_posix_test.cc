@@ -237,7 +237,7 @@ void ListenCb(server* sv, absl::Status status) {
     listen_em_fd->NotifyOnRead(sv->listen_closure);
     return;
   } else if (fd < 0) {
-    gpr_log(GPR_ERROR, "Failed to acceot a connection, returned error: %s",
+    gpr_log(GPR_ERROR, "Failed to accept a connection, returned error: %s",
             grpc_core::StrError(errno).c_str());
   }
   EXPECT_GE(fd, 0);
@@ -529,8 +529,8 @@ std::atomic<int> kTotalActiveWakeupFdHandles{0};
 // A helper class representing one file descriptor. Its implemented using
 // a WakeupFd. It registers itself with the poller and waits to be notified
 // of read events. Upon receiving a read event, (1) it processes it,
-// (2) registes to be notified of the next read event and (3) schedules
-// generation of the next read event. The Fd orphanes itself after processing
+// (2) registers to be notified of the next read event and (3) schedules
+// generation of the next read event. The Fd orphans itself after processing
 // a specified number of read events.
 class WakeupFdHandle : public grpc_core::DualRefCounted<WakeupFdHandle> {
  public:

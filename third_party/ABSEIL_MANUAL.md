@@ -15,17 +15,17 @@ Therefore, gRPC will use the LTS version only, preferably the latest one.
 ## Libraries that are not ready to use
 
 Most of Abseil libraries are okay to use but there are some exceptions
-because they're not going well yet on some of our test machinaries or
+because they're not going well yet on some of our test machineries or
 platforms it supports. The following is a list of targets that are NOT
 ready to use.
 
 - `absl/synchronization:*`: Blocked by b/186685878.
 - `absl/random`: [WIP](https://github.com/grpc/grpc/pull/23346).
 
-## Implemetation only
+## Implementation only
 
 You can use Abseil in gRPC Core and gRPC C++. But you cannot use it in
-the public interface of gRPC C++ because i) it doesn't gurantee no breaking
+the public interface of gRPC C++ because i) it doesn't guarantee no breaking
 API changes like gRPC C++ does and ii) it may make users change their build
 system to address Abseil.  
  

@@ -301,7 +301,7 @@ TEST_F(CommonTlsConfigTest, TlsCertProvider) {
       "cert_name");
 }
 
-TEST_F(CommonTlsConfigTest, TlsCertificatesUnuspported) {
+TEST_F(CommonTlsConfigTest, TlsCertificatesUnsupported) {
   // Construct proto.
   CommonTlsContextProto common_tls_context_proto;
   common_tls_context_proto.add_tls_certificates();
@@ -317,7 +317,7 @@ TEST_F(CommonTlsConfigTest, TlsCertificatesUnuspported) {
       << common_tls_context.status();
 }
 
-TEST_F(CommonTlsConfigTest, TlsCertificatesSdsConfigUnuspported) {
+TEST_F(CommonTlsConfigTest, TlsCertificatesSdsConfigUnsupported) {
   // Construct proto.
   CommonTlsContextProto common_tls_context_proto;
   common_tls_context_proto.add_tls_certificate_sds_secret_configs();
@@ -334,7 +334,7 @@ TEST_F(CommonTlsConfigTest, TlsCertificatesSdsConfigUnuspported) {
       << common_tls_context.status();
 }
 
-TEST_F(CommonTlsConfigTest, TlsParamsUnuspported) {
+TEST_F(CommonTlsConfigTest, TlsParamsUnsupported) {
   // Construct proto.
   CommonTlsContextProto common_tls_context_proto;
   common_tls_context_proto.mutable_tls_params();
@@ -350,7 +350,7 @@ TEST_F(CommonTlsConfigTest, TlsParamsUnuspported) {
       << common_tls_context.status();
 }
 
-TEST_F(CommonTlsConfigTest, CustomHandshakerUnuspported) {
+TEST_F(CommonTlsConfigTest, CustomHandshakerUnsupported) {
   // Construct proto.
   CommonTlsContextProto common_tls_context_proto;
   common_tls_context_proto.mutable_custom_handshaker();

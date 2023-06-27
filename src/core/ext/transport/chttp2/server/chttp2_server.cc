@@ -502,7 +502,7 @@ void Chttp2ServerListener::ActiveConnection::HandshakingState::OnHandshakeDone(
           grpc_closure* on_close = nullptr;
           if (self->connection_->listener_->config_fetcher_watcher_ !=
               nullptr) {
-            // Refs helds by OnClose()
+            // Refs held by OnClose()
             self->connection_->Ref().release();
             on_close = &self->connection_->on_close_;
           } else {
@@ -857,7 +857,7 @@ void Chttp2ServerListener::OnAccept(void* arg, grpc_endpoint* tcp,
   RefCountedPtr<Chttp2ServerListener> listener_ref;
   {
     MutexLock lock(&self->mu_);
-    // Shutdown the the connection if listener's stopped serving or if the
+    // Shutdown the connection if listener's stopped serving or if the
     // connection manager has changed.
     if (!self->shutdown_ && self->is_serving_ &&
         connection_manager == self->connection_manager_) {

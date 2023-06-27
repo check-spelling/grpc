@@ -27,7 +27,7 @@ namespace grpc {
 namespace experimental {
 namespace binder {
 
-// EXPERIMENTAL Determinines if a connection is allowed to be
+// EXPERIMENTAL Determines if a connection is allowed to be
 // established on Android. See https://source.android.com/security/app-sandbox
 // for more info about UID.
 class SecurityPolicy {

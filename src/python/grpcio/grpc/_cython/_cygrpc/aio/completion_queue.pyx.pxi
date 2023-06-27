@@ -117,7 +117,7 @@ cdef class PollerCompletionQueue(BaseCompletionQueue):
                 else:
                     with gil:
                         # Event loops can be paused or killed at any time. So,
-                        # instead of deligate to any thread, the polling thread
+                        # instead of delegate to any thread, the polling thread
                         # should handle the distribution of the event.
                         self._handle_events(None)
 

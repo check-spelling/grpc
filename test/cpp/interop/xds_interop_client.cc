@@ -99,7 +99,7 @@ struct StatsWatchers {
   // Stores a set of watchers that should be notified upon outgoing RPC
   // completion
   std::set<XdsStatsWatcher*> watchers;
-  // Global watcher for accumululated stats.
+  // Global watcher for accumulated stats.
   XdsStatsWatcher* global_watcher;
   // Mutex for global_request_id and watchers
   std::mutex mu;
@@ -486,8 +486,7 @@ void RunTestLoop(std::chrono::duration<double> duration_per_query,
   std::vector<RpcConfig> configs;
   while (true) {
     {
-      std::lock_guard<std::mutex> lockk(
-          rpc_configs_queue->mu_rpc_configs_queue);
+      std::lock_guard<std::mutex> lock(rpc_configs_queue->mu_rpc_configs_queue);
       if (!rpc_configs_queue->rpc_configs_queue.empty()) {
         configs = std::move(rpc_configs_queue->rpc_configs_queue.front());
         rpc_configs_queue->rpc_configs_queue.pop_front();

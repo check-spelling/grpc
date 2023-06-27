@@ -82,7 +82,7 @@ grpc_channel* create_secure_channel_for_test(
                                               true /* enable_untrusted_alts */);
   grpc_alts_credentials_options_destroy(alts_options);
   // The main goal of these tests are to stress concurrent ALTS handshakes,
-  // so we prevent subchnannel sharing.
+  // so we prevent subchannel sharing.
   std::vector<grpc_arg> new_args;
   new_args.push_back(grpc_channel_arg_integer_create(
       const_cast<char*>(GRPC_ARG_USE_LOCAL_SUBCHANNEL_POOL), true));
@@ -323,7 +323,7 @@ TEST(AltsConcurrentConnectivityTest,
   // an ALTS handshake client's RECV_STATUS op completing after call
   // cancellation, and the corresponding fake handshake server's sync
   // method handler returning, enforcing a limit on the number of active
-  // RPCs at the fake handshake server would be inherently racey.
+  // RPCs at the fake handshake server would be inherently racy.
   FakeHandshakeServer fake_handshake_server;
   // The fake_backend_server emulates a secure (ALTS based) gRPC backend. So
   // it waits for the client to send the first bytes.

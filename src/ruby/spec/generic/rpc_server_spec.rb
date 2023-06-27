@@ -95,7 +95,7 @@ class SynchronizedCancellationService
   end
 
   def an_rpc(req, _call)
-    GRPC.logger.info('starting a synchronusly cancelled rpc')
+    GRPC.logger.info('starting a synchronously cancelled rpc')
     @notify_request_received.call(req)
     @wait_until_rpc_cancelled.call
     req  # send back the req as the response

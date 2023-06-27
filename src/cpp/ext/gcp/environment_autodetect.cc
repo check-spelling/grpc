@@ -113,7 +113,7 @@ std::string GetServiceName() {
 }
 
 // Get configuration name for Cloud run
-std::string GetConfiguratioName() {
+std::string GetConfigurationName() {
   return grpc_core::GetEnv("K_CONFIGURATION").value_or("");
 }
 
@@ -171,7 +171,7 @@ class EnvironmentAutoDetectHelper
  private:
   struct Attribute {
     std::string resource_attribute;
-    std::string metadata_server_atttribute;
+    std::string metadata_server_attribute;
   };
 
   void PollLoop() {
@@ -222,7 +222,7 @@ class EnvironmentAutoDetectHelper
       resource_.resource_type = "cloud_run_revision";
       resource_.labels.emplace("revision_name", GetRevisionName());
       resource_.labels.emplace("service_name", GetServiceName());
-      resource_.labels.emplace("configuration_name", GetConfiguratioName());
+      resource_.labels.emplace("configuration_name", GetConfigurationName());
       attributes_to_fetch_.emplace(grpc_core::MetadataQuery::kRegionAttribute,
                                    "location");
     }

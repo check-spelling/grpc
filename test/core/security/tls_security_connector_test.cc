@@ -765,7 +765,7 @@ TEST_F(TlsSecurityConnectorTest,
                                          strlen("grpc"), &peer.properties[0]),
       TSI_OK);
   EXPECT_EQ(tsi_construct_string_peer_property_from_cstring(
-                TSI_X509_VERIFIED_ROOT_CERT_SUBECT_PEER_PROPERTY,
+                TSI_X509_VERIFIED_ROOT_CERT_SUBJECT_PEER_PROPERTY,
                 expected_subject.c_str(), &peer.properties[1]),
             TSI_OK);
   RefCountedPtr<grpc_auth_context> auth_context;
@@ -1154,7 +1154,7 @@ TEST_F(TlsSecurityConnectorTest,
                                          strlen("grpc"), &peer.properties[0]),
       TSI_OK);
   EXPECT_EQ(tsi_construct_string_peer_property_from_cstring(
-                TSI_X509_VERIFIED_ROOT_CERT_SUBECT_PEER_PROPERTY,
+                TSI_X509_VERIFIED_ROOT_CERT_SUBJECT_PEER_PROPERTY,
                 expected_subject.c_str(), &peer.properties[1]),
             TSI_OK);
   RefCountedPtr<grpc_auth_context> auth_context;

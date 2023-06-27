@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #
-# This is for the gRPC build system. This isn't intended to be used outsite of
+# This is for the gRPC build system. This isn't intended to be used outside of
 # the BUILD file for gRPC. It contains the mapping for the template system we
 # use to generate other platform's build system files.
 #
@@ -151,7 +151,7 @@ def grpc_cc_library(
       srcs: The source files.
       public_hdrs: The public headers.
       hdrs: The headers.
-      external_deps: External depdendencies to be resolved.
+      external_deps: External dependencies to be resolved.
       defines: Build defines to use.
       deps: cc_library deps.
       select_deps: deps included conditionally.
@@ -440,7 +440,7 @@ def grpc_cc_test(name, srcs = [], deps = [], external_deps = [], args = [], data
         timeout: The test timeout.
         tags: The tags for the test.
         exec_compatible_with: A list of constraint values that must be
-            satisifed for the platform.
+            satisfied for the platform.
         exec_properties: A dictionary of strings that will be added to the
             exec_properties of a platform selected for this target.
         shard_count: The number of shards for this test.
@@ -559,7 +559,7 @@ def grpc_sh_test(name, srcs = [], args = [], data = [], uses_polling = True, siz
         timeout: The test timeout.
         tags: The tags for the test.
         exec_compatible_with: A list of constraint values that must be
-            satisifed for the platform.
+            satisfied for the platform.
         exec_properties: A dictionary of strings that will be added to the
             exec_properties of a platform selected for this target.
         shard_count: The number of shards for this test.

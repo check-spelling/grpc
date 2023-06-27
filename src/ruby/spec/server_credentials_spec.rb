@@ -71,7 +71,7 @@ describe GRPC::Core::ServerCredentials do
       expect(&blk).to raise_error
     end
 
-    it 'can be constructed without a root_cret' do
+    it 'can be constructed without a root_cert' do
       _, cert_pairs, _ = load_test_certs
       blk = proc { Creds.new(nil, cert_pairs, false) }
       expect(&blk).to_not raise_error

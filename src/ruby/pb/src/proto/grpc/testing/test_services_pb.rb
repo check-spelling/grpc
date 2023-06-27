@@ -142,7 +142,7 @@ module Grpc
         self.unmarshal_class_method = :decode
         self.service_name = 'grpc.testing.XdsUpdateClientConfigureService'
 
-        # Update the tes client's configuration.
+        # Update the test client's configuration.
         rpc :Configure, ::Grpc::Testing::ClientConfigureRequest, ::Grpc::Testing::ClientConfigureResponse
       end
 

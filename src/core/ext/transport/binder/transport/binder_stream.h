@@ -49,7 +49,7 @@ struct RegisterStreamArgs {
 // TODO(mingcl): Figure out if we want to use class instead of struct here
 struct grpc_binder_stream {
   // server_data will be null for client, and for server it will be whatever
-  // passed in to the accept_stream_fn callback by client.
+  // passed into the accept_stream_fn callback by client.
   grpc_binder_stream(grpc_binder_transport* t, grpc_stream_refcount* refcount,
                      const void* /*server_data*/, grpc_core::Arena* arena,
                      int tx_code, bool is_client)

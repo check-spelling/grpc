@@ -29,7 +29,7 @@ FILES=$(find . -path ./third_party -prune -o -name '*.bzl' -print)
 echo "${FILES}" | xargs "$PYTHON" -m yapf -i --style="${CONFIG_PATH}"
 
 if ! which buildifier &>/dev/null; then
-    echo 'buildifer must be installed.' >/dev/stderr
+    echo 'buildifier must be installed.' >/dev/stderr
     exit 1
 fi
 

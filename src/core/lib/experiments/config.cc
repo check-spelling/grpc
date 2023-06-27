@@ -134,7 +134,7 @@ void PrintExperimentsList() {
             " (default:", g_experiment_metadata[i].default_value ? "ON" : "OFF",
             (g_check_constraints_cb != nullptr
                  ? absl::StrCat(
-                       " + ", g_experiment_metadata[i].additional_constaints,
+                       " + ", g_experiment_metadata[i].additional_constraints,
                        " => ",
                        (*g_check_constraints_cb)(g_experiment_metadata[i])
                            ? "ON "

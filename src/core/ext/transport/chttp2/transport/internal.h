@@ -488,12 +488,12 @@ struct grpc_chttp2_stream {
   void* context;
   grpc_chttp2_transport* t;
   grpc_stream_refcount* refcount;
-  // Reffer is a 0-len structure, simply reffing `t` and `refcount` in its ctor
+  // Refer is a 0-len structure, simply reffing `t` and `refcount` in its ctor
   // before initializing the rest of the stream, to avoid cache misses. This
   // field MUST be right after `t` and `refcount`.
-  struct Reffer {
-    explicit Reffer(grpc_chttp2_stream* s);
-  } reffer;
+  struct Refer {
+    explicit Refer(grpc_chttp2_stream* s);
+  } refer;
 
   grpc_closure destroy_stream;
   grpc_closure* destroy_stream_arg;
@@ -509,9 +509,9 @@ struct grpc_chttp2_stream {
   grpc_closure* send_initial_metadata_finished = nullptr;
   grpc_metadata_batch* send_trailing_metadata = nullptr;
   // TODO(yashykt): Find a better name for the below field and others in this
-  //                struct to betteer distinguish inputs, return values, and
+  //                struct to better distinguish inputs, return values, and
   //                internal state.
-  // sent_trailing_metadata_op allows the transport to fill in to the upper
+  // sent_trailing_metadata_op allows the transport to fill into the upper
   // layer whether this stream was able to send its trailing metadata (used for
   // detecting cancellation on the server-side)..
   bool* sent_trailing_metadata_op = nullptr;

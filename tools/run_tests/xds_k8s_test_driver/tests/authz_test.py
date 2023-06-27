@@ -32,7 +32,7 @@ _SecurityMode = xds_k8s_testcase.SecurityXdsKubernetesTestCase.SecurityMode
 _Lang = skips.Lang
 
 # The client generates QPS even when it is still loading information from xDS.
-# Once it finally connects there will be an outpouring of the bufferred RPCs and
+# Once it finally connects there will be an outpouring of the buffered RPCs and
 # the server needs time to chew through the backlog, especially since it is
 # still a new process and so probably interpreted. The server on one run
 # processed 225 RPCs a second, so with the client configured for 25 qps this is

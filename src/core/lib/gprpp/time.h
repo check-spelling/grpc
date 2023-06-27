@@ -200,7 +200,7 @@ class Duration {
 
   static constexpr Duration Zero() { return Duration(0); }
 
-  // Smallest representatable positive duration.
+  // Smallest representable positive duration.
   static constexpr Duration Epsilon() { return Duration(1); }
 
   static constexpr Duration NegativeInfinity() {

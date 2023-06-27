@@ -109,7 +109,7 @@ class LoggingTest : public ::testing::Test {
   void SetUp() override {
     // Clean up previous entries
     g_test_logging_sink->Clear();
-    // Set up a synchronous server on a different thread to avoid the asynch
+    // Set up a synchronous server on a different thread to avoid the async
     // interface.
     grpc::ServerBuilder builder;
     int port = grpc_pick_unused_port_or_die();

@@ -21,7 +21,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/* Default test timeout in seconds for interopt test. */
+/* Default test timeout in seconds for interop test. */
 FOUNDATION_EXPORT const NSTimeInterval GRPCInteropTestTimeoutDefault;
 
 // Block typedef for waiting for a target group of expectations via XCTWaiter.

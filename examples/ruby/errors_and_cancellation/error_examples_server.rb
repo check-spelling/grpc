@@ -30,7 +30,7 @@ include Routeguide
 
 include GRPC::Core::StatusCodes
 
-# CanellingandErrorReturningServiceImpl provides an implementation of the RouteGuide service.
+# CancellingAndErrorReturningServerImpl provides an implementation of the RouteGuide service.
 class CancellingAndErrorReturningServerImpl < RouteGuide::Service
   # def get_feature
   #   Note get_feature isn't implemented in this subclass, so the server

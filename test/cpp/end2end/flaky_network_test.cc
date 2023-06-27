@@ -179,7 +179,7 @@ class FlakyNetworkTest : public ::testing::TestWithParam<TestScenario> {
     // TODO (pjaikumar): Ideally, we should allocate the port dynamically using
     // grpc_pick_unused_port_or_die(). That doesn't work inside some docker
     // containers because port_server listens on localhost which maps to
-    // ip6-looopback, but ipv6 support is not enabled by default in docker.
+    // ip6-loopback, but ipv6 support is not enabled by default in docker.
     port_ = SERVER_PORT;
 
     server_ = std::make_unique<ServerData>(port_, GetParam().credentials_type);
@@ -385,7 +385,7 @@ TEST_P(FlakyNetworkTest, NetworkTransition) {
   sender.join();
 }
 
-// Traffic to server server is blackholed temporarily with keepalives enabled
+// Traffic to server is blackholed temporarily with keepalives enabled
 TEST_P(FlakyNetworkTest, ServerUnreachableWithKeepalive) {
   const int kKeepAliveTimeMs = 1000;
   const int kKeepAliveTimeoutMs = 1000;
@@ -434,7 +434,7 @@ TEST_P(FlakyNetworkTest, ServerUnreachableWithKeepalive) {
 }
 
 //
-// Traffic to server server is blackholed temporarily with keepalives disabled
+// Traffic to server is blackholed temporarily with keepalives disabled
 TEST_P(FlakyNetworkTest, ServerUnreachableNoKeepalive) {
   auto channel = BuildChannel("pick_first", ChannelArguments());
   auto stub = BuildStub(channel);

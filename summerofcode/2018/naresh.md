@@ -76,7 +76,7 @@ simple Bazel can be to use. gRPC was already using a dockerized Bazel setup to
 build some of it's core code (but not as the primary build setup). Adding a new
 job on the internal CI ended up being as simple as creating a new shell script
 to install the required dependencies (which were python-dev and Bazel) and a
-new configuration file which pointed to the subdirectiory (src/python) under
+new configuration file which pointed to the subdirectory (src/python) under
 which to look for targets and run the tests accordingly.
 
 ### Handling imports in Python code
@@ -151,7 +151,7 @@ bazel test --spawn_strategy=standalone --genrule_strategy=standalone //src/pytho
 - [848fd9d](https://github.com/grpc/grpc/commit/848fd9d75f6df10f00e8328ff052c0237b3002ab)
     Minimal Bazel BUILD files for grpcio Python
 
-### Other contibutions
+### Other contributions
 
 - [89ce16b](https://github.com/grpc/grpc/commit/89ce16b6daaad4caeb1c9ba670c6c4b62ea1a93c)
     Update Dockerfiles for python artifacts to use latest git version

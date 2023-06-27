@@ -41,7 +41,7 @@ namespace grpc_core {
 // Provider class will get gRPC Authorization policy from string during
 // initialization. This policy will be translated to Envoy RBAC policies and
 // used to initialize allow and deny AuthorizationEngine objects. This provider
-// will return the same authorization engines everytime.
+// will return the same authorization engines every time.
 class StaticDataAuthorizationPolicyProvider
     : public grpc_authorization_policy_provider {
  public:

@@ -28,7 +28,7 @@ module GRPC
     # Default timeout is infinity.
     DEFAULT_TIMEOUT = INFINITE_FUTURE
 
-    # setup_channel is used by #initialize to constuct a channel from its
+    # setup_channel is used by #initialize to construct a channel from its
     # arguments.
     def self.setup_channel(alt_chan, host, creds, channel_args = {})
       unless alt_chan.nil?
@@ -72,7 +72,7 @@ module GRPC
     #
     # - :channel_override
     # when present, this must be a pre-created GRPC::Core::Channel.  If it's
-    # present the host and arbitrary keyword arg areignored, and the RPC
+    # present the host and arbitrary keyword arg are ignored, and the RPC
     # connection uses this channel.
     #
     # - :timeout

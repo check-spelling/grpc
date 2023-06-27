@@ -334,7 +334,7 @@ static tsi_result peer_property_from_x509_subject(X509* cert,
         property);
   } else {
     result = tsi_construct_string_peer_property(
-        TSI_X509_VERIFIED_ROOT_CERT_SUBECT_PEER_PROPERTY, contents,
+        TSI_X509_VERIFIED_ROOT_CERT_SUBJECT_PEER_PROPERTY, contents,
         static_cast<size_t>(len), property);
   }
   BIO_free(bio);
@@ -1471,7 +1471,7 @@ static tsi_result ssl_bytes_remaining(tsi_ssl_handshaker* impl,
     if (error != nullptr) *error = "invalid argument";
     return TSI_INVALID_ARGUMENT;
   }
-  // Atempt to read all of the bytes in SSL's read BIO. These bytes should
+  // Attempt to read all of the bytes in SSL's read BIO. These bytes should
   // contain application data records that were appended to a handshake record
   // containing the ClientFinished or ServerFinished message.
   size_t bytes_in_ssl = BIO_pending(SSL_get_rbio(impl->ssl));

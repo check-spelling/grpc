@@ -116,9 +116,9 @@ TEST(GrpcSliceTest, SliceNewWithLenReturnsSomethingSensible) {
   EXPECT_EQ(slice.data.refcounted.length, 1);
   EXPECT_EQ(do_nothing_with_len_1_calls, 0);
 
-  // Add an arbitrary number of refs to the slice and remoe the refs. This is to
-  // make sure that that the destroy callback (i.e do_nothing_with_len_1()) is
-  // not called until the last unref operation
+  // Add an arbitrary number of refs to the slice and remove the refs. This is
+  // to make sure that the destroy callback (i.e do_nothing_with_len_1()) is not
+  // called until the last unref operation
   for (i = 0; i < num_refs; i++) {
     grpc_slice_ref(slice);
   }

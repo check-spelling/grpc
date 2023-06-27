@@ -188,13 +188,13 @@ def _check_compiler(compiler, supported_compilers):
         )
 
 
-def _check_arch(arch, supported_archs):
-    if arch not in supported_archs:
+def _check_arch(arch, supported_arches):
+    if arch not in supported_arches:
         raise Exception("Architecture %s not supported." % arch)
 
 
 def _is_use_docker_child():
-    """Returns True if running running as a --use_docker child."""
+    """Returns True if running as a --use_docker child."""
     return True if os.getenv("DOCKER_RUN_SCRIPT_COMMAND") else False
 
 
@@ -314,7 +314,7 @@ class CLanguage(object):
             self._cmake_architecture_windows = (
                 "x64" if self.args.arch == "x64" else "Win32"
             )
-            # when builing with Ninja, the VS common tools need to be activated first
+            # when building with Ninja, the VS common tools need to be activated first
             self._activate_vs_tools_windows = activate_vs_tools
             # "x64_x86" means create 32bit binaries, but use 64bit toolkit to secure more memory for the build
             self._vs_tools_architecture_windows = (

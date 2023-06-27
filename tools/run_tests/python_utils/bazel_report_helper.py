@@ -87,7 +87,7 @@ def _generate_junit_report_string(
             % bazel_invocation_url
         )
     else:
-        # The failure output will be displayes in both resultstore UI and sponge when clicking on the failing testcase.
+        # The failure output will be displays in both resultstore UI and sponge when clicking on the failing testcase.
         test_output_tag = (
             '<failure message="Failure">FAILED. See bazel invocation results'
             " here: %s</failure>" % bazel_invocation_url
@@ -171,7 +171,7 @@ def _create_bazel_wrapper(
 
     # generate the bazel wrapper for linux/macos
     with open(bazel_wrapper_filename, "w") as f:
-        intro_lines = [
+        header_lines = [
             "#!/bin/bash",
             "set -ex",
             "",
@@ -191,7 +191,7 @@ def _create_bazel_wrapper(
         else:
             upload_results_lines = []
 
-        outro_lines = [
+        footer_lines = [
             'if [ "$FAILED" != "" ]',
             "then",
             "  exit 1",
@@ -207,14 +207,14 @@ def _create_bazel_wrapper(
 
         lines = [
             line + "\n"
-            for line in intro_lines + upload_results_lines + outro_lines
+            for line in header_lines + upload_results_lines + footer_lines
         ]
         f.writelines(lines)
     os.chmod(bazel_wrapper_filename, 0o775)  # make the unix wrapper executable
 
     # generate bazel wrapper for windows
     with open(bazel_wrapper_bat_filename, "w") as f:
-        intro_lines = [
+        header_lines = [
             "@echo on",
             "",
             'bazel --bazelrc="%s" %%*' % bazel_rc_filename,
@@ -232,7 +232,7 @@ def _create_bazel_wrapper(
         else:
             upload_results_lines = []
 
-        outro_lines = [
+        footer_lines = [
             "if %BAZEL_EXITCODE% == 0 (",
             (
                 "  @rem success: plant the pre-generated xml report that says"
@@ -246,7 +246,7 @@ def _create_bazel_wrapper(
 
         lines = [
             line + "\n"
-            for line in intro_lines + upload_results_lines + outro_lines
+            for line in header_lines + upload_results_lines + footer_lines
         ]
         f.writelines(lines)
 

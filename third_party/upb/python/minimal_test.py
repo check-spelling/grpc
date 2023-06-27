@@ -104,7 +104,7 @@ class TestMessageExtension(unittest.TestCase):
         int32_array.append(123)
         self.assertEqual(0, msg.payload.ByteSize())
 
-    def testClearReifiedRepeatdField(self):
+    def testClearReifiedRepeatedField(self):
         msg = unittest_pb2.TestAllTypes()
         int32_array = msg.repeated_int32
         int32_array.append(123)

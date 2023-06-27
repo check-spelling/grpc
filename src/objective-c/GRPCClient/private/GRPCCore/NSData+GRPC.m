@@ -84,7 +84,7 @@ static grpc_byte_buffer *CopyCharArrayToNewByteBuffer(const char *array, size_t 
   // block for representation.
   // The following implementation is thus not optimal, sometimes requiring two
   // copies (one by self.bytes and another by grpc_slice_from_copied_buffer).
-  // If it turns out to be an issue, we can use enumerateByteRangesUsingblock:
+  // If it turns out to be an issue, we can use enumerateByteRangesUsingBlock:
   // to create an array of grpc_slice objects to pass to
   // grpc_raw_byte_buffer_create.
   // That would make it do exactly one copy, always.

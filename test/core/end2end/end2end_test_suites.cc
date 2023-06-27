@@ -934,7 +934,7 @@ class ConfigQuery {
     enforce_features_ |= features;
     return *this;
   }
-  // Envorce that the returned configurations do not have the given features.
+  // Enforce that the returned configurations do not have the given features.
   ConfigQuery& ExcludeFeatures(uint32_t features) {
     exclude_features_ |= features;
     return *this;

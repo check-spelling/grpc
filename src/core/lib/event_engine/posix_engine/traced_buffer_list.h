@@ -64,7 +64,7 @@ struct ConnectionMetrics {  // Delivery rate in Bytes/s.
   absl::optional<uint32_t> congestion_window;
   // Slow start threshold in packets.
   absl::optional<uint32_t> snd_ssthresh;
-  // Maximum degree of reordering (i.e., maximum number of packets reodered)
+  // Maximum degree of reordering (i.e., maximum number of packets reordered)
   // on the connection.
   absl::optional<uint32_t> reordering;
   // Represents the number of recurring retransmissions of the first sequence
@@ -175,7 +175,7 @@ class TracedBufferList {
 #endif  // GRPC_LINUX_ERRQUEUE
 
 // Sets the callback function to call when timestamps for a write are collected.
-// This is expected to be called atmost once.
+// This is expected to be called at most once.
 void TcpSetWriteTimestampsCallback(
     absl::AnyInvocable<void(void*, Timestamps*, absl::Status)>);
 

@@ -43,7 +43,7 @@
 #include "upb/port/def.inc"
 
 // Parses unknown data by merging into existing base_message or creating a
-// new message usingg mini_table.
+// new message using mini_table.
 static upb_UnknownToMessageRet upb_MiniTable_ParseUnknownMessage(
     const char* unknown_data, size_t unknown_size,
     const upb_MiniTable* mini_table, upb_Message* base_message,
@@ -199,7 +199,7 @@ upb_UnknownToMessageRet upb_MiniTable_PromoteUnknownToMessage(
   // We need to loop and merge unknowns that have matching tag field->number.
   upb_Message* message = NULL;
   // Callers should check that message is not set first before calling
-  // PromotoUnknownToMessage.
+  // PromoteUnknownToMessage.
   UPB_ASSERT(upb_MiniTable_GetSubMessageTable(mini_table, field) ==
              sub_mini_table);
   bool is_oneof = _upb_MiniTableField_InOneOf(field);

@@ -383,7 +383,7 @@ void PollEventHandle::OrphanHandle(PosixEngineClosure* on_done, int* release_fd,
     if (!IsWatched()) {
       CloseFd();
     } else {
-      // It is watched i.e we cannot take action wihout breaking from the
+      // It is watched i.e we cannot take action without breaking from the
       // blocking poll. Mark it as Unwatched and kick the thread executing
       // Work(...). That thread should proceed with the cleanup.
       SetWatched(-1);
@@ -454,7 +454,7 @@ void PollEventHandle::ShutdownHandle(absl::Status why) {
       SetReadyLocked(&write_closure_);
     }
   }
-  // For the Ref() taken at the begining of this function.
+  // For the Ref() taken at the beginning of this function.
   Unref();
 }
 
@@ -476,7 +476,7 @@ void PollEventHandle::NotifyOnRead(PosixEngineClosure* on_read) {
       poller_->KickExternal(false);
     }
   }
-  // For the Ref() taken at the begining of this function.
+  // For the Ref() taken at the beginning of this function.
   Unref();
 }
 
@@ -498,7 +498,7 @@ void PollEventHandle::NotifyOnWrite(PosixEngineClosure* on_write) {
       poller_->KickExternal(false);
     }
   }
-  // For the Ref() taken at the begining of this function.
+  // For the Ref() taken at the beginning of this function.
   Unref();
 }
 
@@ -706,7 +706,7 @@ Poller::WorkResult PollPoller::Work(
       // If use_phony_poll is true and pfd_count == 1, it implies only the
       // wakeup_fd is present. Allow the call to get blocked in this case as
       // well instead of crashing. This is because the poller::Work is called
-      // right after an event enging is constructed. Even if phony poll is
+      // right after an event engine is constructed. Even if phony poll is
       // expected to be used, we dont want to check for it until some actual
       // event handles are registered. Otherwise the EventEngine construction
       // may crash.

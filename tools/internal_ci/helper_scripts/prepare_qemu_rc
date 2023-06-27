@@ -16,7 +16,7 @@
 # Source this rc script to setup and configure qemu userspace emulator on kokoro worker so that we can seamlessly emulate processes running
 # inside docker containers.
 
-# show pre-existing qemu registration
+# show preexisting qemu registration
 cat /proc/sys/fs/binfmt_misc/qemu-aarch64
 
 # Kokoro ubuntu1604 workers have already qemu-user and qemu-user-static packages installed, but it's and old version that:
@@ -33,5 +33,5 @@ cat /proc/sys/fs/binfmt_misc/qemu-aarch64
 # to install qemu-user-static with the right flags.
 docker run --rm --privileged multiarch/qemu-user-static:5.2.0-2 --reset --credential yes --persistent yes
 
-# Print current qemu reqistration to make sure everything is setup correctly.
+# Print current qemu registration to make sure everything is setup correctly.
 cat /proc/sys/fs/binfmt_misc/qemu-aarch64

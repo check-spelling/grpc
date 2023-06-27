@@ -60,7 +60,7 @@ class NativeDNSRequest {
   }
 
  private:
-  // Callback to be passed to grpc Executor to asynch-ify
+  // Callback to be passed to grpc Executor to async-ify
   // LookupHostnameBlocking
   static void DoRequestThread(void* rp, grpc_error_handle /*error*/) {
     NativeDNSRequest* r = static_cast<NativeDNSRequest*>(rp);

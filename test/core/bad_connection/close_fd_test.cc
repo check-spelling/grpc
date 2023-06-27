@@ -341,7 +341,7 @@ static void _test_close_before_server_recv(fd_type fdtype) {
       g_ctx.client_cq, grpc_timeout_milliseconds_to_deadline(100), nullptr);
   // When the client fd is closed, the server gets EPIPE.
   // When server fd is closed, server gets EBADF.
-  // In both cases server sends GRPC_STATUS_UNAVALABLE to the client. However,
+  // In both cases server sends GRPC_STATUS_UNAVAILABLE to the client. However,
   // the client may not receive this grpc_status as it's socket is being closed.
   // If the client didn't get grpc_status from the server it will time out
   // waiting on the completion queue. So there 2 2 possibilities:
@@ -540,7 +540,7 @@ static void _test_close_before_server_send(fd_type fdtype) {
 
   event = grpc_completion_queue_next(
       g_ctx.client_cq, grpc_timeout_milliseconds_to_deadline(100), nullptr);
-  // In both cases server sends GRPC_STATUS_UNAVALABLE to the client. However,
+  // In both cases server sends GRPC_STATUS_UNAVAILABLE to the client. However,
   // the client may not receive this grpc_status as it's socket is being closed.
   // If the client didn't get grpc_status from the server it will time out
   // waiting on the completion queue

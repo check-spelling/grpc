@@ -101,7 +101,7 @@ class Encoder {
 // void EncodeWith(MetadataTrait, const MetadataTrait::ValueType, Encoder*);
 // This method figures out how to encode the value, and then delegates to
 // Encoder to perform the encoding.
-template <typename MetadataTrait, typename CompressonTraits>
+template <typename MetadataTrait, typename CompressionTraits>
 class Compressor;
 
 // No compression encoder: just emit the key and value as literals.

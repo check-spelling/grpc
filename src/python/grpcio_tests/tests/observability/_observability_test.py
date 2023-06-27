@@ -59,9 +59,9 @@ _VALID_CONFIG_STATS_ONLY_STR = """
 }
 """
 # Depends on grpc_core::IsTransportSuppliesClientLatencyEnabled,
-# the following metrcis might not exist.
-_SKIP_VEFIRY = [_cyobservability.MetricsName.CLIENT_TRANSPORT_LATENCY]
-_SPAN_PREFIXS = ["Recv", "Sent", "Attempt"]
+# the following metrics might not exist.
+_SKIP_VERIFY = [_cyobservability.MetricsName.CLIENT_TRANSPORT_LATENCY]
+_SPAN_PREFIXES = ["Recv", "Sent", "Attempt"]
 
 
 class TestExporter(_observability.Exporter):
@@ -70,19 +70,19 @@ class TestExporter(_observability.Exporter):
         metrics: List[_observability.StatsData],
         spans: List[_observability.TracingData],
     ):
-        self.span_collecter = spans
-        self.metric_collecter = metrics
+        self.span_collector = spans
+        self.metric_collector = metrics
         self._server = None
 
     def export_stats_data(
         self, stats_data: List[_observability.StatsData]
     ) -> None:
-        self.metric_collecter.extend(stats_data)
+        self.metric_collector.extend(stats_data)
 
     def export_tracing_data(
         self, tracing_data: List[_observability.TracingData]
     ) -> None:
-        self.span_collecter.extend(tracing_data)
+        self.span_collector.extend(tracing_data)
 
 
 def handle_unary_unary(request, servicer_context):
@@ -388,7 +388,7 @@ class ObservabilityTest(unittest.TestCase):
     ) -> None:
         metric_names = set(metric.name for metric in metrics)
         for name in _cyobservability.MetricsName:
-            if name in _SKIP_VEFIRY:
+            if name in _SKIP_VERIFY:
                 continue
             if name not in metric_names:
                 logger.error(
@@ -402,7 +402,7 @@ class ObservabilityTest(unittest.TestCase):
         self, tracing_data: List[_observability.TracingData]
     ) -> None:
         span_names = set(data.name for data in tracing_data)
-        for prefix in _SPAN_PREFIXS:
+        for prefix in _SPAN_PREFIXES:
             prefix_exist = any(prefix in name for name in span_names)
             if not prefix_exist:
                 logger.error(

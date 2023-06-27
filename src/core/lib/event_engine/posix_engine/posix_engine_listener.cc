@@ -257,7 +257,7 @@ absl::Status PosixEngineListenerImpl::HandleExternalConnection(
 }
 
 void PosixEngineListenerImpl::AsyncConnectionAcceptor::Shutdown() {
-  // The ShutdownHandle whould trigger any waiting notify_on_accept_ to get
+  // The ShutdownHandle should trigger any waiting notify_on_accept_ to get
   // scheduled with the not-OK status.
   handle_->ShutdownHandle(absl::InternalError("Shutting down acceptor"));
   Unref();

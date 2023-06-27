@@ -280,7 +280,7 @@ class TestUnaryUnaryClientInterceptor(AioTestBase):
 
     async def test_rpcresponse(self):
         class Interceptor(aio.UnaryUnaryClientInterceptor):
-            """Raw responses are seen as reegular calls"""
+            """Raw responses are seen as regular calls"""
 
             async def intercept_unary_unary(
                 self, continuation, client_call_details, request

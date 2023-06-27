@@ -232,9 +232,9 @@ following properties change the behavior of `Grpc.Tools`:
 | `Protobuf_ProtocFullPath` | Same as `PROTOBUF_PROTOC` environment variable                          |
 | `gRPC_PluginFullPath` | Same as `GRPC_PROTOC_PLUGIN` environment variable                           |
 | `Protobuf_NoWarnMissingExpected` | Default: `false`. If `true` then no warnings are given if expected files not generated. See example below for an explanation. |
-| `Protobuf_OutputPath`| Default: `IntermediateOutputPath` - ususally the `obj` directory. Sets the default value for `OutputDir` on `<Protobuf>` items.|
+| `Protobuf_OutputPath`| Default: `IntermediateOutputPath` - usually the `obj` directory. Sets the default value for `OutputDir` on `<Protobuf>` items.|
 | `EnableDefaultProtobufItems` | Default: `false`. If `true` then `.proto` files under the project are automatically included without the need to specify any `<Protobuf>` items. |
-| `Protobuf_StandardImportsPath` | The path for protobuf's [well known types](https://protobuf.dev/reference/protobuf/google.protobuf/) included in the NuGet package. It is automcatically passed to `protoc`  via the `-I/--proto_path` option. |
+| `Protobuf_StandardImportsPath` | The path for protobuf's [well known types](https://protobuf.dev/reference/protobuf/google.protobuf/) included in the NuGet package. It is automatically passed to `protoc`  via the `-I/--proto_path` option. |
 
 # Scenarios and Examples
 
@@ -391,7 +391,7 @@ You will see the warning message:
  if all these are true:
  * the location for the generated files is configured to a directory outside of the project, e.g. `OutputDir="..\outside-project\"`
  * `*Grpc.cs` files have not been created because the `.proto` file does not contain a
-service definintion
+service definition
 * you have not specified `GrpcServices="None"`
 
 This is because `Grpc.Tools` only creates empty `*Grpc.cs` files in directories

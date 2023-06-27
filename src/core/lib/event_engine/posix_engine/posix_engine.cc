@@ -251,7 +251,7 @@ EventEngine::ConnectionHandle PosixEventEngine::ConnectInternal(
   }
 
   if (err >= 0) {
-    // Connection already succeded. Return 0 to discourage any cancellation
+    // Connection already succeeded. Return 0 to discourage any cancellation
     // attempts.
     Run([on_connect = std::move(on_connect),
          ep = CreatePosixEndpoint(handle, nullptr, shared_from_this(),
@@ -534,7 +534,7 @@ bool PosixEventEngine::CancelConnect(EventEngine::ConnectionHandle handle) {
     // Shutdown the fd. This would cause OnWritable to run as soon as
     // possible. We dont need to pass a custom error here because it wont be
     // used since the on_connect_closure is not run if connect cancellation is
-    // successfull.
+    // successful.
     ac->fd_->ShutdownHandle(
         absl::FailedPreconditionError("Connection cancelled"));
   }

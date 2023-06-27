@@ -39,7 +39,7 @@ namespace grpc_core {
 namespace {
 // The exec_ctx_count has 2 modes, blocked and unblocked.
 // When unblocked, the count is 2-indexed; exec_ctx_count=2 indicates
-// 0 active ExecCtxs, exex_ctx_count=3 indicates 1 active ExecCtxs...
+// 0 active ExecCtxs, exec_ctx_count=3 indicates 1 active ExecCtxs...
 
 // When blocked, the exec_ctx_count is 0-indexed.  Note that ExecCtx
 // creation can only be blocked if there is exactly 1 outstanding ExecCtx,

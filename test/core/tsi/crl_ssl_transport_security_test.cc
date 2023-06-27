@@ -42,7 +42,7 @@ namespace {
 
 const int kSslTsiTestRevokedKeyCertPairsNum = 1;
 const int kSslTsiTestValidKeyCertPairsNum = 1;
-const int kSslTsiTestRevokedIntermedidateKeyCertPairsNum = 1;
+const int kSslTsiTestRevokedIntermediateKeyCertPairsNum = 1;
 const char* kSslTsiTestCrlSupportedCredentialsDir =
     "test/core/tsi/test_creds/crl_data/";
 const char* kSslTsiTestCrlSupportedCrlDir =
@@ -116,7 +116,7 @@ class CrlSslTransportSecurityTest
       revoked_intermediate_pem_key_cert_pairs_ =
           static_cast<tsi_ssl_pem_key_cert_pair*>(
               gpr_malloc(sizeof(tsi_ssl_pem_key_cert_pair) *
-                         kSslTsiTestRevokedIntermedidateKeyCertPairsNum));
+                         kSslTsiTestRevokedIntermediateKeyCertPairsNum));
       revoked_intermediate_pem_key_cert_pairs_[0].private_key =
           LoadFile(absl::StrCat(kSslTsiTestCrlSupportedCredentialsDir,
                                 "leaf_signed_by_intermediate.key"));
@@ -138,7 +138,7 @@ class CrlSslTransportSecurityTest
         PemKeyCertPairDestroy(revoked_pem_key_cert_pairs_[i]);
       }
       gpr_free(revoked_pem_key_cert_pairs_);
-      for (size_t i = 0; i < kSslTsiTestRevokedIntermedidateKeyCertPairsNum;
+      for (size_t i = 0; i < kSslTsiTestRevokedIntermediateKeyCertPairsNum;
            i++) {
         PemKeyCertPairDestroy(revoked_intermediate_pem_key_cert_pairs_[i]);
       }
@@ -192,7 +192,7 @@ class CrlSslTransportSecurityTest
         server_options.pem_key_cert_pairs =
             revoked_intermediate_pem_key_cert_pairs_;
         server_options.num_key_cert_pairs =
-            kSslTsiTestRevokedIntermedidateKeyCertPairsNum;
+            kSslTsiTestRevokedIntermediateKeyCertPairsNum;
       }
       server_options.pem_client_root_certs = root_cert_;
       if (use_missing_intermediate_crl_) {

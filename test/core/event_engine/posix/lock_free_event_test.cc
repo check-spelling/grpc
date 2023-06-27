@@ -78,7 +78,7 @@ TEST(LockFreeEventTest, BasicTest) {
   event.SetReady();
   EXPECT_FALSE(cv.WaitWithTimeout(&mu, absl::Seconds(10)));
 
-  // SetReady first first and then call NotifyOn
+  // SetReady first and then call NotifyOn
   event.SetReady();
   event.NotifyOn(
       PosixEngineClosure::TestOnlyToClosure([&mu, &cv](absl::Status status) {
@@ -155,11 +155,11 @@ TEST(LockFreeEventTest, MultiThreadedTest) {
 
 namespace {
 
-// A trivial callback sceduler which inherits from the Scheduler interface but
-// immediatey runs the callback/closure.
-class BechmarkCallbackScheduler : public Scheduler {
+// A trivial callback scheduler which inherits from the Scheduler interface but
+// immediately runs the callback/closure.
+class BenchmarkCallbackScheduler : public Scheduler {
  public:
-  BechmarkCallbackScheduler() = default;
+  BenchmarkCallbackScheduler() = default;
   void Run(
       grpc_event_engine::experimental::EventEngine::Closure* closure) override {
     closure->Run();
@@ -172,7 +172,7 @@ class BechmarkCallbackScheduler : public Scheduler {
 // callback with SetReady. This benchmark is intended to measure the cost of
 // NotifyOn and SetReady implementations of the lock free event.
 void BM_LockFreeEvent(benchmark::State& state) {
-  BechmarkCallbackScheduler cb_scheduler;
+  BenchmarkCallbackScheduler cb_scheduler;
   LockfreeEvent event(&cb_scheduler);
   event.InitEvent();
   PosixEngineClosure* notify_on_closure =

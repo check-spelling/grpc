@@ -179,7 +179,7 @@ bool TimerList::TimerCancel(Timer* timer) {
 
 // Rebalances the timer shard by computing a new 'queue_deadline_cap' and moving
 // all relevant timers in shard->list (i.e timers with deadlines earlier than
-// 'queue_deadline_cap') into into shard->heap.
+// 'queue_deadline_cap') into shard->heap.
 // Returns 'true' if shard->heap has at least ONE element
 bool TimerList::Shard::RefillHeap(grpc_core::Timestamp now) {
   // Compute the new queue window width and bound by the limits:

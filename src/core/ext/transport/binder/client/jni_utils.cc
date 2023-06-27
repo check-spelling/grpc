@@ -52,7 +52,7 @@ jclass FindNativeConnectionHelper(
   //   * There is no Java class in the call stack and this is not invoked
   //   from JNI_OnLoad
   //   * The APK does not correctly depends on the helper class, or the
-  //   class get shrinked
+  //   class get shrunk
   gpr_log(GPR_ERROR,
           "Cannot find binder transport Java helper class. Did you invoke "
           "grpc::experimental::InitializeBinderChannelJavaClass correctly "

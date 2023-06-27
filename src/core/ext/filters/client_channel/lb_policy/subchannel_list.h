@@ -244,7 +244,7 @@ class SubchannelList : public DualRefCounted<SubchannelListType> {
 };
 
 //
-// implementation -- no user-servicable parts below
+// implementation -- no user-serviceable parts below
 //
 
 //
@@ -307,7 +307,7 @@ void SubchannelData<SubchannelListType, SubchannelDataType>::
     if (GPR_UNLIKELY(subchannel_list_->tracer() != nullptr)) {
       gpr_log(GPR_INFO,
               "[%s %p] subchannel list %p index %" PRIuPTR " of %" PRIuPTR
-              " (subchannel %p): unreffing subchannel (%s)",
+              " (subchannel %p): unrefing subchannel (%s)",
               subchannel_list_->tracer(), subchannel_list_->policy(),
               subchannel_list_, Index(), subchannel_list_->num_subchannels(),
               subchannel_.get(), reason);

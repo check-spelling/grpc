@@ -401,7 +401,7 @@ static void on_handshaker_service_resp_recv(void* arg,
   alts_handshaker_client_handle_response(client, success);
 }
 
-// gRPC provided callback used when dedicatd CQ and thread are used.
+// gRPC provided callback used when dedicated CQ and thread are used.
 // It serves to safely bring the control back to application.
 static void on_handshaker_service_resp_recv_dedicated(
     void* arg, grpc_error_handle /*error*/) {

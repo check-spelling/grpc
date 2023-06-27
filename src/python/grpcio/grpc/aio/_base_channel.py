@@ -183,7 +183,7 @@ class Channel(abc.ABC):
     """Enables asynchronous RPC invocation as a client.
 
     Channel objects implement the Asynchronous Context Manager (aka. async
-    with) type, although they are not supportted to be entered and exited
+    with) type, although they are not supported to be entered and exited
     multiple times.
     """
 
@@ -210,7 +210,7 @@ class Channel(abc.ABC):
         all cases.
 
         If a grace period is specified, this method wait until all active
-        RPCs are finshed, once the grace period is reached the ones that haven't
+        RPCs are finished, once the grace period is reached the ones that haven't
         been terminated are cancelled. If a grace period is not specified
         (by passing None for grace), all existing RPCs are cancelled immediately.
 
@@ -305,7 +305,7 @@ class Channel(abc.ABC):
             is passed.
 
         Returns:
-          A UnarySteramMultiCallable value for the named unary-stream method.
+          A UnaryStreamMultiCallable value for the named unary-stream method.
         """
 
     @abc.abstractmethod

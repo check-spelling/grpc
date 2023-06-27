@@ -115,7 +115,7 @@ class ClientCallTracer : public CallTracerAnnotationInterface {
 
   // Records a new attempt for the associated call. \a transparent denotes
   // whether the attempt is being made as a transparent retry or as a
-  // non-transparent retry/heding attempt. (There will be at least one attempt
+  // non-transparent retry/hedging attempt. (There will be at least one attempt
   // even if the call is not being retried.) The `ClientCallTracer` object
   // retains ownership to the newly created `CallAttemptTracer` object.
   // RecordEnd() serves as an indication that the call stack is done with all
@@ -150,7 +150,7 @@ class ServerCallTracerFactory {
   // instead of directly fetching it with `GetObject`.
   static ServerCallTracerFactory* Get(const ChannelArgs& channel_args);
 
-  // Registers a global ServerCallTracerFactory that wil be used by default if
+  // Registers a global ServerCallTracerFactory that will be used by default if
   // no corresponding channel arg was found. It is only valid to call this
   // before grpc_init(). It is the responsibility of the caller to maintain
   // this for the lifetime of the process.

@@ -21,7 +21,7 @@ export GO111MODULE=on
 
 # Clone just the grpc-go source code without any dependencies.
 # We are cloning from a local git repo that contains the right revision
-# to test instead of using "go get" to download from Github directly.
+# to test instead of using "go get" to download from GitHub directly.
 git clone --recursive /var/local/jenkins/grpc-go src/google.golang.org/grpc
 
 # copy service account keys if available

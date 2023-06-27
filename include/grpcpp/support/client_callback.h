@@ -219,7 +219,7 @@ class ClientCallbackUnary {
 };
 
 // The following classes are the reactor interfaces that are to be implemented
-// by the user. They are passed in to the library as an argument to a call on a
+// by the user. They are passed into the library as an argument to a call on a
 // stub (either a codegen-ed call or a generic call). The streaming RPC is
 // activated by calling StartCall, possibly after initiating StartRead,
 // StartWrite, or AddHold operations on the streaming object. Note that none of

@@ -143,7 +143,7 @@ TEST(ChannelTracerTest, BasicTest) {
 }
 
 // Tests more complex functionality, like a parent channel tracking
-// subchannles. This exercises the ref/unref patterns since the parent tracer
+// subchannels. This exercises the ref/unref patterns since the parent tracer
 // and this function will both hold refs to the subchannel.
 TEST(ChannelTracerTest, ComplexTest) {
   ExecCtx exec_ctx;
@@ -272,7 +272,7 @@ TEST(ChannelTracerTest, TestEviction) {
     AddSimpleTrace(&tracer);
     ValidateChannelTrace(&tracer, i);
   }
-  // at this point the list is full, and each subsequent enntry will cause an
+  // at this point the list is full, and each subsequent entry will cause an
   // eviction.
   for (int i = 1; i <= kNumEvents; ++i) {
     AddSimpleTrace(&tracer);
@@ -289,9 +289,9 @@ TEST(ChannelTracerTest, TestMultipleEviction) {
     AddSimpleTrace(&tracer);
     ValidateChannelTrace(&tracer, i);
   }
-  // at this point the list is full, and each subsequent enntry will cause an
+  // at this point the list is full, and each subsequent entry will cause an
   // eviction. We will now add in a trace event that has a copied string. This
-  // uses more memory, so it will cause a double eviciction
+  // uses more memory, so it will cause a double eviction
   tracer.AddTraceEvent(
       ChannelTrace::Severity::Info,
       grpc_slice_from_copied_string(

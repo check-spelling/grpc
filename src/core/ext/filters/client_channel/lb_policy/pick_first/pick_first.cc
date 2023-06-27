@@ -198,7 +198,7 @@ class PickFirst : public LoadBalancingPolicy {
 
   void AttemptToConnectUsingLatestUpdateArgsLocked();
 
-  // Lateset update args.
+  // Latest update args.
   UpdateArgs latest_update_args_;
   // All our subchannels.
   RefCountedPtr<PickFirstSubchannelList> subchannel_list_;
@@ -405,7 +405,7 @@ void PickFirst::PickFirstSubchannelData::ProcessConnectivityChangeLocked(
     // TODO(qianchengz): We may want to request re-resolution in
     // ExitIdleLocked().
     p->channel_control_helper()->RequestReresolution();
-    // TODO(roth): We chould check the connectivity states of all the
+    // TODO(roth): We should check the connectivity states of all the
     // subchannels here, just in case one of them happens to be READY,
     // and we could switch to that rather than going IDLE.
     // Enter idle.

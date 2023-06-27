@@ -13,7 +13,7 @@
 # limitations under the License.
 
 """
-This is for the gRPC build system. This isn't intended to be used outsite of
+This is for the gRPC build system. This isn't intended to be used outside of
 the BUILD file for gRPC. It contains the mapping for the template system we
 use to generate other platform's build system files.
 
@@ -99,7 +99,7 @@ def grpc_objc_examples_library(
         defines = [],
         sdk_frameworks = [],
         includes = []):
-    """objc_library for testing, only works in //src/objective-c/exmaples
+    """objc_library for testing, only works in //src/objective-c/examples
 
     Args:
         name: name of target

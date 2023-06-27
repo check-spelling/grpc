@@ -564,7 +564,7 @@ class RetryFilter::CallData {
   // path for long-running streaming calls that minimizes overhead.
   OrphanablePtr<ClientChannel::FilterBasedLoadBalancedCall> committed_call_;
 
-  // When are are not yet fully committed to a particular call (i.e.,
+  // When we are not yet fully committed to a particular call (i.e.,
   // either we might still retry or we have committed to the call but
   // there are still some cached ops to be replayed on the call),
   // batches received from above will be added to this list, and they
@@ -788,7 +788,7 @@ void RetryFilter::CallData::CallAttempt::MaybeSwitchToFastPath() {
   if (GRPC_TRACE_FLAG_ENABLED(grpc_retry_trace)) {
     gpr_log(GPR_INFO,
             "chand=%p calld=%p attempt=%p: retry state no longer needed; "
-            "moving LB call to parent and unreffing the call attempt",
+            "moving LB call to parent and unrefing the call attempt",
             calld_->chand_, calld_, this);
   }
   calld_->committed_call_ = std::move(lb_call_);
@@ -886,7 +886,7 @@ void RetryFilter::CallData::CallAttempt::
             "recv_trailing_metadata not started; starting it internally",
             calld_->chand_, calld_, this);
   }
-  // Create batch_data with 2 refs, since this batch will be unreffed twice:
+  // Create batch_data with 2 refs, since this batch will be unrefed twice:
   // once for the recv_trailing_metadata_ready callback when the batch
   // completes, and again when we actually get a recv_trailing_metadata
   // op from the surface.

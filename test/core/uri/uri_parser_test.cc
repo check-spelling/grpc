@@ -119,7 +119,7 @@ TEST_F(URIParserTest,
                           URI::QueryParam{"a", "3"}));
 }
 
-TEST_F(URIParserTest, QueryParamMapRemainsValiditAfterMovingTheURI) {
+TEST_F(URIParserTest, QueryParamMapRemainsValidAfterMovingTheURI) {
   URI uri_copy;
   {
     absl::StatusOr<URI> uri = URI::Parse("http://foo/path?a=2&b=1&c=3");

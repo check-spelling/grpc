@@ -27,10 +27,10 @@ namespace Grpc\Testing;
 class XdsUpdateClientConfigureServiceStub {
 
     /**
-     * Update the tes client's configuration.
+     * Update the test client's configuration.
      * @param \Grpc\Testing\ClientConfigureRequest $request client request
      * @param \Grpc\ServerContext $context server request context
-     * @return \Grpc\Testing\ClientConfigureResponse for response data, null if if error occured
+     * @return \Grpc\Testing\ClientConfigureResponse for response data, null if if error occurred
      *     initial metadata (if any) and status (if not ok) should be set to $context
      */
     public function Configure(
