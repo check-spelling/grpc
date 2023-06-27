@@ -273,7 +273,7 @@ std::shared_ptr<CallCredentials> MetadataCredentialsFromPlugin(
 
 /// Builds External Account credentials.
 /// json_string is the JSON string containing the credentials options.
-/// scopes contains the scopes to be binded with the credentials.
+/// scopes contains the scopes to be bound with the credentials.
 std::shared_ptr<CallCredentials> ExternalAccountCredentials(
     const grpc::string& json_string, const std::vector<grpc::string>& scopes);
 

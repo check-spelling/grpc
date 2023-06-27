@@ -434,7 +434,7 @@ void gsec_aead_crypter_destroy(gsec_aead_crypter* crypter);
 /// 16 bytes long tags. It should be noted that once the lengths of key, nonce,
 /// and tag are determined at construction time, they cannot be modified later.
 ///
-///- key: buffer containing a key which is binded with AEAD crypter instance.
+///- key: buffer containing a key which is bound with AEAD crypter instance.
 ///- key_length: length of a key in bytes, which should be 44 if rekeying is
 ///  enabled and 16 or 32 otherwise.
 ///- nonce_length: length of a nonce in bytes, which should be either 12 or 16.
