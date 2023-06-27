@@ -277,11 +277,11 @@ def server_server_latency(labels: Mapping[str, str]) -> view_module.View:
 
 
 def _get_exponential_boundaries(
-    num_finite_buckets: int, scale: float, grrowth_factor: float
+    num_finite_buckets: int, scale: float, growth_factor: float
 ) -> list:
     boundaries = []
     upper_bound = scale
     for _ in range(num_finite_buckets):
         boundaries.append(upper_bound)
-        upper_bound *= grrowth_factor
+        upper_bound *= growth_factor
     return boundaries
