@@ -28,7 +28,7 @@
 #ifndef PYUPB_DESCRIPTOR_CONTAINERS_H__
 #define PYUPB_DESCRIPTOR_CONTAINERS_H__
 
-// This file defines immutable Python containiner types whose data comes from
+// This file defines immutable Python container types whose data comes from
 // an underlying descriptor (def).
 //
 // Because there are many instances of these types that vend different kinds of
