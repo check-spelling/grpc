@@ -676,7 +676,7 @@ ArenaPromise<ServerMetadataHandle> MakeServerCallPromise(
                              // & bottom of the stack.
                              //
                              // There's a small set of filters (retry, this one,
-                             // lame client, clinet channel) that terminate
+                             // lame client, client channel) that terminate
                              // stacks and need a richer set of semantics, but
                              // that ends up being fine because we can spawn
                              // tasks in parties to handle those edge cases, and
