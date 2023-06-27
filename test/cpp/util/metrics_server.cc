@@ -90,7 +90,7 @@ std::shared_ptr<QpsGauge> MetricsServiceImpl::CreateQpsGauge(
 
   // p.first is an iterator pointing to <name, shared_ptr<QpsGauge>> pair.
   // p.second is a boolean which is set to 'true' if the QpsGauge is
-  // successfully inserted in the guages_ map and 'false' if it is already
+  // successfully inserted in the gauges_ map and 'false' if it is already
   // present in the map
   *already_present = !p.second;
   return p.first->second;
