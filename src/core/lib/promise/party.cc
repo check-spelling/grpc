@@ -55,7 +55,7 @@ GRPC_MUST_USE_RESULT bool PartySyncUsingAtomics::RefIfNonZero() {
   return true;
 }
 
-bool PartySyncUsingAtomics::UnreffedLast() {
+bool PartySyncUsingAtomics::UnrefedLast() {
   uint64_t prev_state =
       state_.fetch_or(kDestroying | kLocked, std::memory_order_acq_rel);
   return (prev_state & kLocked) == 0;

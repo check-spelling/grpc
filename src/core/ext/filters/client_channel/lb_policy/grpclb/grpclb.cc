@@ -984,7 +984,7 @@ void GrpcLb::BalancerCallState::StartQuery() {
   op++;
   // This callback signals the end of the LB call, so it relies on the initial
   // ref instead of a new ref. When it's invoked, it's the initial ref that is
-  // unreffed.
+  // unrefed.
   call_error = grpc_call_start_batch_and_execute(
       lb_call_, ops, static_cast<size_t>(op - ops),
       &lb_on_balancer_status_received_);

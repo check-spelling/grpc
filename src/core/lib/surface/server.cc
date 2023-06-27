@@ -1401,7 +1401,7 @@ void Server::ChannelData::Destroy() {
   list_position_.reset();
   server_->Ref().release();
   server_->MaybeFinishShutdown();
-  // Unreffed by FinishDestroy
+  // Unrefed by FinishDestroy
   GRPC_CHANNEL_STACK_REF(channel_->channel_stack(),
                          "Server::ChannelData::Destroy");
   GRPC_CLOSURE_INIT(&finish_destroy_channel_closure_, FinishDestroy, this,

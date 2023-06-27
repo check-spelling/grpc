@@ -886,7 +886,7 @@ void RetryFilter::CallData::CallAttempt::
             "recv_trailing_metadata not started; starting it internally",
             calld_->chand_, calld_, this);
   }
-  // Create batch_data with 2 refs, since this batch will be unreffed twice:
+  // Create batch_data with 2 refs, since this batch will be unrefed twice:
   // once for the recv_trailing_metadata_ready callback when the batch
   // completes, and again when we actually get a recv_trailing_metadata
   // op from the surface.

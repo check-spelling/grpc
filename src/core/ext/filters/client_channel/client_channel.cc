@@ -1515,14 +1515,14 @@ void ClientChannel::UpdateServiceConfigInDataPlaneLocked() {
     resolver_transient_failure_error_ = absl::OkStatus();
     // Update service config.
     received_service_config_data_ = true;
-    // Old values will be unreffed after lock is released.
+    // Old values will be unrefed after lock is released.
     service_config_.swap(service_config);
     config_selector_.swap(config_selector);
     dynamic_filters_.swap(dynamic_filters);
     // Re-process queued calls asynchronously.
     ReprocessQueuedResolverCalls();
   }
-  // Old values will be unreffed after lock is released when they go out
+  // Old values will be unrefed after lock is released when they go out
   // of scope.
 }
 
@@ -1602,7 +1602,7 @@ void ClientChannel::UpdateStateAndPickerLocked(
   UpdateStateLocked(state, status, reason);
   // Grab the LB lock to update the picker and trigger reprocessing of the
   // queued picks.
-  // Old picker will be unreffed after releasing the lock.
+  // Old picker will be unrefed after releasing the lock.
   MutexLock lock(&lb_mu_);
   picker_.swap(picker);
   // Reprocess queued picks.
@@ -1909,7 +1909,7 @@ absl::optional<absl::Status> ClientChannel::CallData::CheckResolution(
   }
   // We have a result.  Apply service config to call.
   grpc_error_handle error = ApplyServiceConfigToCallLocked(config_selector);
-  // ConfigSelector must be unreffed inside the WorkSerializer.
+  // ConfigSelector must be unrefed inside the WorkSerializer.
   if (config_selector.ok()) {
     chand()->work_serializer_->Run(
         [config_selector = std::move(*config_selector)]() mutable {

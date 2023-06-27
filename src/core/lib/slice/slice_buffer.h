@@ -52,7 +52,7 @@ class SliceBuffer {
     grpc_slice_buffer_swap(&slice_buffer_, &other.slice_buffer_);
   }
   /// Upon destruction, the underlying raw slice buffer is cleaned out and all
-  /// slices are unreffed.
+  /// slices are unrefed.
   ~SliceBuffer() { grpc_slice_buffer_destroy(&slice_buffer_); }
 
   SliceBuffer& operator=(const SliceBuffer&) = delete;

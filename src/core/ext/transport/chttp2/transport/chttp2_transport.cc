@@ -1775,7 +1775,7 @@ class GracefulGoaway : public grpc_core::RefCounted<GracefulGoaway> {
         [self = Ref(DEBUG_LOCATION, "GoawayTimer")]() mutable {
           grpc_core::ApplicationCallbackExecCtx callback_exec_ctx;
           grpc_core::ExecCtx exec_ctx;
-          // The ref will be unreffed in the combiner.
+          // The ref will be unrefed in the combiner.
           auto* ptr = self.release();
           ptr->t_->combiner->Run(
               GRPC_CLOSURE_INIT(&ptr->on_timer_, OnTimerLocked, ptr, nullptr),
@@ -2651,7 +2651,7 @@ static void continue_read_action_locked(grpc_chttp2_transport* t) {
 }
 
 // t is reffed prior to calling the first time, and once the callback chain
-// that kicks off finishes, it's unreffed
+// that kicks off finishes, it's unrefed
 void schedule_bdp_ping_locked(grpc_chttp2_transport* t) {
   t->flow_control.bdp_estimator()->SchedulePing();
   send_ping_locked(
