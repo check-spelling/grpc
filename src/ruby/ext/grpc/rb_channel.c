@@ -576,7 +576,7 @@ static void* channel_init_try_register_connection_polling_without_gil(
   return NULL;
 }
 
-// Needs to be called under global_connection_poolling_mu
+// Needs to be called under global_connection_polling_mu
 static void grpc_rb_channel_try_register_connection_polling(
     bg_watched_channel* bg) {
   grpc_connectivity_state conn_state;
