@@ -760,7 +760,7 @@ XXH_PUBLIC_API XXH64_hash_t XXH64_hashFromCanonical(const XXH64_canonical_t* src
  *
  * XXH3 implementation is portable:
  * it has a generic C90 formulation that can be compiled on any platform,
- * all implementations generage exactly the same hash value on all platforms.
+ * all implementations generate exactly the same hash value on all platforms.
  * Starting from v0.8.0, it's also labelled "stable", meaning that
  * any future version will also generate the same hash value.
  *
