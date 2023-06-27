@@ -175,7 +175,7 @@ Range index adjustment can be reduced to below problem:
 ***Given 16 bytes, replace E0 with 2, ED with 3, F0 with 3, F4 with 4, others with 0.***
 
 A naive SIMD approach:
-1. Compare 16 bytes with E0, get the mask for eacy byte (FF if equal, 00 otherwise)
+1. Compare 16 bytes with E0, get the mask for each byte (FF if equal, 00 otherwise)
 1. And the mask with 2 to get adjustment for E0
 1. Repeat step 1,2 for ED,F0,F4
 
