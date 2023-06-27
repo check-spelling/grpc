@@ -237,7 +237,7 @@ class Server : public ServerInterface, private internal::GrpcLibrary {
   void RegisterAsyncGenericService(AsyncGenericService* service) override;
 
   /// Register a callback-based generic service. This call does not take
-  /// ownership of theservice. The service must exist for the lifetime of the
+  /// ownership of the service. The service must exist for the lifetime of the
   /// Server instance.
   void RegisterCallbackGenericService(CallbackGenericService* service) override;
 
