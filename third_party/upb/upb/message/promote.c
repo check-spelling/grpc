@@ -199,7 +199,7 @@ upb_UnknownToMessageRet upb_MiniTable_PromoteUnknownToMessage(
   // We need to loop and merge unknowns that have matching tag field->number.
   upb_Message* message = NULL;
   // Callers should check that message is not set first before calling
-  // PromotoUnknownToMessage.
+  // PromoteUnknownToMessage.
   UPB_ASSERT(upb_MiniTable_GetSubMessageTable(mini_table, field) ==
              sub_mini_table);
   bool is_oneof = _upb_MiniTableField_InOneOf(field);
