@@ -86,7 +86,7 @@ message LoadStatsResponse {
   // 2. For clusters that were already featured in the previous *LoadStatsResponse*, any traffic
   //    that is observed in between the corresponding previous *LoadStatsRequest* and this
   //    *LoadStatsResponse* will also be accumulated and billed to the cluster. This avoids a period
-  //    of inobservability that might otherwise exists between the messages. New clusters are not
+  //    of unobservability that might otherwise exists between the messages. New clusters are not
   //    subject to this consideration.
   google.protobuf.Duration load_reporting_interval = 2;
 
