@@ -36,14 +36,14 @@ def create_big_query():
     )
 
 
-def create_dataset(biq_query, project_id, dataset_id):
+def create_dataset(big_query, project_id, dataset_id):
     is_success = True
     body = {
         "datasetReference": {"projectId": project_id, "datasetId": dataset_id}
     }
 
     try:
-        dataset_req = biq_query.datasets().insert(
+        dataset_req = big_query.datasets().insert(
             projectId=project_id, body=body
         )
         dataset_req.execute(num_retries=NUM_RETRIES)
