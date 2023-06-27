@@ -323,7 +323,7 @@ TEST(AltsConcurrentConnectivityTest,
   // an ALTS handshake client's RECV_STATUS op completing after call
   // cancellation, and the corresponding fake handshake server's sync
   // method handler returning, enforcing a limit on the number of active
-  // RPCs at the fake handshake server would be inherently racey.
+  // RPCs at the fake handshake server would be inherently racy.
   FakeHandshakeServer fake_handshake_server;
   // The fake_backend_server emulates a secure (ALTS based) gRPC backend. So
   // it waits for the client to send the first bytes.
