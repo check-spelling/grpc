@@ -175,7 +175,7 @@ class TracedBufferList {
 #endif  // GRPC_LINUX_ERRQUEUE
 
 // Sets the callback function to call when timestamps for a write are collected.
-// This is expected to be called atmost once.
+// This is expected to be called at most once.
 void TcpSetWriteTimestampsCallback(
     absl::AnyInvocable<void(void*, Timestamps*, absl::Status)>);
 
