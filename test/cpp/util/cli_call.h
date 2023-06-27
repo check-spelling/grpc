@@ -75,7 +75,7 @@ class CliCall final {
   void WriteAndWait(const std::string& request);
 
   // Thread-safe WritesDone. Must be used with ReadAndMaybeNotifyWrite. Send out
-  // WritesDone for gereneric request messages and wait for
+  // WritesDone for generic request messages and wait for
   // ReadAndMaybeNotifyWrite to finish it.
   void WritesDoneAndWait();
 
