@@ -97,7 +97,7 @@ class CliCall final {
   grpc::CompletionQueue cq_;
   gpr_mu write_mu_;
   gpr_cv write_cv_;  // Protected by write_mu_;
-  bool write_done_;  // Portected by write_mu_;
+  bool write_done_;  // Protected by write_mu_;
 };
 
 }  // namespace testing
