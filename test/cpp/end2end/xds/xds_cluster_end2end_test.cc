@@ -101,7 +101,7 @@ TEST_P(CdsTest, InvalidClusterStillExistsIfPreviouslyCached) {
   CheckRpcSendOk(DEBUG_LOCATION);
 }
 
-// Tests round robin is not implacted by the endpoint weight, and that the
+// Tests round robin is not impacted by the endpoint weight, and that the
 // localities in a locality map are picked according to their weights.
 TEST_P(CdsTest, EndpointWeightDoesNotImpactWeightedRoundRobin) {
   CreateAndStartBackends(2);
