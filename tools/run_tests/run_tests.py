@@ -188,8 +188,8 @@ def _check_compiler(compiler, supported_compilers):
         )
 
 
-def _check_arch(arch, supported_archs):
-    if arch not in supported_archs:
+def _check_arch(arch, supported_arches):
+    if arch not in supported_arches:
         raise Exception("Architecture %s not supported." % arch)
 
 
