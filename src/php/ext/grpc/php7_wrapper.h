@@ -125,8 +125,8 @@ static inline int php_grpc_zend_hash_del(HashTable *ht, char *key, int len) {
   php_var_serialize(buf, zv, hash)
 #define PHP_GRPC_SERIALIZED_BUF_STR(buf) ZSTR_VAL(buf.s)
 #define PHP_GRPC_SERIALIZED_BUF_LEN(buf) ZSTR_LEN(buf.s)
-#define PHP_GRPC_SHA1Update(cxt, str, len)      \
-  PHP_SHA1Update(cxt, (unsigned char *)str, len)
+#define PHP_GRPC_SHA1Update(ctx, str, len)      \
+  PHP_SHA1Update(ctx, (unsigned char *)str, len)
 #define PHP_GRPC_PERSISTENT_LIST_FIND(plist, key, len, rsrc) \
   (rsrc = zend_hash_str_find_ptr(plist, key, len)) != NULL
 #define PHP_GRPC_PERSISTENT_LIST_UPDATE(plist, key, len, rsrc) \
