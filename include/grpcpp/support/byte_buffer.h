@@ -118,7 +118,7 @@ class ByteBuffer final {
   // slice referencing that array.
   Status TrySingleSlice(Slice* slice) const;
 
-  /// Dump (read) the buffer contents into \a slics.
+  /// Dump (read) the buffer contents into \a slice.
   Status DumpToSingleSlice(Slice* slice) const;
 
   /// Dump (read) the buffer contents into \a slices.
