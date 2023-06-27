@@ -214,7 +214,7 @@ then
   "${PYTHON}" -m pip install grpcio --no-index --find-links "file://$ARTIFACT_DIR/"
   "${PYTHON}" -m pip install grpcio-tools --no-index --find-links "file://$ARTIFACT_DIR/"
 
-  # Note(lidiz) setuptools's "sdist" command creates a source tarball, which
+  # NOTE(lidiz) setuptools's "sdist" command creates a source tarball, which
   # demands an extra step of building the wheel. The building step is merely ran
   # through setup.py, but we can optimize it with "bdist_wheel" command, which
   # skips the wheel building step.
