@@ -502,7 +502,7 @@ void Chttp2ServerListener::ActiveConnection::HandshakingState::OnHandshakeDone(
           grpc_closure* on_close = nullptr;
           if (self->connection_->listener_->config_fetcher_watcher_ !=
               nullptr) {
-            // Refs helds by OnClose()
+            // Refs held by OnClose()
             self->connection_->Ref().release();
             on_close = &self->connection_->on_close_;
           } else {
