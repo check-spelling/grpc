@@ -533,7 +533,7 @@ profile_output_files = []
 # Note the base names of perf text reports are used when creating and processing
 # perf data. The scenario name uniqifies the output name in the final
 # perf reports directory.
-# Alos, the perf profiles need to be fetched and processed after each scenario
+# Also, the perf profiles need to be fetched and processed after each scenario
 # in order to avoid clobbering the output files.
 def run_collect_perf_profile_jobs(
     hosts_and_base_names, scenario_name, flame_graph_reports
