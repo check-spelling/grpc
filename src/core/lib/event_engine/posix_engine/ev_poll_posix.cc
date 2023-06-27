@@ -706,7 +706,7 @@ Poller::WorkResult PollPoller::Work(
       // If use_phony_poll is true and pfd_count == 1, it implies only the
       // wakeup_fd is present. Allow the call to get blocked in this case as
       // well instead of crashing. This is because the poller::Work is called
-      // right after an event enging is constructed. Even if phony poll is
+      // right after an event engine is constructed. Even if phony poll is
       // expected to be used, we dont want to check for it until some actual
       // event handles are registered. Otherwise the EventEngine construction
       // may crash.
