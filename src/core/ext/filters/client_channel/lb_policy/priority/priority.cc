@@ -860,9 +860,8 @@ void PriorityLbConfig::JsonPostLoad(const Json& /*json*/, const JsonArgs&,
     }
   }
   if (!unknown_priorities.empty()) {
-    errors->AddError(absl::StrCat("unknown priorities: [",
-                                  absl::StrJoin(unknown_priorities, ", "),
-                                  "]"));
+    errors->AddError(absl::StrCat(
+        "unknown priorities: [", absl::StrJoin(unknown_priorities, ", "), "]"));
   }
 }
 
