@@ -43,7 +43,7 @@
 #include "upb/port/def.inc"
 
 // Parses unknown data by merging into existing base_message or creating a
-// new message usingg mini_table.
+// new message using mini_table.
 static upb_UnknownToMessageRet upb_MiniTable_ParseUnknownMessage(
     const char* unknown_data, size_t unknown_size,
     const upb_MiniTable* mini_table, upb_Message* base_message,
