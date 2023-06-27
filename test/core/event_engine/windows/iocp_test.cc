@@ -227,7 +227,7 @@ TEST_F(IOCPTest, KickWorks) {
   thread_pool->Quiesce();
 }
 
-TEST_F(IOCPTest, KickThenShutdownCasusesNextWorkerToBeKicked) {
+TEST_F(IOCPTest, KickThenShutdownCausesNextWorkerToBeKicked) {
   // TODO(hork): evaluate if a kick count is going to be useful.
   // This documents the existing poller's behavior of maintaining a kick count,
   // but it's unclear if it's going to be needed.
