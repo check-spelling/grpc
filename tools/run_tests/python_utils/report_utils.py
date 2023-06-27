@@ -35,7 +35,7 @@ def _filter_msg(msg, output_format):
         else:
             decoded_msg = msg
         # keep whitespaces but remove formfeed and vertical tab characters
-        # that make XML report unparsable.
+        # that make XML report unparseable.
         filtered_msg = "".join(
             filter(
                 lambda x: x in string.printable and x != "\f" and x != "\v",

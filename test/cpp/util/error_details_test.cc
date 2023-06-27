@@ -53,7 +53,7 @@ TEST(ExtractTest, NullInput) {
             ExtractErrorDetails(Status(), nullptr).error_code());
 }
 
-TEST(ExtractTest, Unparsable) {
+TEST(ExtractTest, Unparseable) {
   std::string error_details("I am not a status object");
   Status from(StatusCode::INTERNAL, "", error_details);
   google::rpc::Status to;

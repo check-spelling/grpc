@@ -139,7 +139,7 @@ obj\Release x64\net45\/FooGrpc.cs: C:/usr/include/google/protobuf/wrappers.proto
         }
 
         [Test]
-        public void ReadDependencyInput_FullFileUnparsable()
+        public void ReadDependencyInput_FullFileUnparseable()
         {
             string[] deps = ReadDependencyInputFromFileData("a:/foo.proto", "/foo.proto");
             Assert.NotNull(deps);

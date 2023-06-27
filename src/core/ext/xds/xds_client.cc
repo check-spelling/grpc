@@ -1043,7 +1043,7 @@ void XdsClient::ChannelState::AdsCallState::OnRecvMessage(
     AdsResponseParser parser(this);
     absl::Status status = xds_client()->api_.ParseAdsResponse(payload, &parser);
     if (!status.ok()) {
-      // Ignore unparsable response.
+      // Ignore unparseable response.
       gpr_log(GPR_ERROR,
               "[xds_client %p] xds server %s: error parsing ADS response (%s) "
               "-- ignoring",

@@ -81,7 +81,7 @@ namespace Grpc.Tools
                 if (file == "")
                 {
                     log.LogMessage(MessageImportance.Low,
-              $"Skipping unparsable dependency file {depFilename}.\nLine with error: '{line}'");
+              $"Skipping unparseable dependency file {depFilename}.\nLine with error: '{line}'");
                     return new string[0];
                 }
 
@@ -107,7 +107,7 @@ namespace Grpc.Tools
         /// be parsed.
         /// </returns>
         /// <remarks>
-        /// Since this is called after a protoc invocation, an unparsable or missing
+        /// Since this is called after a protoc invocation, an unparseable or missing
         /// file causes an error-level message to be logged.
         /// </remarks>
         public static string[] ReadDependencyOutputs(string depFilename,
